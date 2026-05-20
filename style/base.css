@@ -114,6 +114,7 @@ a:hover {
 }
 
 .nav .download-link {
+  gap: 7px;
   padding: 0 12px;
   border: 1px solid transparent;
   border-radius: 8px;
@@ -198,6 +199,7 @@ h2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 9px;
   padding: 0 18px;
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -211,6 +213,13 @@ h2 {
   border-color: transparent;
   background: linear-gradient(135deg, var(--primary), var(--mint));
   color: #ffffff;
+}
+
+.store-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  border-radius: 5px;
 }
 
 .button.compact {
