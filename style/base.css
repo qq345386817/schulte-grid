@@ -121,6 +121,29 @@ a:hover {
   color: #ffffff;
 }
 
+.language-switch {
+  min-height: 34px;
+  max-width: 150px;
+  padding: 0 34px 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%) calc(100% - 18px) 50% / 6px 6px no-repeat,
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%) calc(100% - 13px) 50% / 6px 6px no-repeat,
+    var(--surface-strong);
+  color: var(--muted);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  appearance: none;
+}
+
+.language-switch:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.28);
+  outline-offset: 2px;
+}
+
 .hero {
   min-height: calc(100vh - 116px);
   display: grid;
