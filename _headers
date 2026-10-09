@@ -1,0 +1,9 @@
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  X-Robots-Tag: noindex
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+
+/js/*.mjs
+  Content-Type: text/javascript; charset=utf-8
