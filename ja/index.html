@@ -34,6 +34,8 @@
   <link rel="manifest" href="../favicon/site.webmanifest">
   <link rel="stylesheet" href="../style/base.css">
   <link rel="stylesheet" href="../style/practice.css">
+  <link rel="modulepreload" href="../js/practice-core.mjs">
+  <link rel="modulepreload" href="../js/practice.mjs">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://schulte-grid.luopeike.com/#website","name":"Schulte Grid","url":"https://schulte-grid.luopeike.com/","inLanguage":["en","zh-Hans","zh-Hant","ja","ko","de","fr","es"]},{"@type":"WebPage","@id":"https://schulte-grid.luopeike.com/ja/#page","url":"https://schulte-grid.luopeike.com/ja/","name":"シュルテグリッド オンライン | 無料タイマー・印刷シート","description":"3×3〜6×6のシュルテ表を無料でオンライン練習。タイマー、毎日の目標、履歴に対応。異なる配置の白いA4練習シートを印刷・PDF保存できます。","inLanguage":"ja","isPartOf":{"@id":"https://schulte-grid.luopeike.com/#website"},"mainEntity":{"@id":"https://schulte-grid.luopeike.com/ja/#webapp"}},{"@type":"WebApplication","@id":"https://schulte-grid.luopeike.com/ja/#webapp","name":"シュルテグリッド","url":"https://schulte-grid.luopeike.com/ja/","inLanguage":"ja","applicationCategory":"EducationalApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"3×3〜6×6のシュルテ表を無料でオンライン練習。タイマー、毎日の目標、履歴に対応。異なる配置の白いA4練習シートを印刷・PDF保存できます。","featureList":["練習","時間","毎日の練習","履歴","印刷"]},{"@type":"FAQPage","@id":"https://schulte-grid.luopeike.com/ja/#faq","inLanguage":"ja","mainEntity":[{"@type":"Question","name":"オンラインのタイマーはいつ動きますか？","acceptedAnswer":{"@type":"Answer","text":"1を正しく選ぶと計測が始まり、最後の数字で終了します。間違いは記録されますが、順序は進みません。一時停止中は数字が隠れ、停止時間は成績に含まれません。同じ表サイズで結果を比べましょう。"}},{"@type":"Question","name":"どのサイズのシュルテ表を選べばよいですか？","acceptedAnswer":{"@type":"Answer","text":"3×3は9個、4×4は16個、標準の5×5は25個、6×6は36個の数字があります。小さい表から始め、より長い視覚探索の練習をしたいときに大きい表を選べます。"}},{"@type":"Question","name":"無料で印刷やPDF保存はできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「印刷」でサイズと1〜20枚を選んで印刷画面を開きます。各シートの配置は異なり、ダークモードでも白いA4用紙になります。ブラウザの印刷画面で「PDFとして保存」を選ぶとPDFを保存できます。"}},{"@type":"Question","name":"毎日の練習と履歴はどこに保存されますか？","acceptedAnswer":{"@type":"Answer","text":"完了した練習、目標、設定はこのブラウザに保存されます。履歴は直近500回までです。Appleアプリや別の端末とは同期せず、ブラウザのデータを消すと履歴も消えます。"}},{"@type":"Question","name":"ウェブ版とアプリの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"ウェブ版は手軽な練習や印刷に使えます。iPhone、iPad、Macアプリではネイティブな毎日の練習、テーマ、端末内の履歴を利用できます。両者の成績は別々です。シュルテ表は練習用で、医療評価や知能向上を保証するものではありません。"}}]}]}</script>
   <script id="practice-copy" type="application/json">{"practice":"練習","history":"履歴","print":"印刷","theme":"テーマ","system":"システム","paper":"クラシック紙","mint":"ソフトミント","sand":"暖かい砂","night":"夜の集中","ink":"墨","time":"時間","next":"次","mistakes":"ミス","restart":"新しい練習","pause":"一時停止","resume":"再開","ready":"準備完了","paused":"一時停止中","incorrect":"次：{n}","complete":"練習完了","again":"もう一度","daily":"毎日の練習","goal":"毎日の目標","rounds":"回","streak":"連続練習","days":"日","bests":"サイズ別ベスト","app":"シュルテグリッド App","appText":"iPhone、iPad、Macで毎日の練習を習慣に。","download":"アプリを入手","local":"履歴はこのブラウザに保存され、アプリとは同期しません。","storageError":"ブラウザの保存機能が使えません。このセッション中のみ記録されます。","empty":"完了した練習はありません。","date":"日時","size":"表","total":"完了回数","clear":"履歴を消去","clearConfirm":"このブラウザの練習履歴をすべて削除しますか？","allSizes":"すべてのサイズ","export":"CSVを出力","sheets":"シート枚数","refresh":"作り直す","printNow":"印刷 / PDF","sheet":"シート","name":"名前","paperTime":"時間","preview":"A4プレビュー","previous":"前へ","more":"次のページ","noscript":"練習とシート作成にはJavaScriptを有効にしてください。下のガイドは読めます。","delete":"記録を削除","saved":"ブラウザの履歴に保存しました。"}</script>
   <script type="module" src="../js/practice.mjs"></script>
@@ -65,13 +67,14 @@
             <dl><dt>次</dt><dd id="next-number">1</dd></dl>
             <dl><dt>ミス</dt><dd id="mistakes">0</dd></dl>
           </div>
-          <div id="board" class="game-board" role="group" aria-label="練習" style="--size:5"></div>
+          <div id="board" class="game-board" role="group" aria-label="練習" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
           <div class="round-actions">
             <button type="button" class="button" id="restart"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>新しい練習</button>
             <button type="button" class="icon-button" id="pause" title="一時停止" aria-label="一時停止" disabled><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg></button>
             <button type="button" class="icon-button" id="quick-print" title="印刷" aria-label="印刷"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></button>
           </div>
-          <p class="round-message" id="round-message" role="status">準備完了</p>
+          <p class="round-message" id="round-message" role="status">練習を読み込み中…</p>
+          <button class="button" type="button" id="retry-load" hidden><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>再読み込み</button>
           <section class="result" id="result" hidden><h2>練習完了</h2><p id="result-time"></p><p>ブラウザの履歴に保存しました。</p><button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>もう一度</button><p><a class="app-link" href="https://apps.apple.com/app/id6547865783?ct=web_complete&mt=8"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">アプリを入手</a></p></section>
         </div>
         <aside class="practice-side">
@@ -109,5 +112,14 @@
   <footer class="footer">シュルテグリッド · <a href="privacy-policy">プライバシー</a> · <a href="support">サポート</a></footer>
 </div></div>
 <div class="print-output" id="print-output"></div>
+<script>
+  document.getElementById('retry-load').addEventListener('click', function () { location.reload(); });
+  setTimeout(function () {
+    if (document.getElementById('board').getAttribute('aria-busy') === 'true') {
+      document.getElementById('round-message').textContent = "読み込みに時間がかかっています。";
+      document.getElementById('retry-load').hidden = false;
+    }
+  }, 15000);
+</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { contentUpdated, locales, uiKeys } from '../content/locales.mjs';
+import { contentUpdated, loadingLabels, retryLabels, locales, uiKeys } from '../content/locales.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const origin = 'https://schulte-grid.luopeike.com';
@@ -65,6 +65,8 @@ for (const [lang, copy] of Object.entries(locales)) {
   <link rel="manifest" href="${asset}favicon/site.webmanifest">
   <link rel="stylesheet" href="${asset}style/base.css">
   <link rel="stylesheet" href="${asset}style/practice.css">
+  <link rel="modulepreload" href="${asset}js/practice-core.mjs">
+  <link rel="modulepreload" href="${asset}js/practice.mjs">
   <script type="application/ld+json">${json(structured)}</script>
   <script id="practice-copy" type="application/json">${json(t)}</script>
   <script type="module" src="${asset}js/practice.mjs"></script>
@@ -96,13 +98,14 @@ for (const [lang, copy] of Object.entries(locales)) {
             <dl><dt>${label('next')}</dt><dd id="next-number">1</dd></dl>
             <dl><dt>${label('mistakes')}</dt><dd id="mistakes">0</dd></dl>
           </div>
-          <div id="board" class="game-board" role="group" aria-label="${label('practice')}" style="--size:5"></div>
+          <div id="board" class="game-board" role="group" aria-label="${label('practice')}" aria-busy="true" style="--size:5">${[17, 4, 21, 9, 1, 12, 25, 6, 14, 19, 3, 16, 8, 23, 11, 20, 5, 13, 2, 24, 7, 18, 10, 22, 15].map(n => `<button type="button" disabled>${n}</button>`).join('')}</div>
           <div class="round-actions">
             <button type="button" class="button" id="restart">${icon('rotate-ccw')}${label('restart')}</button>
             <button type="button" class="icon-button" id="pause" title="${label('pause')}" aria-label="${label('pause')}" disabled>${icon('pause')}</button>
             <button type="button" class="icon-button" id="quick-print" title="${label('print')}" aria-label="${label('print')}">${icon('printer')}</button>
           </div>
-          <p class="round-message" id="round-message" role="status">${label('ready')}</p>
+          <p class="round-message" id="round-message" role="status">${escape(loadingLabels[lang])}</p>
+          <button class="button" type="button" id="retry-load" hidden>${icon('rotate-ccw')}${escape(retryLabels[lang][1])}</button>
           <section class="result" id="result" hidden><h2>${label('complete')}</h2><p id="result-time"></p><p>${label('saved')}</p><button class="button primary" type="button" id="again">${icon('rotate-ccw')}${label('again')}</button><p>${download('complete')}</p></section>
         </div>
         <aside class="practice-side">
@@ -136,6 +139,15 @@ for (const [lang, copy] of Object.entries(locales)) {
   <footer class="footer">${escape(copy.brand)} · <a href="privacy-policy">${escape(copy.nav[3])}</a> · <a href="support">${escape(copy.nav[2])}</a></footer>
 </div></div>
 <div class="print-output" id="print-output"></div>
+<script>
+  document.getElementById('retry-load').addEventListener('click', function () { location.reload(); });
+  setTimeout(function () {
+    if (document.getElementById('board').getAttribute('aria-busy') === 'true') {
+      document.getElementById('round-message').textContent = ${json(retryLabels[lang][0])};
+      document.getElementById('retry-load').hidden = false;
+    }
+  }, 15000);
+</script>
 </body>
 </html>
 `;

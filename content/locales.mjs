@@ -9,6 +9,23 @@ export const uiKeys = [
   'sheet', 'name', 'paperTime', 'preview', 'previous', 'more', 'noscript', 'delete', 'saved'
 ];
 
+export const loadingLabels = {
+  en: 'Loading practice…', 'zh-Hans': '正在加载练习…', 'zh-Hant': '正在載入練習…',
+  ja: '練習を読み込み中…', ko: '연습 불러오는 중…', de: 'Übung wird geladen…',
+  fr: 'Chargement de l’exercice…', es: 'Cargando la práctica…'
+};
+
+export const retryLabels = {
+  en: ['Loading is taking longer than expected.', 'Reload'],
+  'zh-Hans': ['加载时间较长，可以重新尝试。', '重新加载'],
+  'zh-Hant': ['載入時間較長，可以重新嘗試。', '重新載入'],
+  ja: ['読み込みに時間がかかっています。', '再読み込み'],
+  ko: ['불러오는 데 시간이 걸리고 있습니다.', '다시 불러오기'],
+  de: ['Das Laden dauert länger als erwartet.', 'Neu laden'],
+  fr: ['Le chargement prend plus de temps que prévu.', 'Recharger'],
+  es: ['La carga está tardando más de lo esperado.', 'Recargar']
+};
+
 export const locales = {
   en: {
     brand: 'Schulte Grid', title: 'Schulte Grid Online | Free Timer & Printable Tables',

@@ -62,6 +62,7 @@ function stopAnimation() { cancelAnimationFrame(animation); }
 
 function renderBoard() {
   const board = $('board');
+  board.setAttribute('aria-busy', 'false');
   board.style.setProperty('--size', data.size);
   board.classList.toggle('paused', round.state === 'paused');
   board.setAttribute('aria-label', `${t.practice} ${data.size}×${data.size}`);
@@ -346,6 +347,8 @@ window.addEventListener('storage', event => {
 window.addEventListener('hashchange', () => setView(location.hash.slice(1), false));
 applyTheme();
 renderBoard();
+$('round-message').textContent = t.ready;
+$('retry-load').hidden = true;
 renderSummary();
 renderSheets();
 $('local-note').textContent = persistent ? t.local : t.storageError;
