@@ -1,8 +1,8 @@
 # Schulte Grid
 
-Kostenlose Schulte-Tabellen: Zahlensuche mit Timer, tägliche Übung und Druckvorlagen.
+Kostenlose Schulte-Tabellen mit Timer und Druckvorlagen. Nur zum Ausprobieren, ohne gespeicherten Verlauf.
 
-Eine Schulte-Tabelle ist ein quadratisches Raster mit zufällig angeordneten Zahlen. Suche sie aufsteigend von 1 bis 9, 16, 25 oder 36. Dieses kostenlose Browser-Tool bietet 3x3, 4x4, 5x5 und 6x6, einen Timer, Tagesziele und druckbare Übungsblätter. Keine Anmeldung oder Installation nötig.
+Eine Schulte-Tabelle ist ein quadratisches Raster mit zufällig angeordneten Zahlen. Suche sie aufsteigend von 1 bis 9, 16, 25 oder 36. Probiere 3x3, 4x4, 5x5 und 6x6 mit Timer und Druckvorlagen kostenlos aus, ohne Anmeldung oder Installation. Die Website speichert keinen Verlauf. Die Apple-App bietet dauerhafte Trainingsdaten und Tagesziele.
 
 Canonical page: https://schulte-grid.luopeike.com/de/
 
@@ -20,17 +20,17 @@ Der Timer startet bei der richtigen Auswahl von 1 und endet bei der letzten Zahl
 
 Ja. Wähle unter Drucken eine Rastergröße und 1 bis 20 Blätter. Jedes Blatt hat eine andere Anordnung auf weißem A4-Papier, auch im Dunkelmodus. Wähle im Druckdialog des Browsers Als PDF speichern.
 
-### Wo werden meine Übungen gespeichert?
+### Speichert die Website meine Trainingsergebnisse?
 
-Abgeschlossene Runden, Tagesziel und Einstellungen bleiben in diesem Browser. Der Verlauf enthält bis zu 500 aktuelle Runden. Es gibt keine Synchronisierung mit der Apple-App oder anderen Geräten. Beim Löschen der Browserdaten gehen diese Daten verloren.
+Nein. Nur die aktuelle Runde wird im Seitenspeicher angezeigt. Eine neue Runde, Neuladen oder Verlassen der Seite verwirft sie. Verlauf, Einstellungen und Ziele werden weder im Browserspeicher noch auf einem Server gespeichert. Beim Öffnen dieser Version werden gespeicherte Web-Daten der alten Version entfernt.
 
 ### Wie unterscheidet sich die Website von der App?
 
-Die Website eignet sich für eine schnelle Runde und Druckvorlagen. Die App für iPhone, iPad und Mac bietet native tägliche Übungen, Themen und lokalen Verlauf. Web- und App-Ergebnisse bleiben getrennt. Schulte-Tabellen sind eine Übung, keine medizinische Bewertung oder Garantie für höhere Intelligenz.
+Die Website dient zum Ausprobieren und Drucken. Die App für iPhone, iPad und Mac speichert die letzten 100 Ergebnisse lokal und bietet Tagesziele und Fortschritt. iCloud-Synchronisierung ist derzeit nicht verfügbar. Schulte-Tabellen sind eine Übung, keine medizinische Bewertung oder Garantie für höhere Intelligenz.
 
 ## Schulte Grid App
 
-Übe täglich auf iPhone, iPad und Mac.
+Behalte Trainingsverlauf, Tagesziele und Fortschritt in der App für iPhone, iPad und Mac.
 
 - [Üben](https://schulte-grid.luopeike.com/de/)
 - [App laden](https://apps.apple.com/app/id6547865783)

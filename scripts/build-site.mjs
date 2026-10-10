@@ -16,8 +16,7 @@ for (const [lang, copy] of Object.entries(locales)) {
   const asset = lang === 'en' ? '' : '../';
   const url = `${origin}/${folder}`;
   const icon = name => `<svg class="icon" aria-hidden="true"><use href="${asset}images/lucide.svg#${name}"></use></svg>`;
-  const app = context => `${appUrl}?ct=web_${context}&mt=8`;
-  const download = context => `<a class="app-link" href="${app(context)}"><img class="store-icon" width="24" height="24" src="${asset}images/app-store-icon.svg" alt="">${escape(t.download)}</a>`;
+  const download = () => `<a class="app-link" href="${appUrl}"><img class="store-icon" width="24" height="24" src="${asset}images/app-store-icon.svg" alt="">${escape(t.download)}</a>`;
   const sizes = (kind, initial) => [3, 4, 5, 6].map(n => `<button type="button" data-${kind}="${n}" aria-pressed="${n === initial}">${n}×${n}</button>`).join('');
   const label = key => escape(t[key]);
   const structured = {
@@ -30,7 +29,7 @@ for (const [lang, copy] of Object.entries(locales)) {
         applicationCategory: 'EducationalApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript',
         isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
         description: copy.description,
-        featureList: [t.practice, t.time, t.daily, t.history, t.print] },
+        featureList: [t.practice, t.time, t.print] },
       { '@type': 'FAQPage', '@id': `${url}#faq`, inLanguage: lang, mainEntity: copy.faq.map(([name, text]) => ({
         '@type': 'Question', name, acceptedAnswer: { '@type': 'Answer', text }
       })) }
@@ -77,7 +76,7 @@ for (const [lang, copy] of Object.entries(locales)) {
     <a class="brand" href="./"><img src="${asset}favicon/apple-touch-icon.png" width="38" height="38" alt=""><span>${escape(copy.brand)}</span></a>
     <nav class="nav" aria-label="${escape(copy.nav[0])}">
       <a href="#practice">${escape(copy.nav[0])}</a><a href="help">${escape(copy.nav[1])}</a><a href="support">${escape(copy.nav[2])}</a><a href="privacy-policy">${escape(copy.nav[3])}</a>
-      <a class="download-link" href="${app('nav')}"><img class="store-icon" width="20" height="20" src="${asset}images/app-store-icon.svg" alt="">${label('download')}</a>
+      <a class="download-link" href="${appUrl}"><img class="store-icon" width="20" height="20" src="${asset}images/app-store-icon.svg" alt="">${label('download')}</a>
       <select class="language-switch" id="language" aria-label="${escape(copy.nav[4])}">${Object.entries(languages).map(([code, name]) => `<option value="${asset}${code === 'en' ? './' : `${code}/`}"${code === lang ? ' selected' : ''}>${name}</option>`).join('')}</select>
     </nav>
   </header>
@@ -85,7 +84,7 @@ for (const [lang, copy] of Object.entries(locales)) {
     <div class="practice-intro"><h1>${escape(copy.brand)}</h1><p>${escape(copy.intro)}</p></div>
     <noscript><p>${label('noscript')}</p></noscript>
     <div class="practice-tabs" role="tablist" aria-label="${label('practice')}">
-      ${['practice', 'history', 'print'].map(view => `<button id="tab-${view}" type="button" role="tab" data-view="${view}" aria-controls="view-${view}" aria-selected="${view === 'practice'}" tabindex="${view === 'practice' ? 0 : -1}">${label(view)}</button>`).join('')}
+      ${['practice', 'print'].map(view => `<button id="tab-${view}" type="button" role="tab" data-view="${view}" aria-controls="view-${view}" aria-selected="${view === 'practice'}" tabindex="${view === 'practice' ? 0 : -1}">${label(view)}</button>`).join('')}
     </div>
     <section id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
       <div class="workspace">
@@ -106,25 +105,12 @@ for (const [lang, copy] of Object.entries(locales)) {
           </div>
           <p class="round-message" id="round-message" role="status">${escape(loadingLabels[lang])}</p>
           <button class="button" type="button" id="retry-load" hidden>${icon('rotate-ccw')}${escape(retryLabels[lang][1])}</button>
-          <section class="result" id="result" hidden><h2>${label('complete')}</h2><p id="result-time"></p><p>${label('saved')}</p><button class="button primary" type="button" id="again">${icon('rotate-ccw')}${label('again')}</button><p>${download('complete')}</p></section>
+          <section class="result" id="result" hidden><h2>${label('complete')}</h2><p id="result-time"></p><p>${label('local')}</p><button class="button primary" type="button" id="again">${icon('rotate-ccw')}${label('again')}</button><p>${download()}</p></section>
         </div>
         <aside class="practice-side">
-          <section><h2>${label('daily')}</h2><div class="daily-count" id="daily-count">0 / 1</div><progress class="daily-progress" id="daily-progress" max="1" value="0" aria-label="${label('daily')}"></progress>
-            <label class="control-field">${label('goal')}<select id="goal">${[1, 2, 3, 4, 5].map(n => `<option value="${n}">${n} ${label('rounds')}</option>`).join('')}</select></label><p><span>${label('streak')}</span>: <strong id="streak">0</strong> ${label('days')}</p>
-          </section>
-          <section><h2>${label('bests')}</h2><div id="bests">${[3, 4, 5, 6].map(n => `<div class="best-row"><span>${n}×${n}</span><span>—</span></div>`).join('')}</div></section>
-          <section><h2>${label('app')}</h2><p>${label('appText')}</p>${download('daily')}</section>
+          <section><h2>${label('app')}</h2><p>${label('appText')}</p><ul class="app-benefits"><li>${label('history')}</li><li>${label('daily')}</li><li>${label('bests')}</li></ul>${download()}</section>
         </aside>
       </div>
-    </section>
-    <section id="view-history" role="tabpanel" aria-labelledby="tab-history" class="history-view" tabindex="0" hidden>
-      <div class="history-summary"><dl><dt>${label('total')}</dt><dd id="history-total">0</dd></dl><dl><dt>${label('daily')}</dt><dd id="history-today">0</dd></dl></div>
-      <div class="history-actions"><label class="control-field">${label('size')}<select id="history-filter"><option value="all">${label('allSizes')}</option>${[3, 4, 5, 6].map(n => `<option value="${n}">${n}×${n}</option>`).join('')}</select></label>
-        <div><button type="button" class="icon-button" id="export" title="${label('export')}" aria-label="${label('export')}">${icon('download')}</button> <button type="button" class="icon-button" id="clear" title="${label('clear')}" aria-label="${label('clear')}">${icon('trash-2')}</button></div>
-      </div>
-      <p class="empty-state" id="history-empty">${label('empty')}</p>
-      <div class="history-scroll" id="history-table" hidden><table><thead><tr><th scope="col">${label('date')}</th><th scope="col">${label('size')}</th><th scope="col">${label('time')}</th><th scope="col">${label('mistakes')}</th><th scope="col">${label('delete')}</th></tr></thead><tbody id="history-rows"></tbody></table></div>
-      <div class="history-actions" id="history-pager" hidden><button type="button" class="icon-button" id="previous" title="${label('previous')}" aria-label="${label('previous')}">${icon('chevron-left')}</button><span id="page-count"></span><button type="button" class="icon-button" id="more" title="${label('more')}" aria-label="${label('more')}">${icon('chevron-right')}</button></div>
     </section>
     <section id="view-print" role="tabpanel" aria-labelledby="tab-print" class="print-view" tabindex="0" hidden>
       <div class="print-controls"><div class="size-controls" role="group" aria-label="${label('size')}">${sizes('print-size', 5)}</div><label class="control-field">${label('sheets')}<input id="sheet-count" type="number" min="1" max="20" step="1" value="1"></label><button class="icon-button" type="button" id="refresh-sheets" title="${label('refresh')}" aria-label="${label('refresh')}">${icon('rotate-ccw')}</button><button class="button primary" type="button" id="print-now">${icon('printer')}${label('printNow')}</button></div>

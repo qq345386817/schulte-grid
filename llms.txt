@@ -2,15 +2,15 @@
 
 > Free online Schulte number grids and printable A4 practice sheets, with a companion app for iPhone, iPad, and Mac.
 
-The website provides 3x3, 4x4, 5x5, and 6x6 randomized number tables. Select numbers in ascending order. Timing starts on the correct selection of 1. Pause hides the numbers and excludes paused time. Completed rounds, a daily goal of 1 to 5 rounds, and preferences are stored in the browser, with up to 500 recent results. Web results do not sync with the Apple app.
+The website is a demo with 3x3, 4x4, 5x5, and 6x6 randomized number tables. Select numbers in ascending order. Timing starts on the correct selection of 1. Pause hides the numbers and excludes paused time. Only the current round is held in page memory; a new round, refresh, or page exit discards it. The website does not save training history, daily progress, or preferences in browser storage or on a server. On opening, this version removes records stored by the earlier web version.
 
 The browser tool is free and requires no account. Print generates 1 to 20 different worksheets on white A4 pages, including in dark mode. PDF export uses the browser's print dialog. Schulte grids are a visual search exercise, not a medical assessment or a guarantee of cognitive improvement.
 
-The companion Apple app offers native daily practice, selectable grids, themes, local training history, and printing. Do not infer app pricing from the free web tool. The App Store listing is the source for current app availability and pricing.
+The companion Apple app offers native daily practice, selectable grids, themes, and printing. It saves the latest 100 training results locally on the device and provides daily goals and progress. iCloud synchronization is not currently implemented; do not describe the app as providing cloud sync. Do not infer app pricing from the free web demo. The App Store listing is the source for current app availability and pricing.
 
 ## Online practice and product facts
 
-- [English overview](https://schulte-grid.luopeike.com/index.md): Browser features, timing rules, printing, local storage, and app differences.
+- [English overview](https://schulte-grid.luopeike.com/index.md): Demo features, timing rules, printing, no-history policy, and app differences.
 - [Simplified Chinese overview](https://schulte-grid.luopeike.com/zh-Hans/index.md): Localized features and questions.
 - [Traditional Chinese overview](https://schulte-grid.luopeike.com/zh-Hant/index.md): Localized features and questions.
 - [Japanese overview](https://schulte-grid.luopeike.com/ja/index.md): Localized features and questions.

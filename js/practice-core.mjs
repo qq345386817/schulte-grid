@@ -1,5 +1,4 @@
 export const SIZES = [3, 4, 5, 6];
-export const HISTORY_LIMIT = 500;
 
 export function createGrid(size, random = Math.random) {
   if (!SIZES.includes(size)) throw new RangeError('Unsupported grid size');
@@ -31,43 +30,6 @@ export function createSheets(size, count, random = Math.random) {
     signatures.add(grid.join(','));
     return grid;
   });
-}
-
-export function dayKey(date = new Date()) {
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-}
-
-export function normalizeData(raw) {
-  const data = raw && typeof raw === 'object' ? raw : {};
-  const records = Array.isArray(data.records) ? data.records.filter(record =>
-    record && typeof record.id === 'string' && record.id.length <= 100 &&
-    SIZES.includes(record.size) && Number.isFinite(record.seconds) && record.seconds >= 0 &&
-    Number.isInteger(record.mistakes) && record.mistakes >= 0 &&
-    typeof record.date === 'string' && Number.isFinite(Date.parse(record.date))
-  ).sort((a, b) => Date.parse(b.date) - Date.parse(a.date)).slice(0, HISTORY_LIMIT) : [];
-  return {
-    size: SIZES.includes(data.size) ? data.size : 5,
-    goal: [1, 2, 3, 4, 5].includes(data.goal) ? data.goal : 1,
-    theme: ['system', 'paper', 'mint', 'sand', 'night', 'ink'].includes(data.theme) ? data.theme : 'system',
-    records
-  };
-}
-
-export function dailyProgress(records, date = new Date()) {
-  const today = dayKey(date);
-  const counts = new Map();
-  for (const record of records) {
-    const key = dayKey(new Date(record.date));
-    counts.set(key, (counts.get(key) || 0) + 1);
-  }
-  let streak = 0;
-  const cursor = new Date(date);
-  if (!counts.has(today)) cursor.setDate(cursor.getDate() - 1);
-  while (counts.has(dayKey(cursor))) {
-    streak++;
-    cursor.setDate(cursor.getDate() - 1);
-  }
-  return { today: counts.get(today) || 0, streak };
 }
 
 export class Round {

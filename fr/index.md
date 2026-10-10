@@ -1,8 +1,8 @@
 # Grille de Schulte
 
-Grilles de Schulte gratuites : recherche de nombres, chronomètre, pratique quotidienne et fiches imprimables.
+Grilles de Schulte gratuites avec chronomètre et fiches imprimables. Démo sans historique enregistré.
 
-Une grille de Schulte est un tableau carré de nombres mélangés. Cherchez-les dans l’ordre, de 1 à 9, 16, 25 ou 36. Cet outil gratuit propose des grilles 3x3, 4x4, 5x5 et 6x6, un chronomètre, des objectifs quotidiens et des fiches imprimables, sans inscription ni téléchargement.
+Une grille de Schulte est un tableau carré de nombres mélangés. Cherchez-les dans l’ordre, de 1 à 9, 16, 25 ou 36. Essayez gratuitement les grilles 3x3, 4x4, 5x5 et 6x6, le chronomètre et les fiches imprimables, sans inscription ni téléchargement. Le site ne conserve pas l’historique. L’app Apple permet de garder vos résultats et vos objectifs quotidiens.
 
 Canonical page: https://schulte-grid.luopeike.com/fr/
 
@@ -20,17 +20,17 @@ Il démarre à la sélection correcte de 1 et s’arrête au dernier nombre. Les
 
 Oui. Dans Imprimer, choisissez la taille et 1 à 20 fiches. Chaque fiche a une disposition différente sur du papier A4 blanc, même en mode sombre. Choisissez Enregistrer au format PDF dans la fenêtre d’impression du navigateur.
 
-### Où sont enregistrés mes résultats ?
+### Le site enregistre-t-il mes résultats ?
 
-Les séances terminées, l’objectif et les réglages restent dans ce navigateur. L’historique conserve jusqu’à 500 séances récentes, sans synchronisation avec l’app Apple ou d’autres appareils. Effacer les données du navigateur supprime les résultats.
+Non. Seule la séance en cours est affichée en mémoire. Une nouvelle séance, un rechargement ou une sortie de page la supprime. Aucun historique, réglage ou objectif n’est enregistré dans le navigateur ou sur un serveur. Cette version supprime les anciennes données web lors de son ouverture.
 
 ### Quelle différence entre le site et l’app ?
 
-Le site sert aux séances rapides et aux fiches imprimables. L’app iPhone, iPad et Mac offre une expérience native de pratique quotidienne, des thèmes et un historique local. Les résultats sont séparés. Les grilles sont un exercice, pas une évaluation médicale ni une garantie d’amélioration de l’intelligence.
+Le site sert à essayer et à imprimer. L’app iPhone, iPad et Mac conserve les 100 derniers résultats sur l’appareil et propose des objectifs quotidiens et un suivi. La synchronisation iCloud n’est pas disponible actuellement. Les grilles sont un exercice, pas une évaluation médicale ni une garantie d’amélioration de l’intelligence.
 
 ## App Schulte Grid
 
-Pratiquez chaque jour sur iPhone, iPad et Mac.
+Conservez votre historique, vos objectifs quotidiens et vos progrès dans l’app iPhone, iPad et Mac.
 
 - [Pratiquer](https://schulte-grid.luopeike.com/fr/)
 - [Obtenir l’app](https://apps.apple.com/app/id6547865783)

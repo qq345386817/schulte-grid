@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createGrid, createSheets, dailyProgress, normalizeData, Round } from '../js/practice-core.mjs';
+import { createGrid, createSheets, Round } from '../js/practice-core.mjs';
 import { locales, uiKeys } from '../content/locales.mjs';
 
 test('all sizes contain every number exactly once; unsupported sizes fail', () => {
@@ -45,20 +45,20 @@ test('print batches have unique valid puzzles and bounded counts', () => {
   assert.equal(new Set(createSheets(3, 20, () => 0).map(grid => grid.join(','))).size, 20);
 });
 
-test('local dates handle midnight and a streak continuing from yesterday', () => {
-  const date = new Date(2026, 9, 10, 12);
-  const records = [9, 8, 7].map(day => ({ date: new Date(2026, 9, day, 23, 59).toISOString() }));
-  assert.deepEqual(dailyProgress(records, date), { today: 0, streak: 3 });
-  records.push({ date: new Date(2026, 9, 10, 0, 1).toISOString() });
-  assert.deepEqual(dailyProgress(records, date), { today: 1, streak: 4 });
-});
-
-test('untrusted storage cannot inject invalid records or preferences', () => {
-  const data = normalizeData({ size: 9, goal: 30, theme: 'invalid', records: [null, {}, { seconds: '4' }] });
-  assert.equal(data.size, 5);
-  assert.equal(data.goal, 1);
-  assert.equal(data.theme, 'system');
-  assert.deepEqual(data.records, []);
+test('a new round contains none of the previous round result or mistakes', () => {
+  let clock = 0;
+  const first = new Round(3, () => clock);
+  first.choose(2);
+  first.choose(1);
+  clock = 2000;
+  for (let number = 2; number <= 9; number++) first.choose(number);
+  assert.equal(first.state, 'complete');
+  assert.equal(first.elapsed, 2000);
+  const next = new Round(3, () => clock);
+  assert.equal(next.state, 'ready');
+  assert.equal(next.elapsed, 0);
+  assert.equal(next.mistakes, 0);
+  assert.equal(next.next, 1);
 });
 
 test('every published language has complete controls and grounded content', () => {
