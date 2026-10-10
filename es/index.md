@@ -26,7 +26,7 @@ No. Solo se muestra la ronda actual en la memoria de la página. Se descarta al 
 
 ### ¿En qué se diferencian la web y la app?
 
-La web sirve para probar e imprimir. La app para iPhone, iPad y Mac guarda localmente los últimos 100 resultados y ofrece objetivos diarios y progreso. Actualmente no ofrece sincronización con iCloud. Las tablas son un ejercicio, no una evaluación médica ni una garantía de mejorar la inteligencia.
+La web sirve para probar e imprimir. La app para iPhone, iPad y Mac guarda localmente los últimos 100 resultados y ofrece objetivos diarios y progreso. Desde la versión 1.6.0 puedes sincronizar con iCloud usando la misma cuenta de Apple y activando la sincronización. Las versiones anteriores solo guardan en el dispositivo; consulta la versión disponible en App Store. Las tablas son un ejercicio, no una evaluación médica ni una garantía de mejorar la inteligencia.
 
 ## App Schulte Grid
 

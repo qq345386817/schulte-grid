@@ -16,6 +16,6 @@ The website is an experience-only demo. Only the active round and controls live 
 
 App Store links are direct links without campaign parameters. Website conversion tracking is deferred and no tracking code is added.
 
-The native app currently retains the latest 100 results in JSON stored in device-local UserDefaults, plus daily goals and progress. It has no implemented iCloud synchronization. Marketing and FAQs must reflect that distinction; device backups are not a cross-device cloud sync feature.
+The native app retains the latest 100 results locally, plus daily goals and progress. Version 1.6.0 adds optional iCloud synchronization; earlier versions are local-only. Marketing must qualify this feature by version while App Store availability changes. Device backups and live iCloud synchronization are distinct mechanisms.
 
 Lucide icons are vendored as a small SVG sprite with their license in `images/LUCIDE-LICENSE.txt`.

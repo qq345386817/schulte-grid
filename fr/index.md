@@ -26,7 +26,7 @@ Non. Seule la séance en cours est affichée en mémoire. Une nouvelle séance, 
 
 ### Quelle différence entre le site et l’app ?
 
-Le site sert à essayer et à imprimer. L’app iPhone, iPad et Mac conserve les 100 derniers résultats sur l’appareil et propose des objectifs quotidiens et un suivi. La synchronisation iCloud n’est pas disponible actuellement. Les grilles sont un exercice, pas une évaluation médicale ni une garantie d’amélioration de l’intelligence.
+Le site sert à essayer et à imprimer. L’app iPhone, iPad et Mac conserve les 100 derniers résultats sur l’appareil et propose des objectifs quotidiens et un suivi. La version 1.6.0 ajoute la synchronisation iCloud avec le même compte Apple et la synchronisation activée. Les anciennes versions enregistrent uniquement sur l’appareil ; consultez la version disponible dans l’App Store. Les grilles sont un exercice, pas une évaluation médicale ni une garantie d’amélioration de l’intelligence.
 
 ## App Schulte Grid
 

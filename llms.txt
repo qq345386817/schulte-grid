@@ -6,7 +6,7 @@ The website is a demo with 3x3, 4x4, 5x5, and 6x6 randomized number tables. Sele
 
 The browser tool is free and requires no account. Print generates 1 to 20 different worksheets on white A4 pages, including in dark mode. PDF export uses the browser's print dialog. Schulte grids are a visual search exercise, not a medical assessment or a guarantee of cognitive improvement.
 
-The companion Apple app offers native daily practice, selectable grids, themes, and printing. It saves the latest 100 training results locally on the device and provides daily goals and progress. iCloud synchronization is not currently implemented; do not describe the app as providing cloud sync. Do not infer app pricing from the free web demo. The App Store listing is the source for current app availability and pricing.
+The companion Apple app offers native daily practice, selectable grids, themes, and printing. It saves the latest 100 training results locally and provides daily goals and progress. Version 1.6.0 adds optional iCloud synchronization of recent results, daily goal, best 5x5 time, and practice-day progress across devices using the same Apple Account. Earlier versions save locally only; check the App Store for the version currently available. Offline changes must reach iCloud before they can be restored on another device. Do not infer app pricing from the free web demo. The App Store listing is the source for current availability and pricing.
 
 ## Online practice and product facts
 

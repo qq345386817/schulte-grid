@@ -26,7 +26,7 @@ No. Only the current round is shown in page memory. Starting a new round, refres
 
 ### How is the website different from the Schulte Grid app?
 
-The website offers quick practice and printable worksheets. The iPhone, iPad, and Mac app saves the latest 100 training results locally and provides daily goals and progress. The app does not currently provide iCloud synchronization. Schulte grids are a practice exercise, not a medical assessment or a guarantee of cognitive improvement.
+The website offers quick practice and printable worksheets. The iPhone, iPad, and Mac app saves the latest 100 training results locally and provides daily goals and progress. Version 1.6.0 adds iCloud sync when enabled, using the same Apple Account on your devices. Earlier versions save locally only; check the App Store for the available version. Schulte grids are a practice exercise, not a medical assessment or a guarantee of cognitive improvement.
 
 ## Schulte Grid app
 

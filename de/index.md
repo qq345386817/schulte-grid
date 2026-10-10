@@ -26,7 +26,7 @@ Nein. Nur die aktuelle Runde wird im Seitenspeicher angezeigt. Eine neue Runde, 
 
 ### Wie unterscheidet sich die Website von der App?
 
-Die Website dient zum Ausprobieren und Drucken. Die App für iPhone, iPad und Mac speichert die letzten 100 Ergebnisse lokal und bietet Tagesziele und Fortschritt. iCloud-Synchronisierung ist derzeit nicht verfügbar. Schulte-Tabellen sind eine Übung, keine medizinische Bewertung oder Garantie für höhere Intelligenz.
+Die Website dient zum Ausprobieren und Drucken. Die App für iPhone, iPad und Mac speichert die letzten 100 Ergebnisse lokal und bietet Tagesziele und Fortschritt. Ab Version 1.6.0 ist iCloud-Synchronisierung mit demselben Apple Account und aktiviertem Sync verfügbar. Frühere Versionen speichern nur lokal; prüfe die verfügbare Version im App Store. Schulte-Tabellen sind eine Übung, keine medizinische Bewertung oder Garantie für höhere Intelligenz.
 
 ## Schulte Grid App
 

@@ -26,7 +26,7 @@ Canonical page: https://schulte-grid.luopeike.com/zh-Hans/
 
 ### 网页版与舒尔特方格 App 有什么区别？
 
-网页版用于快速体验和打印练习纸；iPhone、iPad 和 Mac App 在设备本地保存最近 100 次训练成绩，并提供每日目标和进度。App 目前尚未提供 iCloud 同步。舒尔特方格是一种练习工具，不是医疗评估，也不保证提高智力。
+网页版用于快速体验和打印练习纸；iPhone、iPad 和 Mac App 在设备本地保存最近 100 次训练成绩，并提供每日目标和进度。App 从 1.6.0 起支持 iCloud 同步，需在各设备登录同一个 Apple 账户并开启同步。此前版本仅在设备本地保存，实际可下载版本以 App Store 为准。舒尔特方格是一种练习工具，不是医疗评估，也不保证提高智力。
 
 ## 舒尔特方格 App
 
