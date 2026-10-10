@@ -29,6 +29,10 @@ const server = http.createServer(async (req, res) => {
     const bytes = await readFile(file);
     res.writeHead(200, { 'Content-Type': `${types[path.extname(file)]}; charset=utf-8`, 'Cache-Control': 'no-store' });
     res.end(req.method === 'HEAD' ? undefined : bytes);
-  } catch { res.writeHead(404, { 'Content-Type': 'text/plain' }); res.end('Not found'); }
+  } catch {
+    const bytes = await readFile(path.join(root, '404.html'));
+    res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });
+    res.end(req.method === 'HEAD' ? undefined : bytes);
+  }
 });
 server.listen(port, '127.0.0.1', () => console.log(`Schulte Grid: http://127.0.0.1:${port}`));
