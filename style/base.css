@@ -1,30 +1,9 @@
+@import url('./tokens.css');
+
 * { box-sizing: border-box; }
 
 :root {
   color-scheme: light dark;
-  --bg: #f7fafc;
-  --surface: rgba(255, 255, 255, 0.88);
-  --surface-strong: #ffffff;
-  --text: #111827;
-  --muted: #5f6b7a;
-  --border: rgba(17, 24, 39, 0.12);
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
-  --mint: #14b8a6;
-  --amber: #f59e0b;
-  --shadow: 0 22px 70px rgba(30, 64, 175, 0.12);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #101318;
-    --surface: rgba(25, 31, 41, 0.88);
-    --surface-strong: #191f29;
-    --text: #eef4ff;
-    --muted: #aeb8c7;
-    --border: rgba(255, 255, 255, 0.13);
-    --shadow: 0 22px 70px rgba(0, 0, 0, 0.38);
-  }
 }
 
 html,
@@ -35,12 +14,8 @@ body {
 
 body {
   color: var(--text);
-  background:
-    linear-gradient(145deg, rgba(37, 99, 235, 0.16), transparent 34%),
-    linear-gradient(28deg, rgba(20, 184, 166, 0.16), transparent 38%),
-    linear-gradient(315deg, rgba(245, 158, 11, 0.16), transparent 34%),
-    var(--bg);
-  font-family: Avenir Next, Avenir, Trebuchet MS, Segoe UI, sans-serif;
+  background: var(--bg);
+  font-family: var(--font-sans);
   line-height: 1.62;
 }
 
@@ -104,7 +79,7 @@ a:hover {
 }
 
 .nav a {
-  min-height: 34px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   color: var(--muted);
@@ -119,14 +94,14 @@ a:hover {
   border: 1px solid transparent;
   border-radius: 8px;
   background: var(--primary);
-  color: #ffffff;
+  color: var(--on-primary);
 }
 
 .language-switch {
-  min-height: 34px;
+  min-height: 44px;
   max-width: 150px;
   padding: 0 34px 0 12px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--control-border);
   border-radius: 8px;
   background:
     linear-gradient(45deg, transparent 50%, var(--muted) 50%) calc(100% - 18px) 50% / 6px 6px no-repeat,
@@ -157,7 +132,7 @@ a:hover {
   width: fit-content;
   margin: 0 0 14px;
   padding: 7px 11px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--control-border);
   border-radius: 999px;
   color: var(--primary);
   background: var(--surface);
@@ -201,18 +176,18 @@ h2 {
   justify-content: center;
   gap: 9px;
   padding: 0 18px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--control-border);
   border-radius: 8px;
   background: var(--surface-strong);
   color: var(--text);
   font-weight: 800;
-  box-shadow: 0 8px 22px rgba(30, 64, 175, 0.10);
+  cursor: pointer;
 }
 
 .button.primary {
   border-color: transparent;
-  background: linear-gradient(135deg, var(--primary), var(--mint));
-  color: #ffffff;
+  background: var(--primary);
+  color: var(--on-primary);
 }
 
 .store-icon {
@@ -340,7 +315,9 @@ h2 {
 }
 
 .article h1 {
-  font-size: 48px;
+  font-size: 40px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .article section {
@@ -354,10 +331,8 @@ h2 {
 }
 
 .install-panel {
-  padding: 22px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface);
+  padding: 28px 0;
+  border-top: 1px solid var(--border);
 }
 
 .footer {
@@ -365,6 +340,15 @@ h2 {
   color: var(--muted);
   text-align: center;
   font-size: 14px;
+}
+
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .button, .icon-button { transition: background-color 120ms ease, border-color 120ms ease; }
 }
 
 @media (max-width: 860px) {
@@ -387,7 +371,7 @@ h2 {
 
   h1,
   .article h1 {
-    font-size: 42px;
+    font-size: 36px;
   }
 
   .lead {
