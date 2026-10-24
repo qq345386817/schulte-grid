@@ -23,6 +23,8 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://schulte-grid.luopeike.com/ja/">
   <meta property="og:image" content="https://schulte-grid.luopeike.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="シュルテグリッド">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="シュルテグリッド オンライン | 無料タイマー・印刷シート">
@@ -45,7 +47,7 @@
   <header class="topbar">
     <a class="brand" href="./"><img src="../favicon/apple-touch-icon.png" width="38" height="38" alt=""><span>シュルテグリッド</span></a>
     <nav class="nav" aria-label="練習">
-      <a href="#practice">練習</a><a href="help">ヘルプ</a><a href="support">サポート</a><a href="privacy-policy">プライバシー</a>
+      <a href="#practice">練習</a><a href="help">ヘルプ</a><a class="secondary-nav" href="support">サポート</a><a class="secondary-nav" href="privacy-policy">プライバシー</a>
       <a class="download-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="20" height="20" src="../images/app-store-icon.svg" alt="">アプリを入手</a>
       <select class="language-switch" id="language" aria-label="言語"><option value=".././">English</option><option value="../zh-Hans/">简体中文</option><option value="../zh-Hant/">繁體中文</option><option value="../ja/" selected>日本語</option><option value="../ko/">한국어</option><option value="../de/">Deutsch</option><option value="../fr/">Français</option><option value="../es/">Español</option></select>
     </nav>
@@ -54,7 +56,7 @@
     <div class="practice-intro"><h1>シュルテグリッド</h1><p>無料のシュルテ表タイマーと印刷シート。体験用で、練習履歴は保存しません。</p></div>
     <noscript><p>練習とシート作成にはJavaScriptを有効にしてください。下のガイドは読めます。</p></noscript>
     <div class="practice-tabs" role="tablist" aria-label="練習">
-      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0">練習</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1">印刷</button>
+      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>練習</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>印刷</button>
     </div>
     <section id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
       <div class="workspace">
@@ -64,12 +66,12 @@
           </div>
           <div class="round-stats">
             <dl><dt>時間</dt><dd id="timer">0.00 s</dd></dl>
-            <dl><dt>次</dt><dd id="next-number">1</dd></dl>
+            <dl class="next-stat"><dt>次</dt><dd id="next-number">1</dd></dl>
             <dl><dt>ミス</dt><dd id="mistakes">0</dd></dl>
           </div>
           <div id="board" class="game-board" role="group" aria-label="練習" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
           <div class="round-actions">
-            <button type="button" class="button" id="restart"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>新しい練習</button>
+            <button type="button" class="icon-button" id="restart" title="新しい練習" aria-label="新しい練習"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
             <button type="button" class="icon-button" id="pause" title="一時停止" aria-label="一時停止" disabled><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg></button>
             <button type="button" class="icon-button" id="quick-print" title="印刷" aria-label="印刷"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></button>
           </div>
@@ -78,7 +80,8 @@
           <section class="result" id="result" hidden><h2>練習完了</h2><p id="result-time"></p><p>体験用です。結果は保存せず、新しい練習、再読み込み、ページ移動で破棄されます。</p><button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>もう一度</button><p><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">アプリを入手</a></p></section>
         </div>
         <aside class="practice-side">
-          <section><h2>シュルテグリッド App</h2><p>iPhone、iPad、Macアプリで履歴を保存し、毎日の目標と進捗を確認できます。</p><ul class="app-benefits"><li>履歴</li><li>毎日の練習</li><li>サイズ別ベスト</li></ul><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">アプリを入手</a></section>
+          <section class="app-offer"><img class="app-mark" width="64" height="64" src="../favicon/apple-touch-icon.png" alt=""><p class="platforms">iPhone · iPad · Mac</p><h2>シュルテグリッド App</h2><p>iPhone、iPad、Macアプリで履歴を保存し、毎日の目標と進捗を確認できます。</p><ul class="app-benefits"><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg><span>履歴</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#calendar-days"></use></svg><span>毎日の練習</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#chart-no-axes-combined"></use></svg><span>サイズ別ベスト</span></li></ul><a class="button primary" href="https://apps.apple.com/app/id6547865783"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#download"></use></svg>アプリを入手</a></section>
+          <div class="experience-note"><h3>ウェブ版の体験</h3><p>体験用です。結果は保存せず、新しい練習、再読み込み、ページ移動で破棄されます。</p></div>
         </aside>
       </div>
     </section>
@@ -88,11 +91,11 @@
     </section>
     <p class="local-note" id="local-note" role="status">体験用です。結果は保存せず、新しい練習、再読み込み、ページ移動で破棄されます。</p>
     <section class="seo-content"><h2>オンラインでシュルテグリッドを練習</h2><p>シュルテグリッドは、数字をランダムに配置した正方形の表です。1から9、16、25、36まで順に探します。3×3、4×4、5×5、6×6の表、タイマー、印刷シートを登録やダウンロードなしで無料体験できます。ウェブ版は履歴を保存しません。継続的な記録と毎日の目標にはAppleアプリを利用できます。</p>
-      <div id="faq"><h2>シュルテグリッドのよくある質問</h2><h3>オンラインのタイマーはいつ動きますか？</h3><p>1を正しく選ぶと計測が始まり、最後の数字で終了します。間違いは記録されますが、順序は進みません。一時停止中は数字が隠れ、停止時間は成績に含まれません。同じ表サイズで結果を比べましょう。</p>
-      <h3>どのサイズのシュルテ表を選べばよいですか？</h3><p>3×3は9個、4×4は16個、標準の5×5は25個、6×6は36個の数字があります。小さい表から始め、より長い視覚探索の練習をしたいときに大きい表を選べます。</p>
-      <h3>無料で印刷やPDF保存はできますか？</h3><p>はい。「印刷」でサイズと1〜20枚を選んで印刷画面を開きます。各シートの配置は異なり、ダークモードでも白いA4用紙になります。ブラウザの印刷画面で「PDFとして保存」を選ぶとPDFを保存できます。</p>
-      <h3>ウェブ版は練習結果を保存しますか？</h3><p>いいえ。現在の1回分だけをページのメモリに表示します。新しい練習、再読み込み、ページ移動で結果は破棄されます。履歴、設定、目標をブラウザやサーバーに保存しません。新版を開くと旧版が保存したウェブの記録を削除します。</p>
-      <h3>ウェブ版とアプリの違いは何ですか？</h3><p>ウェブ版は短い体験と印刷用です。iPhone、iPad、Macアプリは直近100回の成績を端末内に保存し、毎日の目標と進捗を提供します。バージョン1.6.0から、各端末で同じApple Accountを使い同期を有効にするとiCloudで同期できます。旧版は端末内のみ保存します。配信中のバージョンはApp Storeでご確認ください。シュルテ表は練習用で、医療評価や知能向上を保証するものではありません。</p></div>
+      <div id="faq"><h2>シュルテグリッドのよくある質問</h2><details><summary>オンラインのタイマーはいつ動きますか？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>1を正しく選ぶと計測が始まり、最後の数字で終了します。間違いは記録されますが、順序は進みません。一時停止中は数字が隠れ、停止時間は成績に含まれません。同じ表サイズで結果を比べましょう。</p></details>
+      <details><summary>どのサイズのシュルテ表を選べばよいですか？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>3×3は9個、4×4は16個、標準の5×5は25個、6×6は36個の数字があります。小さい表から始め、より長い視覚探索の練習をしたいときに大きい表を選べます。</p></details>
+      <details><summary>無料で印刷やPDF保存はできますか？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>はい。「印刷」でサイズと1〜20枚を選んで印刷画面を開きます。各シートの配置は異なり、ダークモードでも白いA4用紙になります。ブラウザの印刷画面で「PDFとして保存」を選ぶとPDFを保存できます。</p></details>
+      <details><summary>ウェブ版は練習結果を保存しますか？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>いいえ。現在の1回分だけをページのメモリに表示します。新しい練習、再読み込み、ページ移動で結果は破棄されます。履歴、設定、目標をブラウザやサーバーに保存しません。新版を開くと旧版が保存したウェブの記録を削除します。</p></details>
+      <details><summary>ウェブ版とアプリの違いは何ですか？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>ウェブ版は短い体験と印刷用です。iPhone、iPad、Macアプリは直近100回の成績を端末内に保存し、毎日の目標と進捗を提供します。バージョン1.6.0から、各端末で同じApple Accountを使い同期を有効にするとiCloudで同期できます。旧版は端末内のみ保存します。配信中のバージョンはApp Storeでご確認ください。シュルテ表は練習用で、医療評価や知能向上を保証するものではありません。</p></details></div>
       <nav class="seo-links" aria-label="シュルテグリッドのよくある質問"><a href="../what-is-schulte-grid" hreflang="en">シュルテ表とは（英語）</a><a href="../printable-schulte-grid" hreflang="en">印刷ガイド（英語）</a><a href="../focus-training-app" hreflang="en">Apple向けアプリ（英語）</a></nav>
     </section>
   </main>

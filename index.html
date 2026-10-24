@@ -23,6 +23,8 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://schulte-grid.luopeike.com/">
   <meta property="og:image" content="https://schulte-grid.luopeike.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Schulte Grid">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Schulte Grid Online | Free Timer &amp; Printable Tables">
@@ -45,7 +47,7 @@
   <header class="topbar">
     <a class="brand" href="./"><img src="favicon/apple-touch-icon.png" width="38" height="38" alt=""><span>Schulte Grid</span></a>
     <nav class="nav" aria-label="Practice">
-      <a href="#practice">Practice</a><a href="help">Help</a><a href="support">Support</a><a href="privacy-policy">Privacy</a>
+      <a href="#practice">Practice</a><a href="help">Help</a><a class="secondary-nav" href="support">Support</a><a class="secondary-nav" href="privacy-policy">Privacy</a>
       <a class="download-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="20" height="20" src="images/app-store-icon.svg" alt="">Get the app</a>
       <select class="language-switch" id="language" aria-label="Language"><option value="./" selected>English</option><option value="zh-Hans/">简体中文</option><option value="zh-Hant/">繁體中文</option><option value="ja/">日本語</option><option value="ko/">한국어</option><option value="de/">Deutsch</option><option value="fr/">Français</option><option value="es/">Español</option></select>
     </nav>
@@ -54,7 +56,7 @@
     <div class="practice-intro"><h1>Schulte Grid</h1><p>Free online Schulte tables with a timer and printable worksheets. Demo only; no saved training history.</p></div>
     <noscript><p>Enable JavaScript to play and generate worksheets. The guides below remain available.</p></noscript>
     <div class="practice-tabs" role="tablist" aria-label="Practice">
-      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0">Practice</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1">Print</button>
+      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="images/workspace.svg#grid-2x2"></use></svg>Practice</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="images/lucide.svg#printer"></use></svg>Print</button>
     </div>
     <section id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
       <div class="workspace">
@@ -64,12 +66,12 @@
           </div>
           <div class="round-stats">
             <dl><dt>Time</dt><dd id="timer">0.00 s</dd></dl>
-            <dl><dt>Next</dt><dd id="next-number">1</dd></dl>
+            <dl class="next-stat"><dt>Next</dt><dd id="next-number">1</dd></dl>
             <dl><dt>Mistakes</dt><dd id="mistakes">0</dd></dl>
           </div>
           <div id="board" class="game-board" role="group" aria-label="Practice" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
           <div class="round-actions">
-            <button type="button" class="button" id="restart"><svg class="icon" aria-hidden="true"><use href="images/lucide.svg#rotate-ccw"></use></svg>New round</button>
+            <button type="button" class="icon-button" id="restart" title="New round" aria-label="New round"><svg class="icon" aria-hidden="true"><use href="images/lucide.svg#rotate-ccw"></use></svg></button>
             <button type="button" class="icon-button" id="pause" title="Pause" aria-label="Pause" disabled><svg class="icon" aria-hidden="true"><use href="images/lucide.svg#pause"></use></svg></button>
             <button type="button" class="icon-button" id="quick-print" title="Print" aria-label="Print"><svg class="icon" aria-hidden="true"><use href="images/lucide.svg#printer"></use></svg></button>
           </div>
@@ -78,7 +80,8 @@
           <section class="result" id="result" hidden><h2>Round complete</h2><p id="result-time"></p><p>Demo only. This round is not saved and is discarded when you start again, refresh, or leave.</p><button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="images/lucide.svg#rotate-ccw"></use></svg>Practice again</button><p><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="images/app-store-icon.svg" alt="">Get the app</a></p></section>
         </div>
         <aside class="practice-side">
-          <section><h2>Schulte Grid app</h2><p>Keep your training history, daily goals, and progress in the iPhone, iPad, and Mac app.</p><ul class="app-benefits"><li>History</li><li>Daily practice</li><li>Best by size</li></ul><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="images/app-store-icon.svg" alt="">Get the app</a></section>
+          <section class="app-offer"><img class="app-mark" width="64" height="64" src="favicon/apple-touch-icon.png" alt=""><p class="platforms">iPhone · iPad · Mac</p><h2>Schulte Grid app</h2><p>Keep your training history, daily goals, and progress in the iPhone, iPad, and Mac app.</p><ul class="app-benefits"><li><svg class="icon" aria-hidden="true"><use href="images/workspace.svg#history"></use></svg><span>History</span></li><li><svg class="icon" aria-hidden="true"><use href="images/workspace.svg#calendar-days"></use></svg><span>Daily practice</span></li><li><svg class="icon" aria-hidden="true"><use href="images/workspace.svg#chart-no-axes-combined"></use></svg><span>Best by size</span></li></ul><a class="button primary" href="https://apps.apple.com/app/id6547865783"><svg class="icon" aria-hidden="true"><use href="images/lucide.svg#download"></use></svg>Get the app</a></section>
+          <div class="experience-note"><h3>Browser demo</h3><p>Demo only. This round is not saved and is discarded when you start again, refresh, or leave.</p></div>
         </aside>
       </div>
     </section>
@@ -88,11 +91,11 @@
     </section>
     <p class="local-note" id="local-note" role="status">Demo only. This round is not saved and is discarded when you start again, refresh, or leave.</p>
     <section class="seo-content"><h2>Online Schulte grid practice</h2><p>A Schulte grid is a square table of shuffled numbers. Find them in ascending order, from 1 to 9, 16, 25, or 36. Try 3x3, 4x4, 5x5, and 6x6 tables, a timer, and printable practice sheets for free, without an account or download. This website is a demo and does not save training history. Use the Apple app for ongoing training records and daily goals.</p>
-      <div id="faq"><h2>Schulte grid questions</h2><h3>How does the online Schulte grid timer work?</h3><p>The timer starts when you correctly select 1 and stops at the last number. Wrong selections count as mistakes and do not advance the sequence. Pausing hides the numbers and excludes the pause from your time. Compare results within the same grid size.</p>
-      <h3>Which Schulte table size should I choose?</h3><p>3x3 has 9 numbers and 4x4 has 16. The classic 5x5 table has 25 numbers; 6x6 has 36. Start with a smaller table, then choose a larger one when you want a longer visual search exercise.</p>
-      <h3>Can I print free Schulte grids or save them as PDF?</h3><p>Yes. Open Print, choose a grid size and 1 to 20 worksheets, then print. Every sheet uses a different arrangement on white A4 paper, even in dark mode. Choose Save as PDF in your browser print dialog for a PDF download.</p>
-      <h3>Does the website save my training results?</h3><p>No. Only the current round is shown in page memory. Starting a new round, refreshing, or leaving the page discards it. Training history, preferences, and goals are not saved in browser storage or on a server. Previously saved web records are removed when this version opens.</p>
-      <h3>How is the website different from the Schulte Grid app?</h3><p>The website offers quick practice and printable worksheets. The iPhone, iPad, and Mac app saves the latest 100 training results locally and provides daily goals and progress. Version 1.6.0 adds iCloud sync when enabled, using the same Apple Account on your devices. Earlier versions save locally only; check the App Store for the available version. Schulte grids are a practice exercise, not a medical assessment or a guarantee of cognitive improvement.</p></div>
+      <div id="faq"><h2>Schulte grid questions</h2><details><summary>How does the online Schulte grid timer work?<svg class="icon" aria-hidden="true"><use href="images/workspace.svg#plus"></use></svg></summary><p>The timer starts when you correctly select 1 and stops at the last number. Wrong selections count as mistakes and do not advance the sequence. Pausing hides the numbers and excludes the pause from your time. Compare results within the same grid size.</p></details>
+      <details><summary>Which Schulte table size should I choose?<svg class="icon" aria-hidden="true"><use href="images/workspace.svg#plus"></use></svg></summary><p>3x3 has 9 numbers and 4x4 has 16. The classic 5x5 table has 25 numbers; 6x6 has 36. Start with a smaller table, then choose a larger one when you want a longer visual search exercise.</p></details>
+      <details><summary>Can I print free Schulte grids or save them as PDF?<svg class="icon" aria-hidden="true"><use href="images/workspace.svg#plus"></use></svg></summary><p>Yes. Open Print, choose a grid size and 1 to 20 worksheets, then print. Every sheet uses a different arrangement on white A4 paper, even in dark mode. Choose Save as PDF in your browser print dialog for a PDF download.</p></details>
+      <details><summary>Does the website save my training results?<svg class="icon" aria-hidden="true"><use href="images/workspace.svg#plus"></use></svg></summary><p>No. Only the current round is shown in page memory. Starting a new round, refreshing, or leaving the page discards it. Training history, preferences, and goals are not saved in browser storage or on a server. Previously saved web records are removed when this version opens.</p></details>
+      <details><summary>How is the website different from the Schulte Grid app?<svg class="icon" aria-hidden="true"><use href="images/workspace.svg#plus"></use></svg></summary><p>The website offers quick practice and printable worksheets. The iPhone, iPad, and Mac app saves the latest 100 training results locally and provides daily goals and progress. Version 1.6.0 adds iCloud sync when enabled, using the same Apple Account on your devices. Earlier versions save locally only; check the App Store for the available version. Schulte grids are a practice exercise, not a medical assessment or a guarantee of cognitive improvement.</p></details></div>
       <nav class="seo-links" aria-label="Schulte grid questions"><a href="what-is-schulte-grid">What is a Schulte grid?</a><a href="printable-schulte-grid">Printable Schulte tables</a><a href="focus-training-app">Schulte Grid for Apple devices</a></nav>
     </section>
   </main>

@@ -22,3 +22,11 @@ App Store links are direct links without campaign parameters. Website conversion
 The native app retains the latest 100 results locally, plus daily goals and progress. Version 1.6.0 adds optional iCloud synchronization; earlier versions are local-only. Marketing must qualify this feature by version while App Store availability changes. Device backups and live iCloud synchronization are distinct mechanisms.
 
 Lucide icons are vendored as a small SVG sprite with their license in `images/LUCIDE-LICENSE.txt`.
+
+## Visual System
+
+`style/tokens.json` owns the shared light/dark colors, type scale, spacing, and radii. `npm run build` compiles `style/tokens.css`; commit both the source and generated CSS. `scripts/design-tokens.mjs` has no third-party dependencies. Theme choices remain memory-only. The practice screen stays the homepage, with a compact number board, icon commands with localized labels, an explicit unsaved browser-demo note, and native HTML FAQ disclosures. Article pages share the same colors and controls.
+
+`npm test` also checks token contrast, reproducible CSS, and the eight generated homepage contracts. Visual release checks should include 320px and 390px mobile widths, tablet and desktop, all eight languages, every theme, keyboard use, and white A4 print output.
+
+`npm run build:social` optionally refreshes the committed 1200×630 share image from the same color tokens. Authoring requires ImageMagick and a local Trebuchet font; set `SCHULTE_PREVIEW_FONT` to a local font file on another machine. It is not part of normal site building or deployment and removes its own temporary files.

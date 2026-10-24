@@ -1,4 +1,10 @@
-export const contentUpdated = '2026-10-10';
+export const contentUpdated = '2026-10-24';
+
+export const experienceLabels = {
+  en: 'Browser demo', 'zh-Hans': '网页版体验', 'zh-Hant': '網頁版體驗',
+  ja: 'ウェブ版の体験', ko: '웹 체험판', de: 'Web-Demo',
+  fr: 'Démo web', es: 'Demo web'
+};
 
 export const uiKeys = ["practice","history","print","theme","system","paper","mint","sand","night","ink","time","next","mistakes","restart","pause","resume","ready","paused","incorrect","complete","again","daily","bests","app","appText","download","local","size","sheets","refresh","printNow","sheet","name","paperTime","preview","noscript"];
 

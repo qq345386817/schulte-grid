@@ -23,6 +23,8 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://schulte-grid.luopeike.com/zh-Hans/">
   <meta property="og:image" content="https://schulte-grid.luopeike.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="舒尔特方格">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="舒尔特方格在线训练 | 免费计时与 A4 打印练习纸">
@@ -45,7 +47,7 @@
   <header class="topbar">
     <a class="brand" href="./"><img src="../favicon/apple-touch-icon.png" width="38" height="38" alt=""><span>舒尔特方格</span></a>
     <nav class="nav" aria-label="在线练习">
-      <a href="#practice">在线练习</a><a href="help">帮助</a><a href="support">支持</a><a href="privacy-policy">隐私</a>
+      <a href="#practice">在线练习</a><a href="help">帮助</a><a class="secondary-nav" href="support">支持</a><a class="secondary-nav" href="privacy-policy">隐私</a>
       <a class="download-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="20" height="20" src="../images/app-store-icon.svg" alt="">下载 App</a>
       <select class="language-switch" id="language" aria-label="语言"><option value=".././">English</option><option value="../zh-Hans/" selected>简体中文</option><option value="../zh-Hant/">繁體中文</option><option value="../ja/">日本語</option><option value="../ko/">한국어</option><option value="../de/">Deutsch</option><option value="../fr/">Français</option><option value="../es/">Español</option></select>
     </nav>
@@ -54,7 +56,7 @@
     <div class="practice-intro"><h1>舒尔特方格</h1><p>免费体验舒尔特方格计时训练和打印练习纸。仅体验，不保存训练历史。</p></div>
     <noscript><p>启用 JavaScript 后即可在线练习和生成练习纸，下方指南仍可阅读。</p></noscript>
     <div class="practice-tabs" role="tablist" aria-label="练习">
-      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0">练习</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1">打印</button>
+      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>练习</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>打印</button>
     </div>
     <section id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
       <div class="workspace">
@@ -64,12 +66,12 @@
           </div>
           <div class="round-stats">
             <dl><dt>用时</dt><dd id="timer">0.00 s</dd></dl>
-            <dl><dt>下一个</dt><dd id="next-number">1</dd></dl>
+            <dl class="next-stat"><dt>下一个</dt><dd id="next-number">1</dd></dl>
             <dl><dt>错误</dt><dd id="mistakes">0</dd></dl>
           </div>
           <div id="board" class="game-board" role="group" aria-label="练习" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
           <div class="round-actions">
-            <button type="button" class="button" id="restart"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>新一轮</button>
+            <button type="button" class="icon-button" id="restart" title="新一轮" aria-label="新一轮"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
             <button type="button" class="icon-button" id="pause" title="暂停" aria-label="暂停" disabled><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg></button>
             <button type="button" class="icon-button" id="quick-print" title="打印" aria-label="打印"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></button>
           </div>
@@ -78,7 +80,8 @@
           <section class="result" id="result" hidden><h2>本轮完成</h2><p id="result-time"></p><p>仅体验，不保存历史。本轮结果在开始新一轮、刷新或离开页面后丢弃。</p><button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>再练一轮</button><p><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">下载 App</a></p></section>
         </div>
         <aside class="practice-side">
-          <section><h2>舒尔特方格 App</h2><p>在 iPhone、iPad 和 Mac App 中保存训练历史，设置每日目标并查看练习进度。</p><ul class="app-benefits"><li>历史记录</li><li>每日练习</li><li>各难度最佳</li></ul><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">下载 App</a></section>
+          <section class="app-offer"><img class="app-mark" width="64" height="64" src="../favicon/apple-touch-icon.png" alt=""><p class="platforms">iPhone · iPad · Mac</p><h2>舒尔特方格 App</h2><p>在 iPhone、iPad 和 Mac App 中保存训练历史，设置每日目标并查看练习进度。</p><ul class="app-benefits"><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg><span>历史记录</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#calendar-days"></use></svg><span>每日练习</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#chart-no-axes-combined"></use></svg><span>各难度最佳</span></li></ul><a class="button primary" href="https://apps.apple.com/app/id6547865783"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#download"></use></svg>下载 App</a></section>
+          <div class="experience-note"><h3>网页版体验</h3><p>仅体验，不保存历史。本轮结果在开始新一轮、刷新或离开页面后丢弃。</p></div>
         </aside>
       </div>
     </section>
@@ -88,11 +91,11 @@
     </section>
     <p class="local-note" id="local-note" role="status">仅体验，不保存历史。本轮结果在开始新一轮、刷新或离开页面后丢弃。</p>
     <section class="seo-content"><h2>舒尔特方格在线训练</h2><p>舒尔特方格是将数字随机排列在正方形表格中的视觉搜索练习。按升序找到数字，从 1 到 9、16、25 或 36。网页版免费体验 3×3、4×4、5×5、6×6 方格、计时和打印练习纸，无需注册或下载。网站不保存训练历史；需要持续记录和每日目标时，可以使用 Apple App。</p>
-      <div id="faq"><h2>舒尔特方格常见问题</h2><h3>在线舒尔特方格如何计时？</h3><p>正确点中 1 后开始计时，找到最后一个数字后结束。错点会记录为错误，但不会推进数字顺序。暂停时数字会隐藏，暂停时间不计入成绩。建议比较相同方格大小的成绩。</p>
-      <h3>舒尔特方格选哪种大小？</h3><p>3×3 有 9 个数字，4×4 有 16 个数字，经典 5×5 有 25 个数字，6×6 有 36 个数字。可以先从小方格开始，需要更长的视觉搜索练习时再选择大方格。</p>
-      <h3>可以免费打印舒尔特方格或下载 PDF 吗？</h3><p>可以。在“打印”中选择方格大小和 1 到 20 份练习纸，再打开打印窗口。每份数字排列都不同，深色模式下也始终是白底 A4。在浏览器打印窗口选择“另存为 PDF”，即可保存 PDF 文件。</p>
-      <h3>网站会保存我的训练结果吗？</h3><p>不会。仅在页面内存中展示当前这一轮结果，开始新一轮、刷新或离开页面后即丢弃。不把训练历史、偏好或目标保存到浏览器存储或服务器。打开新版网站时，会清除旧网页版曾保存的记录。</p>
-      <h3>网页版与舒尔特方格 App 有什么区别？</h3><p>网页版用于快速体验和打印练习纸；iPhone、iPad 和 Mac App 在设备本地保存最近 100 次训练成绩，并提供每日目标和进度。App 从 1.6.0 起支持 iCloud 同步，需在各设备登录同一个 Apple 账户并开启同步。此前版本仅在设备本地保存，实际可下载版本以 App Store 为准。舒尔特方格是一种练习工具，不是医疗评估，也不保证提高智力。</p></div>
+      <div id="faq"><h2>舒尔特方格常见问题</h2><details><summary>在线舒尔特方格如何计时？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>正确点中 1 后开始计时，找到最后一个数字后结束。错点会记录为错误，但不会推进数字顺序。暂停时数字会隐藏，暂停时间不计入成绩。建议比较相同方格大小的成绩。</p></details>
+      <details><summary>舒尔特方格选哪种大小？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>3×3 有 9 个数字，4×4 有 16 个数字，经典 5×5 有 25 个数字，6×6 有 36 个数字。可以先从小方格开始，需要更长的视觉搜索练习时再选择大方格。</p></details>
+      <details><summary>可以免费打印舒尔特方格或下载 PDF 吗？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>可以。在“打印”中选择方格大小和 1 到 20 份练习纸，再打开打印窗口。每份数字排列都不同，深色模式下也始终是白底 A4。在浏览器打印窗口选择“另存为 PDF”，即可保存 PDF 文件。</p></details>
+      <details><summary>网站会保存我的训练结果吗？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>不会。仅在页面内存中展示当前这一轮结果，开始新一轮、刷新或离开页面后即丢弃。不把训练历史、偏好或目标保存到浏览器存储或服务器。打开新版网站时，会清除旧网页版曾保存的记录。</p></details>
+      <details><summary>网页版与舒尔特方格 App 有什么区别？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>网页版用于快速体验和打印练习纸；iPhone、iPad 和 Mac App 在设备本地保存最近 100 次训练成绩，并提供每日目标和进度。App 从 1.6.0 起支持 iCloud 同步，需在各设备登录同一个 Apple 账户并开启同步。此前版本仅在设备本地保存，实际可下载版本以 App Store 为准。舒尔特方格是一种练习工具，不是医疗评估，也不保证提高智力。</p></details></div>
       <nav class="seo-links" aria-label="舒尔特方格常见问题"><a href="../what-is-schulte-grid" hreflang="en">什么是舒尔特方格？（英文）</a><a href="../printable-schulte-grid" hreflang="en">打印练习指南（英文）</a><a href="../focus-training-app" hreflang="en">Apple 设备上的舒尔特方格（英文）</a></nav>
     </section>
   </main>

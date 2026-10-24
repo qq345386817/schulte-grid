@@ -23,6 +23,8 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://schulte-grid.luopeike.com/de/">
   <meta property="og:image" content="https://schulte-grid.luopeike.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Schulte Grid">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Schulte-Tabelle online | Kostenloser Timer &amp; Druckvorlagen">
@@ -45,7 +47,7 @@
   <header class="topbar">
     <a class="brand" href="./"><img src="../favicon/apple-touch-icon.png" width="38" height="38" alt=""><span>Schulte Grid</span></a>
     <nav class="nav" aria-label="Üben">
-      <a href="#practice">Üben</a><a href="help">Hilfe</a><a href="support">Support</a><a href="privacy-policy">Datenschutz</a>
+      <a href="#practice">Üben</a><a href="help">Hilfe</a><a class="secondary-nav" href="support">Support</a><a class="secondary-nav" href="privacy-policy">Datenschutz</a>
       <a class="download-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="20" height="20" src="../images/app-store-icon.svg" alt="">App laden</a>
       <select class="language-switch" id="language" aria-label="Sprache"><option value=".././">English</option><option value="../zh-Hans/">简体中文</option><option value="../zh-Hant/">繁體中文</option><option value="../ja/">日本語</option><option value="../ko/">한국어</option><option value="../de/" selected>Deutsch</option><option value="../fr/">Français</option><option value="../es/">Español</option></select>
     </nav>
@@ -54,7 +56,7 @@
     <div class="practice-intro"><h1>Schulte Grid</h1><p>Kostenlose Schulte-Tabellen mit Timer und Druckvorlagen. Nur zum Ausprobieren, ohne gespeicherten Verlauf.</p></div>
     <noscript><p>Aktiviere JavaScript zum Üben und Erstellen von Blättern. Die Anleitungen unten bleiben verfügbar.</p></noscript>
     <div class="practice-tabs" role="tablist" aria-label="Üben">
-      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0">Üben</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1">Drucken</button>
+      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>Üben</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>Drucken</button>
     </div>
     <section id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
       <div class="workspace">
@@ -64,12 +66,12 @@
           </div>
           <div class="round-stats">
             <dl><dt>Zeit</dt><dd id="timer">0.00 s</dd></dl>
-            <dl><dt>Nächste</dt><dd id="next-number">1</dd></dl>
+            <dl class="next-stat"><dt>Nächste</dt><dd id="next-number">1</dd></dl>
             <dl><dt>Fehler</dt><dd id="mistakes">0</dd></dl>
           </div>
           <div id="board" class="game-board" role="group" aria-label="Üben" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
           <div class="round-actions">
-            <button type="button" class="button" id="restart"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>Neue Runde</button>
+            <button type="button" class="icon-button" id="restart" title="Neue Runde" aria-label="Neue Runde"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
             <button type="button" class="icon-button" id="pause" title="Pause" aria-label="Pause" disabled><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg></button>
             <button type="button" class="icon-button" id="quick-print" title="Drucken" aria-label="Drucken"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></button>
           </div>
@@ -78,7 +80,8 @@
           <section class="result" id="result" hidden><h2>Runde beendet</h2><p id="result-time"></p><p>Nur zum Ausprobieren. Diese Runde wird nicht gespeichert und bei einer neuen Runde, beim Neuladen oder Verlassen verworfen.</p><button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>Erneut üben</button><p><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">App laden</a></p></section>
         </div>
         <aside class="practice-side">
-          <section><h2>Schulte Grid App</h2><p>Behalte Trainingsverlauf, Tagesziele und Fortschritt in der App für iPhone, iPad und Mac.</p><ul class="app-benefits"><li>Verlauf</li><li>Tägliche Übung</li><li>Bestzeit je Größe</li></ul><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">App laden</a></section>
+          <section class="app-offer"><img class="app-mark" width="64" height="64" src="../favicon/apple-touch-icon.png" alt=""><p class="platforms">iPhone · iPad · Mac</p><h2>Schulte Grid App</h2><p>Behalte Trainingsverlauf, Tagesziele und Fortschritt in der App für iPhone, iPad und Mac.</p><ul class="app-benefits"><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg><span>Verlauf</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#calendar-days"></use></svg><span>Tägliche Übung</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#chart-no-axes-combined"></use></svg><span>Bestzeit je Größe</span></li></ul><a class="button primary" href="https://apps.apple.com/app/id6547865783"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#download"></use></svg>App laden</a></section>
+          <div class="experience-note"><h3>Web-Demo</h3><p>Nur zum Ausprobieren. Diese Runde wird nicht gespeichert und bei einer neuen Runde, beim Neuladen oder Verlassen verworfen.</p></div>
         </aside>
       </div>
     </section>
@@ -88,11 +91,11 @@
     </section>
     <p class="local-note" id="local-note" role="status">Nur zum Ausprobieren. Diese Runde wird nicht gespeichert und bei einer neuen Runde, beim Neuladen oder Verlassen verworfen.</p>
     <section class="seo-content"><h2>Schulte-Tabellen online üben</h2><p>Eine Schulte-Tabelle ist ein quadratisches Raster mit zufällig angeordneten Zahlen. Suche sie aufsteigend von 1 bis 9, 16, 25 oder 36. Probiere 3x3, 4x4, 5x5 und 6x6 mit Timer und Druckvorlagen kostenlos aus, ohne Anmeldung oder Installation. Die Website speichert keinen Verlauf. Die Apple-App bietet dauerhafte Trainingsdaten und Tagesziele.</p>
-      <div id="faq"><h2>Fragen zu Schulte-Tabellen</h2><h3>Wie funktioniert der Timer?</h3><p>Der Timer startet bei der richtigen Auswahl von 1 und endet bei der letzten Zahl. Falsche Klicks zählen als Fehler und ändern die Reihenfolge nicht. Beim Pausieren werden die Zahlen verborgen und die Pause nicht mitgezählt. Vergleiche Ergebnisse derselben Rastergröße.</p>
-      <h3>Welche Rastergröße eignet sich?</h3><p>3x3 enthält 9 Zahlen, 4x4 enthält 16, die klassische 5x5-Tabelle enthält 25 und 6x6 enthält 36. Beginne mit einem kleineren Raster und wähle ein größeres für eine längere Übung zur visuellen Suche.</p>
-      <h3>Kann ich kostenlos drucken oder als PDF speichern?</h3><p>Ja. Wähle unter Drucken eine Rastergröße und 1 bis 20 Blätter. Jedes Blatt hat eine andere Anordnung auf weißem A4-Papier, auch im Dunkelmodus. Wähle im Druckdialog des Browsers Als PDF speichern.</p>
-      <h3>Speichert die Website meine Trainingsergebnisse?</h3><p>Nein. Nur die aktuelle Runde wird im Seitenspeicher angezeigt. Eine neue Runde, Neuladen oder Verlassen der Seite verwirft sie. Verlauf, Einstellungen und Ziele werden weder im Browserspeicher noch auf einem Server gespeichert. Beim Öffnen dieser Version werden gespeicherte Web-Daten der alten Version entfernt.</p>
-      <h3>Wie unterscheidet sich die Website von der App?</h3><p>Die Website dient zum Ausprobieren und Drucken. Die App für iPhone, iPad und Mac speichert die letzten 100 Ergebnisse lokal und bietet Tagesziele und Fortschritt. Ab Version 1.6.0 ist iCloud-Synchronisierung mit demselben Apple Account und aktiviertem Sync verfügbar. Frühere Versionen speichern nur lokal; prüfe die verfügbare Version im App Store. Schulte-Tabellen sind eine Übung, keine medizinische Bewertung oder Garantie für höhere Intelligenz.</p></div>
+      <div id="faq"><h2>Fragen zu Schulte-Tabellen</h2><details><summary>Wie funktioniert der Timer?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Der Timer startet bei der richtigen Auswahl von 1 und endet bei der letzten Zahl. Falsche Klicks zählen als Fehler und ändern die Reihenfolge nicht. Beim Pausieren werden die Zahlen verborgen und die Pause nicht mitgezählt. Vergleiche Ergebnisse derselben Rastergröße.</p></details>
+      <details><summary>Welche Rastergröße eignet sich?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>3x3 enthält 9 Zahlen, 4x4 enthält 16, die klassische 5x5-Tabelle enthält 25 und 6x6 enthält 36. Beginne mit einem kleineren Raster und wähle ein größeres für eine längere Übung zur visuellen Suche.</p></details>
+      <details><summary>Kann ich kostenlos drucken oder als PDF speichern?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Ja. Wähle unter Drucken eine Rastergröße und 1 bis 20 Blätter. Jedes Blatt hat eine andere Anordnung auf weißem A4-Papier, auch im Dunkelmodus. Wähle im Druckdialog des Browsers Als PDF speichern.</p></details>
+      <details><summary>Speichert die Website meine Trainingsergebnisse?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Nein. Nur die aktuelle Runde wird im Seitenspeicher angezeigt. Eine neue Runde, Neuladen oder Verlassen der Seite verwirft sie. Verlauf, Einstellungen und Ziele werden weder im Browserspeicher noch auf einem Server gespeichert. Beim Öffnen dieser Version werden gespeicherte Web-Daten der alten Version entfernt.</p></details>
+      <details><summary>Wie unterscheidet sich die Website von der App?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Die Website dient zum Ausprobieren und Drucken. Die App für iPhone, iPad und Mac speichert die letzten 100 Ergebnisse lokal und bietet Tagesziele und Fortschritt. Ab Version 1.6.0 ist iCloud-Synchronisierung mit demselben Apple Account und aktiviertem Sync verfügbar. Frühere Versionen speichern nur lokal; prüfe die verfügbare Version im App Store. Schulte-Tabellen sind eine Übung, keine medizinische Bewertung oder Garantie für höhere Intelligenz.</p></details></div>
       <nav class="seo-links" aria-label="Fragen zu Schulte-Tabellen"><a href="../what-is-schulte-grid" hreflang="en">Was ist eine Schulte-Tabelle? (Englisch)</a><a href="../printable-schulte-grid" hreflang="en">Druckanleitung (Englisch)</a><a href="../focus-training-app" hreflang="en">App für Apple-Geräte (Englisch)</a></nav>
     </section>
   </main>

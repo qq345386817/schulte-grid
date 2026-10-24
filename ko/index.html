@@ -23,6 +23,8 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://schulte-grid.luopeike.com/ko/">
   <meta property="og:image" content="https://schulte-grid.luopeike.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="슐트 그리드">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="슐트 그리드 온라인 | 무료 타이머와 인쇄 연습지">
@@ -45,7 +47,7 @@
   <header class="topbar">
     <a class="brand" href="./"><img src="../favicon/apple-touch-icon.png" width="38" height="38" alt=""><span>슐트 그리드</span></a>
     <nav class="nav" aria-label="연습">
-      <a href="#practice">연습</a><a href="help">도움말</a><a href="support">지원</a><a href="privacy-policy">개인정보</a>
+      <a href="#practice">연습</a><a href="help">도움말</a><a class="secondary-nav" href="support">지원</a><a class="secondary-nav" href="privacy-policy">개인정보</a>
       <a class="download-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="20" height="20" src="../images/app-store-icon.svg" alt="">앱 다운로드</a>
       <select class="language-switch" id="language" aria-label="언어"><option value=".././">English</option><option value="../zh-Hans/">简体中文</option><option value="../zh-Hant/">繁體中文</option><option value="../ja/">日本語</option><option value="../ko/" selected>한국어</option><option value="../de/">Deutsch</option><option value="../fr/">Français</option><option value="../es/">Español</option></select>
     </nav>
@@ -54,7 +56,7 @@
     <div class="practice-intro"><h1>슐트 그리드</h1><p>무료 슐트 표 타이머와 인쇄 연습지. 체험용이며 훈련 기록은 저장하지 않습니다.</p></div>
     <noscript><p>연습과 연습지 생성에는 JavaScript를 활성화하세요. 아래 가이드는 읽을 수 있습니다.</p></noscript>
     <div class="practice-tabs" role="tablist" aria-label="연습">
-      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0">연습</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1">인쇄</button>
+      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>연습</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>인쇄</button>
     </div>
     <section id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
       <div class="workspace">
@@ -64,12 +66,12 @@
           </div>
           <div class="round-stats">
             <dl><dt>시간</dt><dd id="timer">0.00 s</dd></dl>
-            <dl><dt>다음</dt><dd id="next-number">1</dd></dl>
+            <dl class="next-stat"><dt>다음</dt><dd id="next-number">1</dd></dl>
             <dl><dt>실수</dt><dd id="mistakes">0</dd></dl>
           </div>
           <div id="board" class="game-board" role="group" aria-label="연습" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
           <div class="round-actions">
-            <button type="button" class="button" id="restart"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>새 연습</button>
+            <button type="button" class="icon-button" id="restart" title="새 연습" aria-label="새 연습"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
             <button type="button" class="icon-button" id="pause" title="일시 정지" aria-label="일시 정지" disabled><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg></button>
             <button type="button" class="icon-button" id="quick-print" title="인쇄" aria-label="인쇄"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></button>
           </div>
@@ -78,7 +80,8 @@
           <section class="result" id="result" hidden><h2>연습 완료</h2><p id="result-time"></p><p>체험용이며 기록을 저장하지 않습니다. 새 연습, 새로고침, 페이지 이동 시 결과를 버립니다.</p><button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>다시 연습</button><p><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">앱 다운로드</a></p></section>
         </div>
         <aside class="practice-side">
-          <section><h2>슐트 그리드 App</h2><p>iPhone, iPad, Mac 앱에서 훈련 기록을 저장하고 일일 목표와 진행 상황을 확인하세요.</p><ul class="app-benefits"><li>기록</li><li>일일 연습</li><li>크기별 최고</li></ul><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">앱 다운로드</a></section>
+          <section class="app-offer"><img class="app-mark" width="64" height="64" src="../favicon/apple-touch-icon.png" alt=""><p class="platforms">iPhone · iPad · Mac</p><h2>슐트 그리드 App</h2><p>iPhone, iPad, Mac 앱에서 훈련 기록을 저장하고 일일 목표와 진행 상황을 확인하세요.</p><ul class="app-benefits"><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg><span>기록</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#calendar-days"></use></svg><span>일일 연습</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#chart-no-axes-combined"></use></svg><span>크기별 최고</span></li></ul><a class="button primary" href="https://apps.apple.com/app/id6547865783"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#download"></use></svg>앱 다운로드</a></section>
+          <div class="experience-note"><h3>웹 체험판</h3><p>체험용이며 기록을 저장하지 않습니다. 새 연습, 새로고침, 페이지 이동 시 결과를 버립니다.</p></div>
         </aside>
       </div>
     </section>
@@ -88,11 +91,11 @@
     </section>
     <p class="local-note" id="local-note" role="status">체험용이며 기록을 저장하지 않습니다. 새 연습, 새로고침, 페이지 이동 시 결과를 버립니다.</p>
     <section class="seo-content"><h2>온라인 슐트 그리드 연습</h2><p>슐트 그리드는 숫자가 무작위로 배치된 정사각형 표입니다. 1부터 9, 16, 25 또는 36까지 순서대로 찾습니다. 가입이나 다운로드 없이 3×3, 4×4, 5×5, 6×6 표, 타이머와 인쇄 연습지를 무료로 체험할 수 있습니다. 웹은 훈련 기록을 저장하지 않습니다. 지속적인 기록과 일일 목표는 Apple 앱에서 이용하세요.</p>
-      <div id="faq"><h2>슐트 그리드 자주 묻는 질문</h2><h3>온라인 타이머는 어떻게 작동하나요?</h3><p>1을 올바르게 선택하면 시작되고 마지막 숫자에서 멈춥니다. 잘못 누르면 실수로 기록되며 순서는 진행되지 않습니다. 일시 정지 중에는 숫자를 숨기고 정지 시간은 기록에서 제외합니다. 같은 크기의 표끼리 결과를 비교하세요.</p>
-      <h3>어떤 크기의 슐트 표를 선택하면 되나요?</h3><p>3×3에는 9개, 4×4에는 16개, 기본 5×5에는 25개, 6×6에는 36개 숫자가 있습니다. 작은 표부터 시작하고 더 긴 시각 탐색 연습을 원할 때 큰 표를 선택하세요.</p>
-      <h3>무료 인쇄나 PDF 저장이 가능한가요?</h3><p>네. 인쇄에서 크기와 1~20장을 선택한 후 인쇄 창을 엽니다. 각 장의 배열은 다르며 다크 모드에서도 흰색 A4 용지를 사용합니다. 브라우저 인쇄 창에서 PDF로 저장을 선택하면 PDF 파일을 저장할 수 있습니다.</p>
-      <h3>웹사이트에서 훈련 결과를 저장하나요?</h3><p>아니요. 현재 한 번의 결과만 페이지 메모리에 표시합니다. 새 연습, 새로고침, 페이지 이동 시 버립니다. 기록, 설정, 목표를 브라우저 저장소나 서버에 저장하지 않습니다. 새 버전을 열면 이전 웹 버전이 저장한 기록을 삭제합니다.</p>
-      <h3>웹사이트와 앱은 어떻게 다른가요?</h3><p>웹은 간단한 체험과 인쇄용입니다. iPhone, iPad, Mac 앱은 최근 100회의 결과를 기기에 저장하고 일일 목표와 진행 상황을 제공합니다. 1.6.0부터 같은 Apple 계정으로 로그인하고 동기화를 활성화하면 iCloud를 이용할 수 있습니다. 이전 버전은 기기에만 저장합니다. 배포 버전은 App Store에서 확인하세요. 슐트 표는 연습 도구이며 의료 평가나 지능 향상을 보장하지 않습니다.</p></div>
+      <div id="faq"><h2>슐트 그리드 자주 묻는 질문</h2><details><summary>온라인 타이머는 어떻게 작동하나요?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>1을 올바르게 선택하면 시작되고 마지막 숫자에서 멈춥니다. 잘못 누르면 실수로 기록되며 순서는 진행되지 않습니다. 일시 정지 중에는 숫자를 숨기고 정지 시간은 기록에서 제외합니다. 같은 크기의 표끼리 결과를 비교하세요.</p></details>
+      <details><summary>어떤 크기의 슐트 표를 선택하면 되나요?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>3×3에는 9개, 4×4에는 16개, 기본 5×5에는 25개, 6×6에는 36개 숫자가 있습니다. 작은 표부터 시작하고 더 긴 시각 탐색 연습을 원할 때 큰 표를 선택하세요.</p></details>
+      <details><summary>무료 인쇄나 PDF 저장이 가능한가요?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>네. 인쇄에서 크기와 1~20장을 선택한 후 인쇄 창을 엽니다. 각 장의 배열은 다르며 다크 모드에서도 흰색 A4 용지를 사용합니다. 브라우저 인쇄 창에서 PDF로 저장을 선택하면 PDF 파일을 저장할 수 있습니다.</p></details>
+      <details><summary>웹사이트에서 훈련 결과를 저장하나요?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>아니요. 현재 한 번의 결과만 페이지 메모리에 표시합니다. 새 연습, 새로고침, 페이지 이동 시 버립니다. 기록, 설정, 목표를 브라우저 저장소나 서버에 저장하지 않습니다. 새 버전을 열면 이전 웹 버전이 저장한 기록을 삭제합니다.</p></details>
+      <details><summary>웹사이트와 앱은 어떻게 다른가요?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>웹은 간단한 체험과 인쇄용입니다. iPhone, iPad, Mac 앱은 최근 100회의 결과를 기기에 저장하고 일일 목표와 진행 상황을 제공합니다. 1.6.0부터 같은 Apple 계정으로 로그인하고 동기화를 활성화하면 iCloud를 이용할 수 있습니다. 이전 버전은 기기에만 저장합니다. 배포 버전은 App Store에서 확인하세요. 슐트 표는 연습 도구이며 의료 평가나 지능 향상을 보장하지 않습니다.</p></details></div>
       <nav class="seo-links" aria-label="슐트 그리드 자주 묻는 질문"><a href="../what-is-schulte-grid" hreflang="en">슐트 표 소개 (영어)</a><a href="../printable-schulte-grid" hreflang="en">인쇄 가이드 (영어)</a><a href="../focus-training-app" hreflang="en">Apple 기기용 앱 (영어)</a></nav>
     </section>
   </main>

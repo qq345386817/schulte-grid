@@ -1,6 +1,7 @@
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { contentUpdated, loadingLabels, retryLabels, locales, uiKeys } from '../content/locales.mjs';
+import { contentUpdated, experienceLabels, loadingLabels, retryLabels, locales, uiKeys } from '../content/locales.mjs';
+import { buildTokens } from './design-tokens.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const origin = 'https://schulte-grid.luopeike.com';
@@ -9,13 +10,16 @@ const languages = { en: 'English', 'zh-Hans': '简体中文', 'zh-Hant': '繁體
 const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
 const json = value => JSON.stringify(value).replaceAll('<', '\\u003c');
 
+await writeFile(`${root}style/tokens.css`, await buildTokens());
+
 for (const [lang, copy] of Object.entries(locales)) {
   if (copy.ui.length !== uiKeys.length) throw new Error(`${lang}: expected ${uiKeys.length} labels, got ${copy.ui.length}`);
   const t = Object.fromEntries(uiKeys.map((key, index) => [key, copy.ui[index]]));
   const folder = lang === 'en' ? '' : `${lang}/`;
   const asset = lang === 'en' ? '' : '../';
   const url = `${origin}/${folder}`;
-  const icon = name => `<svg class="icon" aria-hidden="true"><use href="${asset}images/lucide.svg#${name}"></use></svg>`;
+  const workspaceIcons = new Set(['grid-2x2', 'history', 'calendar-days', 'chart-no-axes-combined', 'plus']);
+  const icon = name => `<svg class="icon" aria-hidden="true"><use href="${asset}images/${workspaceIcons.has(name) ? 'workspace' : 'lucide'}.svg#${name}"></use></svg>`;
   const download = () => `<a class="app-link" href="${appUrl}"><img class="store-icon" width="24" height="24" src="${asset}images/app-store-icon.svg" alt="">${escape(t.download)}</a>`;
   const sizes = (kind, initial) => [3, 4, 5, 6].map(n => `<button type="button" data-${kind}="${n}" aria-pressed="${n === initial}">${n}×${n}</button>`).join('');
   const label = key => escape(t[key]);
@@ -53,6 +57,8 @@ for (const [lang, copy] of Object.entries(locales)) {
   <meta property="og:type" content="website">
   <meta property="og:url" content="${url}">
   <meta property="og:image" content="${origin}/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="${escape(copy.brand)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escape(copy.title)}">
@@ -75,7 +81,7 @@ for (const [lang, copy] of Object.entries(locales)) {
   <header class="topbar">
     <a class="brand" href="./"><img src="${asset}favicon/apple-touch-icon.png" width="38" height="38" alt=""><span>${escape(copy.brand)}</span></a>
     <nav class="nav" aria-label="${escape(copy.nav[0])}">
-      <a href="#practice">${escape(copy.nav[0])}</a><a href="help">${escape(copy.nav[1])}</a><a href="support">${escape(copy.nav[2])}</a><a href="privacy-policy">${escape(copy.nav[3])}</a>
+      <a href="#practice">${escape(copy.nav[0])}</a><a href="help">${escape(copy.nav[1])}</a><a class="secondary-nav" href="support">${escape(copy.nav[2])}</a><a class="secondary-nav" href="privacy-policy">${escape(copy.nav[3])}</a>
       <a class="download-link" href="${appUrl}"><img class="store-icon" width="20" height="20" src="${asset}images/app-store-icon.svg" alt="">${label('download')}</a>
       <select class="language-switch" id="language" aria-label="${escape(copy.nav[4])}">${Object.entries(languages).map(([code, name]) => `<option value="${asset}${code === 'en' ? './' : `${code}/`}"${code === lang ? ' selected' : ''}>${name}</option>`).join('')}</select>
     </nav>
@@ -84,7 +90,7 @@ for (const [lang, copy] of Object.entries(locales)) {
     <div class="practice-intro"><h1>${escape(copy.brand)}</h1><p>${escape(copy.intro)}</p></div>
     <noscript><p>${label('noscript')}</p></noscript>
     <div class="practice-tabs" role="tablist" aria-label="${label('practice')}">
-      ${['practice', 'print'].map(view => `<button id="tab-${view}" type="button" role="tab" data-view="${view}" aria-controls="view-${view}" aria-selected="${view === 'practice'}" tabindex="${view === 'practice' ? 0 : -1}">${label(view)}</button>`).join('')}
+      ${['practice', 'print'].map(view => `<button id="tab-${view}" type="button" role="tab" data-view="${view}" aria-controls="view-${view}" aria-selected="${view === 'practice'}" tabindex="${view === 'practice' ? 0 : -1}">${icon(view === 'practice' ? 'grid-2x2' : 'printer')}${label(view)}</button>`).join('')}
     </div>
     <section id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
       <div class="workspace">
@@ -94,12 +100,12 @@ for (const [lang, copy] of Object.entries(locales)) {
           </div>
           <div class="round-stats">
             <dl><dt>${label('time')}</dt><dd id="timer">0.00 s</dd></dl>
-            <dl><dt>${label('next')}</dt><dd id="next-number">1</dd></dl>
+            <dl class="next-stat"><dt>${label('next')}</dt><dd id="next-number">1</dd></dl>
             <dl><dt>${label('mistakes')}</dt><dd id="mistakes">0</dd></dl>
           </div>
           <div id="board" class="game-board" role="group" aria-label="${label('practice')}" aria-busy="true" style="--size:5">${[17, 4, 21, 9, 1, 12, 25, 6, 14, 19, 3, 16, 8, 23, 11, 20, 5, 13, 2, 24, 7, 18, 10, 22, 15].map(n => `<button type="button" disabled>${n}</button>`).join('')}</div>
           <div class="round-actions">
-            <button type="button" class="button" id="restart">${icon('rotate-ccw')}${label('restart')}</button>
+            <button type="button" class="icon-button" id="restart" title="${label('restart')}" aria-label="${label('restart')}">${icon('rotate-ccw')}</button>
             <button type="button" class="icon-button" id="pause" title="${label('pause')}" aria-label="${label('pause')}" disabled>${icon('pause')}</button>
             <button type="button" class="icon-button" id="quick-print" title="${label('print')}" aria-label="${label('print')}">${icon('printer')}</button>
           </div>
@@ -108,7 +114,8 @@ for (const [lang, copy] of Object.entries(locales)) {
           <section class="result" id="result" hidden><h2>${label('complete')}</h2><p id="result-time"></p><p>${label('local')}</p><button class="button primary" type="button" id="again">${icon('rotate-ccw')}${label('again')}</button><p>${download()}</p></section>
         </div>
         <aside class="practice-side">
-          <section><h2>${label('app')}</h2><p>${label('appText')}</p><ul class="app-benefits"><li>${label('history')}</li><li>${label('daily')}</li><li>${label('bests')}</li></ul>${download()}</section>
+          <section class="app-offer"><img class="app-mark" width="64" height="64" src="${asset}favicon/apple-touch-icon.png" alt=""><p class="platforms">iPhone · iPad · Mac</p><h2>${label('app')}</h2><p>${label('appText')}</p><ul class="app-benefits">${['history', 'daily', 'bests'].map((key, i) => `<li>${icon(['history', 'calendar-days', 'chart-no-axes-combined'][i])}<span>${label(key)}</span></li>`).join('')}</ul><a class="button primary" href="${appUrl}">${icon('download')}${label('download')}</a></section>
+          <div class="experience-note"><h3>${escape(experienceLabels[lang])}</h3><p>${label('local')}</p></div>
         </aside>
       </div>
     </section>
@@ -118,7 +125,7 @@ for (const [lang, copy] of Object.entries(locales)) {
     </section>
     <p class="local-note" id="local-note" role="status">${label('local')}</p>
     <section class="seo-content"><h2>${escape(copy.heading)}</h2><p>${escape(copy.overview)}</p>
-      <div id="faq"><h2>${escape(copy.faqHeading)}</h2>${copy.faq.map(([question, answer]) => `<h3>${escape(question)}</h3><p>${escape(answer)}</p>`).join('\n      ')}</div>
+      <div id="faq"><h2>${escape(copy.faqHeading)}</h2>${copy.faq.map(([question, answer]) => `<details><summary>${escape(question)}${icon('plus')}</summary><p>${escape(answer)}</p></details>`).join('\n      ')}</div>
       <nav class="seo-links" aria-label="${escape(copy.faqHeading)}">${['what-is-schulte-grid', 'printable-schulte-grid', 'focus-training-app'].map((path, i) => `<a href="${asset}${path}"${lang === 'en' ? '' : ' hreflang="en"'}>${escape(copy.links[i])}</a>`).join('')}</nav>
     </section>
   </main>
