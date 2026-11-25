@@ -120,14 +120,6 @@ a:hover {
   outline-offset: 2px;
 }
 
-.hero {
-  min-height: calc(100vh - 116px);
-  display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(320px, 420px);
-  align-items: center;
-  gap: 44px;
-}
-
 .kicker {
   width: fit-content;
   margin: 0 0 14px;
@@ -201,100 +193,11 @@ h2 {
   align-self: start;
 }
 
-.product-panel {
-  padding: 18px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
-}
-
-.device-bar {
-  height: 34px;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-
-.device-bar span {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: var(--primary);
-}
-
-.device-bar span:nth-child(2) {
-  background: var(--mint);
-}
-
-.device-bar span:nth-child(3) {
-  background: var(--amber);
-}
-
-.stats-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-
-.stats-row span {
-  padding: 7px 10px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface-strong);
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.schulte-preview {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 8px;
-}
-
-.schulte-preview span {
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface-strong);
-  color: var(--text);
-  font-size: 20px;
-  font-weight: 800;
-}
-
 .section {
   margin-top: 28px;
   padding: 26px 0;
 }
 
-.feature-grid {
-  margin-top: 16px;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.feature-grid.two {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.feature {
-  padding: 20px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface);
-}
-
-.feature strong {
-  display: block;
-  margin-bottom: 8px;
-}
-
-.feature p,
 .section p,
 .article p,
 .article li,
@@ -363,12 +266,6 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
     gap: 10px 12px;
   }
 
-  .hero {
-    min-height: auto;
-    grid-template-columns: 1fr;
-    padding: 26px 0;
-  }
-
   h1,
   .article h1 {
     font-size: 36px;
@@ -376,11 +273,6 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
 
   .lead {
     font-size: 18px;
-  }
-
-  .feature-grid,
-  .feature-grid.two {
-    grid-template-columns: 1fr;
   }
 
   .split {
