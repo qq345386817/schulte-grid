@@ -38,69 +38,357 @@
   <link rel="stylesheet" href="../style/practice.css">
   <link rel="modulepreload" href="../js/practice-core.mjs">
   <link rel="modulepreload" href="../js/practice.mjs">
+  <link rel="modulepreload" href="../js/motion.mjs">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://schulte-grid.luopeike.com/#website","name":"Schulte Grid","url":"https://schulte-grid.luopeike.com/","inLanguage":["en","zh-Hans","zh-Hant","ja","ko","de","fr","es"]},{"@type":"WebPage","@id":"https://schulte-grid.luopeike.com/es/#page","url":"https://schulte-grid.luopeike.com/es/","name":"Tabla de Schulte online | Cronómetro gratis e impresión","description":"Prueba tablas de Schulte gratis de 3x3 a 6x6 con cronómetro e impresión A4/PDF. La demo web no guarda historial. Usa la app para conservar resultados y objetivos diarios.","inLanguage":"es","isPartOf":{"@id":"https://schulte-grid.luopeike.com/#website"},"mainEntity":{"@id":"https://schulte-grid.luopeike.com/es/#webapp"}},{"@type":"WebApplication","@id":"https://schulte-grid.luopeike.com/es/#webapp","name":"Cuadrícula de Schulte","url":"https://schulte-grid.luopeike.com/es/","inLanguage":"es","applicationCategory":"EducationalApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Prueba tablas de Schulte gratis de 3x3 a 6x6 con cronómetro e impresión A4/PDF. La demo web no guarda historial. Usa la app para conservar resultados y objetivos diarios.","featureList":["Practicar","Tiempo","Imprimir"]},{"@type":"FAQPage","@id":"https://schulte-grid.luopeike.com/es/#faq","inLanguage":"es","mainEntity":[{"@type":"Question","name":"¿Cómo funciona el cronómetro?","acceptedAnswer":{"@type":"Answer","text":"Empieza al seleccionar correctamente el 1 y termina en el último número. Los errores se cuentan sin avanzar la secuencia. La pausa oculta los números y su duración no se incluye en el resultado. Compara tablas del mismo tamaño."}},{"@type":"Question","name":"¿Qué tamaño de tabla debo elegir?","acceptedAnswer":{"@type":"Answer","text":"3x3 tiene 9 números, 4x4 tiene 16, la tabla clásica 5x5 tiene 25 y 6x6 tiene 36. Empieza con una tabla pequeña y elige una mayor cuando quieras una búsqueda visual más larga."}},{"@type":"Question","name":"¿Puedo imprimir gratis o guardar un PDF?","acceptedAnswer":{"@type":"Answer","text":"Sí. En Imprimir, elige el tamaño y entre 1 y 20 hojas. Cada hoja tiene una disposición diferente sobre A4 blanco, incluso en modo oscuro. Elige Guardar como PDF en la ventana de impresión del navegador."}},{"@type":"Question","name":"¿La web guarda mis resultados de entrenamiento?","acceptedAnswer":{"@type":"Answer","text":"No. Solo se muestra la ronda actual en la memoria de la página. Se descarta al iniciar otra, recargar o salir. No se guardan historial, ajustes ni objetivos en el navegador ni en un servidor. Esta versión elimina los datos guardados por la web anterior al abrirse."}},{"@type":"Question","name":"¿En qué se diferencian la web y la app?","acceptedAnswer":{"@type":"Answer","text":"La web sirve para probar e imprimir. La app para iPhone, iPad y Mac guarda localmente los últimos 100 resultados y ofrece objetivos diarios y progreso. Desde la versión 1.6.0 puedes sincronizar con iCloud usando la misma cuenta de Apple y activando la sincronización. Las versiones anteriores solo guardan en el dispositivo; consulta la versión disponible en App Store. Las tablas son un ejercicio, no una evaluación médica ni una garantía de mejorar la inteligencia."}}]}]}</script>
-  <script id="practice-copy" type="application/json">{"practice":"Practicar","history":"Historial","print":"Imprimir","theme":"Tema","system":"Sistema","paper":"Papel clásico","mint":"Menta suave","sand":"Arena cálida","night":"Enfoque nocturno","ink":"Tinta","time":"Tiempo","next":"Siguiente","mistakes":"Errores","restart":"Nueva ronda","pause":"Pausar","resume":"Continuar","ready":"Listo","paused":"En pausa","incorrect":"Siguiente: {n}","complete":"Ronda terminada","again":"Practicar otra vez","daily":"Práctica diaria","bests":"Mejores por tamaño","app":"App Schulte Grid","appText":"Conserva tu historial, objetivos diarios y progreso en la app para iPhone, iPad y Mac.","download":"Obtener la app","local":"Solo una demo. La ronda no se guarda y se descarta al empezar otra, recargar o salir.","size":"Tabla","sheets":"Hojas","refresh":"Nuevas hojas","printNow":"Imprimir / PDF","sheet":"Hoja","name":"Nombre","paperTime":"Tiempo","preview":"Vista previa A4","noscript":"Activa JavaScript para practicar y crear hojas. Las guías siguen disponibles."}</script>
+  <script id="practice-copy" type="application/json">{"practice":"Practicar","history":"Historial","print":"Imprimir","theme":"Tema","system":"Sistema","paper":"Papel clásico","mint":"Menta suave","sand":"Arena cálida","night":"Enfoque nocturno","ink":"Tinta","time":"Tiempo","next":"Siguiente","mistakes":"Errores","restart":"Nueva ronda","pause":"Pausar","resume":"Continuar","ready":"Listo","paused":"En pausa","incorrect":"Siguiente: {n}","complete":"Ronda terminada","again":"Practicar otra vez","daily":"Práctica diaria","bests":"Mejores por tamaño","app":"App Schulte Grid","appText":"Conserva tu historial, objetivos diarios y progreso en la app para iPhone, iPad y Mac.","download":"Obtener la app","local":"Solo una demo. La ronda no se guarda y se descarta al empezar otra, recargar o salir.","size":"Tabla","sheets":"Hojas","refresh":"Nuevas hojas","printNow":"Imprimir / PDF","sheet":"Hoja","name":"Nombre","paperTime":"Tiempo","preview":"Vista previa A4","noscript":"Activa JavaScript para practicar y crear hojas. Las guías siguen disponibles.","demoBtn":"Demo visual","demoStop":"Detener","demoStatus":"Vista previa de barrido — toca el 1 en cualquier momento para empezar.","sheetStack":"{n} hojas únicas listas"}</script>
   <script type="module" src="../js/practice.mjs"></script>
+  <script type="module" src="../js/motion.mjs"></script>
 </head>
 <body class="practice-page">
-<div class="page"><div class="container">
-  <header class="topbar">
-    <a class="brand" href="./"><img src="../favicon/apple-touch-icon.png" width="38" height="38" alt=""><span>Cuadrícula de Schulte</span></a>
-    <nav class="nav" aria-label="Practicar">
-      <a href="#practice">Practicar</a><a href="help">Ayuda</a><a class="secondary-nav" href="support">Soporte</a><a class="secondary-nav" href="privacy-policy">Privacidad</a>
-      <a class="download-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="20" height="20" src="../images/app-store-icon.svg" alt="">Obtener la app</a>
+<div class="ambient-backdrop" aria-hidden="true"></div>
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="topbar">
+      <a class="brand" href="./"><img src="../favicon/apple-touch-icon.png" width="34" height="34" alt=""><span>Cuadrícula de Schulte</span></a>
+      <nav class="nav" aria-label="Practicar">
+        <a href="#practice">Practicar</a>
+        <a class="anchor-nav" href="#features">Funciones</a>
+        <a class="anchor-nav" href="#print" data-jump-print>Imprimir</a>
+        <a class="anchor-nav" href="#faq">FAQ</a>
+        <a class="secondary-nav" href="help">Ayuda</a>
+        <a class="secondary-nav" href="support">Soporte</a>
+        <a class="secondary-nav" href="privacy-policy">Privacidad</a>
+        <a class="download-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">Obtener la app</a>
+      </nav>
       <select class="language-switch" id="language" aria-label="Idioma"><option value=".././">English</option><option value="../zh-Hans/">简体中文</option><option value="../zh-Hant/">繁體中文</option><option value="../ja/">日本語</option><option value="../ko/">한국어</option><option value="../de/">Deutsch</option><option value="../fr/">Français</option><option value="../es/" selected>Español</option></select>
-    </nav>
-  </header>
-  <main>
-    <div class="practice-intro"><h1>Cuadrícula de Schulte</h1><p>Tablas de Schulte gratis con cronómetro y hojas imprimibles. Solo una demo, sin guardar historial.</p></div>
-    <noscript><p>Activa JavaScript para practicar y crear hojas. Las guías siguen disponibles.</p></noscript>
-    <div class="practice-tabs" role="tablist" aria-label="Practicar">
-      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>Practicar</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>Imprimir</button>
     </div>
-    <section id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
-      <div class="workspace">
-        <div class="board-column">
-          <div class="controls"><div class="size-controls" role="group" aria-label="Tabla"><button type="button" data-size="3" aria-pressed="false">3×3</button><button type="button" data-size="4" aria-pressed="false">4×4</button><button type="button" data-size="5" aria-pressed="true">5×5</button><button type="button" data-size="6" aria-pressed="false">6×6</button></div>
-            <label class="control-field"><span>Tema</span><select id="theme"><option value="system">Sistema</option><option value="paper">Papel clásico</option><option value="mint">Menta suave</option><option value="sand">Arena cálida</option><option value="night">Enfoque nocturno</option><option value="ink">Tinta</option></select></label>
-          </div>
-          <div class="round-stats">
-            <dl><dt>Tiempo</dt><dd id="timer">0.00 s</dd></dl>
-            <dl class="next-stat"><dt>Siguiente</dt><dd id="next-number">1</dd></dl>
-            <dl><dt>Errores</dt><dd id="mistakes">0</dd></dl>
-          </div>
-          <div id="board" class="game-board" role="group" aria-label="Practicar" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
-          <div class="round-actions">
-            <button type="button" class="icon-button" id="restart" title="Nueva ronda" aria-label="Nueva ronda"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
-            <button type="button" class="icon-button" id="pause" title="Pausar" aria-label="Pausar" disabled><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg></button>
-            <button type="button" class="icon-button" id="quick-print" title="Imprimir" aria-label="Imprimir"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></button>
-          </div>
-          <p class="round-message" id="round-message" role="status">Cargando la práctica…</p>
-          <button class="button" type="button" id="retry-load" hidden><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>Recargar</button>
-          <section class="result" id="result" hidden><h2>Ronda terminada</h2><p id="result-time"></p><p>Solo una demo. La ronda no se guarda y se descarta al empezar otra, recargar o salir.</p><button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>Practicar otra vez</button><p><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">Obtener la app</a></p></section>
+  </div>
+</header>
+<div class="page">
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-badge"><span class="badge-dot" aria-hidden="true"></span>iPhone · iPad · Mac y demo web gratis</p>
+        <h1>Enfoque sereno, un número a la vez.</h1>
+        <p class="hero-subhead">Entrena la búsqueda visual con tablas de 3×3 a 6×6, cronómetro preciso, temas táctiles y hojas A4 blancas listas para imprimir — sin cuenta.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#practice" data-focus-board data-start-size="5"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>Probar tabla 5×5</a>
+          <a class="button secondary" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">Obtener app Apple</a>
         </div>
-        <aside class="practice-side">
-          <section class="app-offer"><img class="app-mark" width="64" height="64" src="../favicon/apple-touch-icon.png" alt=""><p class="platforms">iPhone · iPad · Mac</p><h2>App Schulte Grid</h2><p>Conserva tu historial, objetivos diarios y progreso en la app para iPhone, iPad y Mac.</p><ul class="app-benefits"><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg><span>Historial</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#calendar-days"></use></svg><span>Práctica diaria</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#chart-no-axes-combined"></use></svg><span>Mejores por tamaño</span></li></ul><a class="button primary" href="https://apps.apple.com/app/id6547865783"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#download"></use></svg>Obtener la app</a></section>
-          <div class="experience-note"><h3>Demo web</h3><p>Solo una demo. La ronda no se guarda y se descarta al empezar otra, recargar o salir.</p></div>
-        </aside>
+        <ul class="hero-pills" aria-label="Demo web">
+          <li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#sparkles"></use></svg><span>Demo web gratis</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#shield-check"></use></svg><span>Sin historial ni rastreo</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg><span>Hojas A4 / PDF en blanco</span></li>
+        </ul>
       </div>
     </section>
-    <section id="view-print" role="tabpanel" aria-labelledby="tab-print" class="print-view" tabindex="0" hidden>
-      <div class="print-controls"><div class="size-controls" role="group" aria-label="Tabla"><button type="button" data-print-size="3" aria-pressed="false">3×3</button><button type="button" data-print-size="4" aria-pressed="false">4×4</button><button type="button" data-print-size="5" aria-pressed="true">5×5</button><button type="button" data-print-size="6" aria-pressed="false">6×6</button></div><label class="control-field">Hojas<input id="sheet-count" type="number" min="1" max="20" step="1" value="1"></label><button class="icon-button" type="button" id="refresh-sheets" title="Nuevas hojas" aria-label="Nuevas hojas"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button><button class="button primary" type="button" id="print-now"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>Imprimir / PDF</button></div>
-      <div class="sheet-preview" id="sheet-preview" aria-label="Vista previa A4"></div>
+
+    <section class="studio-band" id="practice" aria-label="Practicar">
+      <div class="container">
+        <noscript><p class="noscript-banner">Activa JavaScript para practicar y crear hojas. Las guías siguen disponibles.</p></noscript>
+        <div class="studio-shell" id="print">
+          <div class="studio-bar">
+            <div class="studio-bar-left">
+              <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="practice-tabs" role="tablist" aria-label="Practicar">
+                <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg><span>Practicar</span></button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg><span>Imprimir</span></button>
+              </div>
+            </div>
+            <div class="studio-bar-right">
+              <div class="theme-swatches" role="group" aria-label="Tema"><button type="button" class="theme-chip" data-theme-choice="system" data-theme-group="studio" aria-pressed="true" title="Sistema"><span class="theme-dot theme-dot-system" aria-hidden="true"></span><span>Sistema</span></button><button type="button" class="theme-chip" data-theme-choice="paper" data-theme-group="studio" aria-pressed="false" title="Papel clásico"><span class="theme-dot theme-dot-paper" aria-hidden="true"></span><span>Papel clásico</span></button><button type="button" class="theme-chip" data-theme-choice="mint" data-theme-group="studio" aria-pressed="false" title="Menta suave"><span class="theme-dot theme-dot-mint" aria-hidden="true"></span><span>Menta suave</span></button><button type="button" class="theme-chip" data-theme-choice="sand" data-theme-group="studio" aria-pressed="false" title="Arena cálida"><span class="theme-dot theme-dot-sand" aria-hidden="true"></span><span>Arena cálida</span></button><button type="button" class="theme-chip" data-theme-choice="night" data-theme-group="studio" aria-pressed="false" title="Enfoque nocturno"><span class="theme-dot theme-dot-night" aria-hidden="true"></span><span>Enfoque nocturno</span></button><button type="button" class="theme-chip" data-theme-choice="ink" data-theme-group="studio" aria-pressed="false" title="Tinta"><span class="theme-dot theme-dot-ink" aria-hidden="true"></span><span>Tinta</span></button></div>
+              <label class="control-field theme-select-field"><span>Tema</span><select id="theme"><option value="system">Sistema</option><option value="paper">Papel clásico</option><option value="mint">Menta suave</option><option value="sand">Arena cálida</option><option value="night">Enfoque nocturno</option><option value="ink">Tinta</option></select></label>
+            </div>
+          </div>
+
+          <div id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
+            <div class="workspace">
+              <div class="board-column">
+                <div class="controls">
+                  <div class="size-controls" role="group" aria-label="Tabla"><button type="button" data-size="3" aria-pressed="false">3×3</button><button type="button" data-size="4" aria-pressed="false">4×4</button><button type="button" data-size="5" aria-pressed="true">5×5</button><button type="button" data-size="6" aria-pressed="false">6×6</button></div>
+                  <div class="board-toggles">
+                    <button type="button" class="pill-toggle" id="demo-scan" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#sparkles"></use></svg><span>Demo visual</span></button>
+                    <button type="button" class="pill-toggle" id="fixation-toggle" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#crosshair"></use></svg><span>Punto central</span></button>
+                  </div>
+                </div>
+                <div class="board-stage">
+                  <div id="board" class="game-board" role="group" aria-label="Practicar" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
+                  <div class="fixation-dot" aria-hidden="true"></div>
+                  <svg class="demo-path-layer" id="demo-path-layer" aria-hidden="true"></svg>
+                </div>
+                <div class="board-footer">
+                  <div class="round-actions">
+                    <button type="button" class="icon-button" id="restart" title="Nueva ronda" aria-label="Nueva ronda"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
+                    <button type="button" class="icon-button" id="pause" title="Pausar" aria-label="Pausar" disabled><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg></button>
+                    <button type="button" class="icon-button" id="quick-print" title="Imprimir" aria-label="Imprimir"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></button>
+                  </div>
+                  <p class="round-message" id="round-message" role="status">Cargando la práctica…</p>
+                </div>
+                <button class="button" type="button" id="retry-load" hidden><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>Recargar</button>
+              </div>
+
+              <aside class="practice-side">
+                <div class="telemetry-panel">
+                  <div class="round-stats">
+                    <dl class="stat-time"><dt>Tiempo</dt><dd id="timer">0.00 s</dd></dl>
+                    <dl class="next-stat"><dt>Siguiente</dt><dd id="next-number">1</dd></dl>
+                    <dl><dt>Errores</dt><dd id="mistakes">0</dd></dl>
+                  </div>
+                  <div class="progress-meta">
+                    <span>Progreso</span>
+                    <span id="progress-label">0 / 25</span>
+                  </div>
+                  <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+                </div>
+
+                <section class="result" id="result" hidden>
+                  <p class="result-badge"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#circle-check"></use></svg><span>Ronda terminada</span></p>
+                  <p class="result-metric" id="result-time"></p>
+                  <p class="result-note">Solo una demo. La ronda no se guarda y se descarta al empezar otra, recargar o salir.</p>
+                  <div class="result-actions">
+                    <button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>Practicar otra vez</button>
+                    <a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">Obtener la app</a>
+                  </div>
+                </section>
+
+                <section class="app-offer">
+                  <div class="app-offer-head">
+                    <img class="app-mark" width="52" height="52" src="../favicon/apple-touch-icon.png" alt="">
+                    <div>
+                      <p class="platforms">iPhone · iPad · Mac</p>
+                      <h2>App Schulte Grid</h2>
+                    </div>
+                  </div>
+                  <p>Conserva tu historial, objetivos diarios y progreso en la app para iPhone, iPad y Mac.</p>
+                  <ul class="app-benefits"><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg><span>Historial</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#calendar-days"></use></svg><span>Práctica diaria</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#chart-no-axes-combined"></use></svg><span>Mejores por tamaño</span></li></ul>
+                  <a class="button primary app-offer-cta" href="https://apps.apple.com/app/id6547865783"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#download"></use></svg>Obtener la app</a>
+                </section>
+
+                <div class="experience-note">
+                  <h3><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#shield-check"></use></svg><span>Demo web</span></h3>
+                  <p>Solo una demo. La ronda no se guarda y se descarta al empezar otra, recargar o salir.</p>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div id="view-print" role="tabpanel" aria-labelledby="tab-print" class="print-view" tabindex="0" hidden>
+            <div class="print-toolbar">
+              <div class="print-controls">
+                <div class="size-controls" role="group" aria-label="Tabla"><button type="button" data-print-size="3" aria-pressed="false">3×3</button><button type="button" data-print-size="4" aria-pressed="false">4×4</button><button type="button" data-print-size="5" aria-pressed="true">5×5</button><button type="button" data-print-size="6" aria-pressed="false">6×6</button></div>
+                <label class="control-field"><span>Hojas</span><input id="sheet-count" type="number" min="1" max="20" step="1" value="1"></label>
+                <button class="icon-button" type="button" id="refresh-sheets" title="Nuevas hojas" aria-label="Nuevas hojas"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
+                <button class="button primary" type="button" id="print-now"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>Imprimir / PDF</button>
+              </div>
+              <p class="sheet-stack-meta" id="sheet-stack-meta" role="status"></p>
+            </div>
+            <div class="print-desk">
+              <div class="sheet-stack" id="sheet-stack" data-sheets="1">
+                <div class="sheet-preview" id="sheet-preview" aria-label="Vista previa A4"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="local-note" id="local-note" role="status">Solo una demo. La ronda no se guarda y se descarta al empezar otra, recargar o salir.</p>
+      </div>
     </section>
-    <p class="local-note" id="local-note" role="status">Solo una demo. La ronda no se guarda y se descarta al empezar otra, recargar o salir.</p>
-    <section class="seo-content"><h2>Practicar tablas de Schulte online</h2><p>Una tabla de Schulte es una cuadrícula con números mezclados. Encuéntralos en orden ascendente, del 1 al 9, 16, 25 o 36. Prueba gratis las tablas de 3x3, 4x4, 5x5 y 6x6, el cronómetro y las hojas imprimibles sin registro ni descarga. La web no guarda historial. La app de Apple permite conservar resultados y objetivos diarios.</p>
-      <div id="faq"><h2>Preguntas sobre las tablas de Schulte</h2><details><summary>¿Cómo funciona el cronómetro?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Empieza al seleccionar correctamente el 1 y termina en el último número. Los errores se cuentan sin avanzar la secuencia. La pausa oculta los números y su duración no se incluye en el resultado. Compara tablas del mismo tamaño.</p></details>
-      <details><summary>¿Qué tamaño de tabla debo elegir?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>3x3 tiene 9 números, 4x4 tiene 16, la tabla clásica 5x5 tiene 25 y 6x6 tiene 36. Empieza con una tabla pequeña y elige una mayor cuando quieras una búsqueda visual más larga.</p></details>
-      <details><summary>¿Puedo imprimir gratis o guardar un PDF?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Sí. En Imprimir, elige el tamaño y entre 1 y 20 hojas. Cada hoja tiene una disposición diferente sobre A4 blanco, incluso en modo oscuro. Elige Guardar como PDF en la ventana de impresión del navegador.</p></details>
-      <details><summary>¿La web guarda mis resultados de entrenamiento?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>No. Solo se muestra la ronda actual en la memoria de la página. Se descarta al iniciar otra, recargar o salir. No se guardan historial, ajustes ni objetivos en el navegador ni en un servidor. Esta versión elimina los datos guardados por la web anterior al abrirse.</p></details>
-      <details><summary>¿En qué se diferencian la web y la app?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>La web sirve para probar e imprimir. La app para iPhone, iPad y Mac guarda localmente los últimos 100 resultados y ofrece objetivos diarios y progreso. Desde la versión 1.6.0 puedes sincronizar con iCloud usando la misma cuenta de Apple y activando la sincronización. Las versiones anteriores solo guardan en el dispositivo; consulta la versión disponible en App Store. Las tablas son un ejercicio, no una evaluación médica ni una garantía de mejorar la inteligencia.</p></details></div>
-      <nav class="seo-links" aria-label="Preguntas sobre las tablas de Schulte"><a href="../what-is-schulte-grid" hreflang="en">¿Qué es una tabla de Schulte? (inglés)</a><a href="../printable-schulte-grid" hreflang="en">Guía de impresión (inglés)</a><a href="../focus-training-app" hreflang="en">App para dispositivos Apple (inglés)</a></nav>
+
+    <section class="band steps-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Cómo funciona</p>
+          <h2>Tres pasos para despejar tu atención</h2>
+        </div>
+        <ol class="steps-grid" data-stagger>
+          <li class="step-card" data-reveal-item>
+            <div class="step-top"><span class="step-num">01</span><div class="step-visual step-visual-center" aria-hidden="true"><span></span><span></span><span></span><span></span><span class="is-core"></span><span></span><span></span><span></span><span></span></div></div>
+            <h3>Descansa la vista cerca del centro</h3>
+            <p>Mantén la mirada estable en la zona central en lugar de saltar celda por celda.</p>
+          </li><li class="step-card" data-reveal-item>
+            <div class="step-top"><span class="step-num">02</span><div class="step-visual step-visual-scan" aria-hidden="true"><span>8</span><span class="is-one">1</span><span>5</span><span class="is-two">2</span><span class="is-three">3</span><span>7</span><span>4</span><span>9</span><span>6</span></div></div>
+            <h3>Encuentra del 1 al 25 en orden</h3>
+            <p>Usa tu visión periférica. El cronómetro arranca en el instante en que tocas el 1.</p>
+          </li><li class="step-card" data-reveal-item>
+            <div class="step-top"><span class="step-num">03</span><div class="step-visual step-visual-time" aria-hidden="true"><span class="time-pill">18.42 s</span><span class="bar-track"><span class="bar-fill"></span></span></div></div>
+            <h3>Mide tu tiempo y repite</h3>
+            <p>Compara rondas del mismo tamaño o imprime hojas A4 blancas para practicar sin pantalla.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band bento-section" id="features" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Diseñado para la calma</p>
+          <h2>Sencillo a primera vista. Hecho para tu ritmo diario.</h2>
+        </div>
+        <div class="bento-grid" data-stagger>
+          <article class="bento-card bento-native" data-reveal-item>
+            <div class="bento-copy">
+              <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#smartphone"></use></svg>iPhone · iPad · Mac</span>
+              <h3>Conserva tu historial en la app de Apple</h3>
+              <p>Guarda localmente tus últimos 100 resultados, sigue objetivos diarios y rachas y consulta tu mejor tiempo por tamaño. La versión 1.6.0 añade sincronización opcional por iCloud con la misma cuenta de Apple.</p>
+              <div class="bento-native-footer">
+                <span class="sync-pill"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#cloud"></use></svg>iCloud opcional (v1.6.0+)</span>
+                <a class="text-cta" href="https://apps.apple.com/app/id6547865783">Obtener la app<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a>
+              </div>
+            </div>
+            <div class="device-showcase" aria-hidden="true">
+              <div class="mock-mac">
+                <div class="mock-mac-bar"><span></span><span></span><span></span><strong>Cuadrícula de Schulte</strong></div>
+                <div class="mock-mac-body">
+                  <div class="mock-mac-grid"><span>14</span><span>3</span><span>11</span><span>8</span><span>6</span><span>13</span><span>2</span><span>16</span><span>9</span><span class="is-done">1</span><span>15</span><span>5</span><span>12</span><span>7</span><span>4</span><span>10</span></div>
+                </div>
+              </div>
+              <div class="mock-iphone">
+                <div class="mock-iphone-notch"></div>
+                <div class="mock-iphone-head">
+                  <div><small>Tiempo</small><strong>13.88s</strong></div>
+                  <div class="mock-iphone-right"><span><small>Siguiente</small><b>2</b></span><span><small>Mejor (5×5)</small><b>18.42s</b></span></div>
+                </div>
+                <div class="mock-iphone-seg"><span>3×3</span><span>4×4</span><span class="is-active">5×5</span><span>6×6</span></div>
+                <div class="mock-iphone-grid"><span>22</span><span>19</span><span>2</span><span>13</span><span>4</span><span>8</span><span>24</span><span>7</span><span>21</span><span class="is-done">1</span><span>6</span><span>15</span><span>20</span><span>17</span><span>16</span><span>23</span><span>10</span><span>12</span><span>3</span><span>9</span><span>11</span><span>18</span><span>5</span><span>14</span><span>25</span></div>
+                <div class="mock-iphone-actions"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></div>
+                <div class="mock-iphone-daily">
+                  <div><strong>Práctica diaria</strong><span>Racha de 3 días</span></div>
+                  <div class="mock-bar"><span></span></div>
+                </div>
+                <div class="mock-iphone-tabs">
+                  <span class="is-active"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>Tabla</span><span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg>Historial</span><span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#palette"></use></svg>Ajustes</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="bento-card bento-themes" data-reveal-item>
+            <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#palette"></use></svg>6 temas serenos</span>
+            <h3>Superficies suaves como el papel, de día o de noche</h3>
+            <p>Prueba ahora mismo Sistema, Papel clásico, Menta suave, Arena cálida, Enfoque nocturno y Tinta.</p>
+            <div class="theme-preview-grid" role="group" aria-label="Tema"><button type="button" class="theme-preview-card theme-preview-system" data-theme-choice="system" data-theme-group="bento" aria-pressed="true"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">Sistema</span></button><button type="button" class="theme-preview-card theme-preview-paper" data-theme-choice="paper" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">Papel clásico</span></button><button type="button" class="theme-preview-card theme-preview-mint" data-theme-choice="mint" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">Menta suave</span></button><button type="button" class="theme-preview-card theme-preview-sand" data-theme-choice="sand" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">Arena cálida</span></button><button type="button" class="theme-preview-card theme-preview-night" data-theme-choice="night" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">Enfoque nocturno</span></button><button type="button" class="theme-preview-card theme-preview-ink" data-theme-choice="ink" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">Tinta</span></button></div>
+          </article>
+
+          <article class="bento-card bento-print" data-reveal-item>
+            <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>A4 y PDF</span>
+            <h3>Hojas sin pantalla con un clic</h3>
+            <p>Genera de 1 a 20 hojas aleatorias diferentes sobre papel A4 blanco, incluso navegando en modo oscuro.</p>
+            <div class="mini-paper-stack" aria-hidden="true">
+              <div class="mini-paper">
+                <div class="mini-paper-head"><span>A4 · 5×5</span><span>1 → 25</span></div>
+                <div class="mini-paper-grid"><span>22</span><span>19</span><span>2</span><span>13</span><span>4</span><span>8</span><span>24</span><span>7</span><span>21</span><span>1</span><span>6</span><span>15</span><span>20</span><span>17</span><span>16</span><span>23</span><span>10</span><span>12</span><span>3</span><span>9</span><span>11</span><span>18</span><span>5</span><span>14</span><span>25</span></div>
+              </div>
+            </div>
+            <a class="text-cta" href="#print" data-open-print>Abrir estudio A4<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a>
+          </article>
+
+          <article class="bento-card bento-privacy" data-reveal-item>
+            <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#shield-check"></use></svg>Privado de origen</span>
+            <h3>Sin cuenta. Sin rastreadores.</h3>
+            <p>La demo web vive únicamente en memoria y descarta la ronda al recargar. Sin cookies ni analítica.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band cases-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Cuándo practicar</p>
+          <h2>Ejercicios breves que caben en cualquier día</h2>
+        </div>
+        <div class="cases-grid" data-stagger>
+          <article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#zap"></use></svg></div>
+            <h3>Antes de trabajar a fondo</h3>
+            <p>Dos rondas tranquilas de 5×5 despejan la dispersión antes de escribir o programar.</p>
+          </article><article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#book-open"></use></svg></div>
+            <h3>Antes de leer o estudiar</h3>
+            <p>Activa la visión periférica antes de textos largos o sesiones de estudio.</p>
+          </article><article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#coffee"></use></svg></div>
+            <h3>Pausa consciente de 2 min</h3>
+            <p>Cambia el scroll automático por una ronda cronometrada que despeja la mente.</p>
+          </article><article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></div>
+            <h3>Aula y escritorio en papel</h3>
+            <p>Imprime hasta 20 tablas A4 distintas para practicar lejos de la pantalla.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band compare-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Demo web vs. App Apple</p>
+          <h2>Prueba aquí gratis. Crea el hábito en la app.</h2>
+        </div>
+        <div class="compare-grid">
+          <article class="compare-card">
+            <div class="compare-head">
+              <h3>Demo web</h3>
+              <p>Gratis en navegador · Solo memoria</p>
+            </div>
+            <ul class="compare-list">
+              <li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Incluido: </span><span>Tablas 3×3 a 6×6 con cronómetro y pausa</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Incluido: </span><span>6 temas serenos e impresión A4 / PDF blanca</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">No incluido: </span><span>Guarda localmente los últimos 100 resultados</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">No incluido: </span><span>Objetivos diarios y progreso de racha</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">No incluido: </span><span>Mejor tiempo registrado por tamaño</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">No incluido: </span><span>Sincronización iCloud opcional (v1.6.0+)</span></li>
+            </ul>
+          </article>
+          <article class="compare-card compare-card-app">
+            <div class="compare-head">
+              <div>
+                <h3>App Schulte Grid</h3>
+                <p>iPhone, iPad y Mac · App Store</p>
+              </div>
+              <img class="compare-icon" width="44" height="44" src="../favicon/apple-touch-icon.png" alt="">
+            </div>
+            <ul class="compare-list">
+              <li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Incluido: </span><span>Tablas 3×3 a 6×6 con cronómetro y pausa</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Incluido: </span><span>6 temas serenos e impresión A4 / PDF blanca</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Incluido: </span><span>Guarda localmente los últimos 100 resultados</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Incluido: </span><span>Objetivos diarios y progreso de racha</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Incluido: </span><span>Mejor tiempo registrado por tamaño</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Incluido: </span><span>Sincronización iCloud opcional (v1.6.0+)</span></li>
+            </ul>
+            <a class="button primary compare-cta" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">Obtener la app</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band seo-content" data-reveal>
+      <div class="container">
+        <div class="overview-card">
+          <h2>Practicar tablas de Schulte online</h2>
+          <p>Una tabla de Schulte es una cuadrícula con números mezclados. Encuéntralos en orden ascendente, del 1 al 9, 16, 25 o 36. Prueba gratis las tablas de 3x3, 4x4, 5x5 y 6x6, el cronómetro y las hojas imprimibles sin registro ni descarga. La web no guarda historial. La app de Apple permite conservar resultados y objetivos diarios.</p>
+        </div>
+        <div id="faq">
+          <h2>Preguntas sobre las tablas de Schulte</h2>
+          <div class="faq-list">
+            <details><summary><span>¿Cómo funciona el cronómetro?</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Empieza al seleccionar correctamente el 1 y termina en el último número. Los errores se cuentan sin avanzar la secuencia. La pausa oculta los números y su duración no se incluye en el resultado. Compara tablas del mismo tamaño.</p></details>
+            <details><summary><span>¿Qué tamaño de tabla debo elegir?</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>3x3 tiene 9 números, 4x4 tiene 16, la tabla clásica 5x5 tiene 25 y 6x6 tiene 36. Empieza con una tabla pequeña y elige una mayor cuando quieras una búsqueda visual más larga.</p></details>
+            <details><summary><span>¿Puedo imprimir gratis o guardar un PDF?</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Sí. En Imprimir, elige el tamaño y entre 1 y 20 hojas. Cada hoja tiene una disposición diferente sobre A4 blanco, incluso en modo oscuro. Elige Guardar como PDF en la ventana de impresión del navegador.</p></details>
+            <details><summary><span>¿La web guarda mis resultados de entrenamiento?</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>No. Solo se muestra la ronda actual en la memoria de la página. Se descarta al iniciar otra, recargar o salir. No se guardan historial, ajustes ni objetivos en el navegador ni en un servidor. Esta versión elimina los datos guardados por la web anterior al abrirse.</p></details>
+            <details><summary><span>¿En qué se diferencian la web y la app?</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>La web sirve para probar e imprimir. La app para iPhone, iPad y Mac guarda localmente los últimos 100 resultados y ofrece objetivos diarios y progreso. Desde la versión 1.6.0 puedes sincronizar con iCloud usando la misma cuenta de Apple y activando la sincronización. Las versiones anteriores solo guardan en el dispositivo; consulta la versión disponible en App Store. Las tablas son un ejercicio, no una evaluación médica ni una garantía de mejorar la inteligencia.</p></details>
+          </div>
+        </div>
+        <nav class="seo-links" aria-label="Preguntas sobre las tablas de Schulte"><a class="guide-card" href="../what-is-schulte-grid" hreflang="en"><span>¿Qué es una tabla de Schulte? (inglés)</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a><a class="guide-card" href="../printable-schulte-grid" hreflang="en"><span>Guía de impresión (inglés)</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a><a class="guide-card" href="../focus-training-app" hreflang="en"><span>App para dispositivos Apple (inglés)</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a></nav>
+      </div>
+    </section>
+
+    <section class="band final-cta-band" data-reveal>
+      <div class="container">
+        <div class="final-cta-card">
+          <img class="final-cta-icon" width="60" height="60" src="../favicon/apple-touch-icon.png" alt="">
+          <h2>¿Listo para un hábito de enfoque más sereno?</h2>
+          <p>Practica al instante en el navegador o lleva tu historial de 100 rondas, objetivos diarios y sincronización iCloud opcional (v1.6.0+) a iPhone, iPad y Mac.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">Descargar en App Store</a>
+            <a class="button secondary" href="#practice" data-focus-board>Volver a la tabla</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
-  <footer class="footer">Cuadrícula de Schulte · <a href="privacy-policy">Privacidad</a> · <a href="support">Soporte</a></footer>
-</div></div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Cuadrícula de Schulte · <a href="help">Ayuda</a> · <a href="support">Soporte</a> · <a href="privacy-policy">Privacidad</a></p>
+    </div>
+  </footer>
+</div>
 <div class="print-output" id="print-output"></div>
 <script>
   document.getElementById('retry-load').addEventListener('click', function () { location.reload(); });

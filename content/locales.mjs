@@ -1,9 +1,15 @@
-export const contentUpdated = '2026-10-24';
+export const contentUpdated = '2026-11-27';
 
 export const experienceLabels = {
   en: 'Browser demo', 'zh-Hans': '网页版体验', 'zh-Hant': '網頁版體驗',
   ja: 'ウェブ版の体験', ko: '웹 체험판', de: 'Web-Demo',
   fr: 'Démo web', es: 'Demo web'
+};
+
+export const availabilityLabels = {
+  en: ['Included', 'Not included'], 'zh-Hans': ['支持', '不支持'], 'zh-Hant': ['支援', '不支援'],
+  ja: ['対応', '非対応'], ko: ['지원', '미지원'], de: ['Enthalten', 'Nicht enthalten'],
+  fr: ['Inclus', 'Non inclus'], es: ['Incluido', 'No incluido']
 };
 
 export const uiKeys = ["practice","history","print","theme","system","paper","mint","sand","night","ink","time","next","mistakes","restart","pause","resume","ready","paused","incorrect","complete","again","daily","bests","app","appText","download","local","size","sheets","refresh","printNow","sheet","name","paperTime","preview","noscript"];
@@ -41,7 +47,97 @@ export const locales = {
       ['How is the website different from the Schulte Grid app?', 'The website offers quick practice and printable worksheets. The iPhone, iPad, and Mac app saves the latest 100 training results locally and provides daily goals and progress. Version 1.6.0 adds iCloud sync when enabled, using the same Apple Account on your devices. Earlier versions save locally only; check the App Store for the available version. Schulte grids are a practice exercise, not a medical assessment or a guarantee of cognitive improvement.']
     ],
     faqHeading: 'Schulte grid questions', links: ['What is a Schulte grid?', 'Printable Schulte tables', 'Schulte Grid for Apple devices'],
-    ui: ["Practice","History","Print","Theme","System","Classic paper","Soft mint","Warm sand","Night focus","Ink","Time","Next","Mistakes","New round","Pause","Resume","Ready","Paused","Next: {n}","Round complete","Practice again","Daily practice","Best by size","Schulte Grid app","Keep your training history, daily goals, and progress in the iPhone, iPad, and Mac app.","Get the app","Demo only. This round is not saved and is discarded when you start again, refresh, or leave.","Grid","Worksheets","New sheets","Print / PDF","Sheet","Name","Time","A4 preview","Enable JavaScript to play and generate worksheets. The guides below remain available."]
+    ui: ["Practice","History","Print","Theme","System","Classic paper","Soft mint","Warm sand","Night focus","Ink","Time","Next","Mistakes","New round","Pause","Resume","Ready","Paused","Next: {n}","Round complete","Practice again","Daily practice","Best by size","Schulte Grid app","Keep your training history, daily goals, and progress in the iPhone, iPad, and Mac app.","Get the app","Demo only. This round is not saved and is discarded when you start again, refresh, or leave.","Grid","Worksheets","New sheets","Print / PDF","Sheet","Name","Time","A4 preview","Enable JavaScript to play and generate worksheets. The guides below remain available."],
+    landing: {
+      navAnchors: ['Features', 'Print', 'FAQ'],
+      hero: {
+        badge: 'iPhone · iPad · Mac & Free Web Demo',
+        headline: 'Quiet focus, one number at a time.',
+        subhead: 'Train visual search with 3×3 to 6×6 Schulte grids, a precision timer, calm tactile themes, and clean A4 print sheets—right in your browser, with no account.',
+        ctaPrimary: 'Start 5×5 demo',
+        ctaSecondary: 'Get the Apple app',
+        pills: ['Free web demo', 'No saved history or tracking', 'White A4 / PDF worksheets']
+      },
+      studio: {
+        demoBtn: 'Scan demo',
+        demoStop: 'Stop demo',
+        demoStatus: 'Guided scan preview — tap 1 anytime to start your round.',
+        fixation: 'Center dot',
+        progress: 'Progress',
+        sheetStack: '{n} unique sheets ready'
+      },
+      steps: {
+        eyebrow: 'How it works',
+        heading: 'Three beats to reset your attention',
+        items: [
+          ['Rest your gaze near the center', 'Keep your eyes steady toward the middle instead of darting tile by tile.'],
+          ['Find 1 to 25 in order', 'Use peripheral vision to spot the next number. Timing starts the moment you tap 1.'],
+          ['Measure, breathe, repeat', 'Compare rounds within the same grid size—or print white A4 sheets for screen-free drills.']
+        ]
+      },
+      bento: {
+        eyebrow: 'Crafted for calm practice',
+        heading: 'Minimal on the surface. Built for a daily rhythm.',
+        native: {
+          tag: 'iPhone · iPad · Mac',
+          title: 'Keep your practice history in the Apple app',
+          desc: 'Save your latest 100 training results locally, track daily practice goals and streaks, and see your best time per grid size. Version 1.6.0 adds optional iCloud sync across devices using the same Apple Account.',
+          syncBadge: 'Optional iCloud sync (v1.6.0+)',
+          mockBest: 'Best (5×5)',
+          mockDaily: 'Daily Practice',
+          mockStreak: '3 day streak',
+          mockTabs: ['Grid', 'History', 'Settings']
+        },
+        themes: {
+          tag: '6 calm themes',
+          title: 'Paper-soft surfaces, day or night',
+          desc: 'Switch between System, Classic paper, Soft mint, Warm sand, Night focus, and Ink right here to feel each atmosphere.'
+        },
+        print: {
+          tag: 'A4 & PDF',
+          title: 'Screen-free worksheets in one click',
+          desc: 'Generate 1 to 20 unique randomized sheets on crisp white A4 paper—even when browsing in dark mode.',
+          action: 'Open Print Studio'
+        },
+        privacy: {
+          tag: 'Private by design',
+          title: 'Zero accounts. Zero tracking.',
+          desc: 'The web demo lives strictly in page memory and discards each round on refresh. No analytics, no cookies, no storage writes.'
+        }
+      },
+      useCases: {
+        eyebrow: 'When to practice',
+        heading: 'Short visual drills that fit real days',
+        items: [
+          ['zap', 'Before deep work', 'Two quiet 5×5 rounds clear mental scatter before writing, designing, or coding.'],
+          ['book-open', 'Reading warm-up', 'Wake up peripheral scanning before dense documents, books, or study blocks.'],
+          ['coffee', 'Mindful 2-minute break', 'Reset your attention with a tactile timed round instead of mindless scrolling.'],
+          ['printer', 'Classroom & desk print', 'Export clean white A4 PDFs with unique layouts for offline or group sessions.']
+        ]
+      },
+      compare: {
+        eyebrow: 'Web demo vs. Apple app',
+        heading: 'Try freely here. Build your habit in the app.',
+        webTitle: 'Web Demo',
+        webNote: 'Free in any browser · Memory only',
+        appTitle: 'Schulte Grid App',
+        appNote: 'iPhone, iPad & Mac · App Store',
+        rows: [
+          ['3×3 to 6×6 timed grids & pause', true, true],
+          ['6 tactile themes & white A4 / PDF print', true, true],
+          ['Saves latest 100 training results locally', false, true],
+          ['Daily practice goals & streak progress', false, true],
+          ['Best result tracked by grid size', false, true],
+          ['Optional iCloud sync across devices (v1.6.0+)', false, true]
+        ]
+      },
+      finalCta: {
+        title: 'Ready for a calmer focus routine?',
+        desc: 'Run a quick round in your browser anytime, or keep your 100-round history, daily goals, and optional v1.6.0+ iCloud sync across iPhone, iPad, and Mac.',
+        primary: 'Get on the App Store',
+        secondary: 'Back to live grid'
+      }
+    }
   },
   'zh-Hans': {
     brand: '舒尔特方格', title: '舒尔特方格在线训练 | 免费计时与 A4 打印练习纸',
@@ -58,7 +154,97 @@ export const locales = {
       ['网页版与舒尔特方格 App 有什么区别？', '网页版用于快速体验和打印练习纸；iPhone、iPad 和 Mac App 在设备本地保存最近 100 次训练成绩，并提供每日目标和进度。App 从 1.6.0 起支持 iCloud 同步，需在各设备登录同一个 Apple 账户并开启同步。此前版本仅在设备本地保存，实际可下载版本以 App Store 为准。舒尔特方格是一种练习工具，不是医疗评估，也不保证提高智力。']
     ],
     faqHeading: '舒尔特方格常见问题', links: ['什么是舒尔特方格？（英文）', '打印练习指南（英文）', 'Apple 设备上的舒尔特方格（英文）'],
-    ui: ["练习","历史记录","打印","主题","跟随系统","经典纸张","柔和薄荷","暖沙","夜间专注","水墨","用时","下一个","错误","新一轮","暂停","继续","准备就绪","已暂停","下一个：{n}","本轮完成","再练一轮","每日练习","各难度最佳","舒尔特方格 App","在 iPhone、iPad 和 Mac App 中保存训练历史，设置每日目标并查看练习进度。","下载 App","仅体验，不保存历史。本轮结果在开始新一轮、刷新或离开页面后丢弃。","方格","练习纸份数","重新生成","打印 / PDF","练习纸","姓名","用时","A4 预览","启用 JavaScript 后即可在线练习和生成练习纸，下方指南仍可阅读。"]
+    ui: ["练习","历史记录","打印","主题","跟随系统","经典纸张","柔和薄荷","暖沙","夜间专注","水墨","用时","下一个","错误","新一轮","暂停","继续","准备就绪","已暂停","下一个：{n}","本轮完成","再练一轮","每日练习","各难度最佳","舒尔特方格 App","在 iPhone、iPad 和 Mac App 中保存训练历史，设置每日目标并查看练习进度。","下载 App","仅体验，不保存历史。本轮结果在开始新一轮、刷新或离开页面后丢弃。","方格","练习纸份数","重新生成","打印 / PDF","练习纸","姓名","用时","A4 预览","启用 JavaScript 后即可在线练习和生成练习纸，下方指南仍可阅读。"],
+    landing: {
+      navAnchors: ['特性', '打印', '常见问题'],
+      hero: {
+        badge: 'iPhone · iPad · Mac 与免费网页体验',
+        headline: '静心扫视，从 1 到 25 的专注练习。',
+        subhead: '在浏览器里直接体验 3×3 至 6×6 舒尔特方格、精准计时、护眼纸感主题与白底 A4 打印练习纸——免登录、无打扰。',
+        ctaPrimary: '立即体验 5×5',
+        ctaSecondary: '下载 Apple App',
+        pills: ['免费网页体验', '不存历史 · 零追踪', '白底 A4 / PDF 打印']
+      },
+      studio: {
+        demoBtn: '扫视演示',
+        demoStop: '停止演示',
+        demoStatus: '扫视路径演示中——随时点击数字 1 即可开始正式计时。',
+        fixation: '中心注视点',
+        progress: '进度',
+        sheetStack: '已就绪 {n} 份不重复练习纸'
+      },
+      steps: {
+        eyebrow: '练习方法',
+        heading: '三步进入沉静的视觉搜索节奏',
+        items: [
+          ['视线轻落中心', '将目光保持在方格中央区域附近，减少逐格大幅度跳转。'],
+          ['用余光按序找 1 → 25', '凭借周边视野按升序点击数字，点中 1 的瞬间自动开始计时。'],
+          ['复盘用时，随时再来', '在同一规格下对比成绩；也可一键生成白底 A4 纸脱离屏幕练习。']
+        ]
+      },
+      bento: {
+        eyebrow: '为专注打磨的细节',
+        heading: '界面克制极简，陪伴每日节律。',
+        native: {
+          tag: 'iPhone · iPad · Mac',
+          title: '在 Apple App 中保留练习历史',
+          desc: '设备本地保存最近 100 次训练成绩，追踪每日练习目标、连续天数与各规格最佳用时。1.6.0 及以上版本支持使用同一 Apple 账户可选开启 iCloud 同步。',
+          syncBadge: '可选 iCloud 同步（v1.6.0+）',
+          mockBest: '最佳 (5×5)',
+          mockDaily: '每日练习',
+          mockStreak: '已连续 3 天',
+          mockTabs: ['方格', '历史', '设置']
+        },
+        themes: {
+          tag: '6 套静谧主题',
+          title: '纸感主题，日夜皆宜',
+          desc: '点击下方任意色卡，立即切换跟随系统、经典纸张、柔和薄荷、暖沙、夜间专注与水墨质感。'
+        },
+        print: {
+          tag: 'A4 打印与 PDF',
+          title: '一键生成离线纸面练习纸',
+          desc: '单次生成 1 至 20 份互不重复的随机方格，即使在深色模式下也始终输出纯白 A4 纸张。',
+          action: '前往打印工坊'
+        },
+        privacy: {
+          tag: '隐私克制',
+          title: '无需账号，零统计追踪',
+          desc: '网页版仅在页面内存中运行当前一轮，刷新即清空，不写入浏览器存储，也不向服务器上传任何数据。'
+        }
+      },
+      useCases: {
+        eyebrow: '适用场景',
+        heading: '融入日常的几分钟专注热身',
+        items: [
+          ['zap', '深度工作前热身', '开始写作、设计或编码前练两轮 5×5，快速收拢分散的注意力。'],
+          ['book-open', '阅读前视野唤醒', '进入长文阅读或学习前进行视觉搜索热身，让目光更平稳。'],
+          ['coffee', '两分钟清醒小憩', '用一轮安静的计时方格替代无意识刷屏，给大脑一次干脆的切换。'],
+          ['printer', '课堂与桌面纸练', '批量打印不重复的 A4 练习纸，适合课堂活动、亲子陪伴与离线桌面训练。']
+        ]
+      },
+      compare: {
+        eyebrow: '网页版与原生 App',
+        heading: '网页即开即练，App 留存长期进步。',
+        webTitle: '网页版体验',
+        webNote: '任意浏览器免费打开 · 仅内存运行',
+        appTitle: '舒尔特方格 App',
+        appNote: 'iPhone、iPad 与 Mac · App Store',
+        rows: [
+          ['3×3 至 6×6 计时训练与暂停', true, true],
+          ['6 套护眼主题与白底 A4 / PDF 打印', true, true],
+          ['本地保存最近 100 次训练成绩', false, true],
+          ['每日练习目标与连续打卡进度', false, true],
+          ['按方格规格追踪历史最佳成绩', false, true],
+          ['跨设备可选 iCloud 同步（v1.6.0+）', false, true]
+        ]
+      },
+      finalCta: {
+        title: '开始更沉静的日常专注练习',
+        desc: '需要快速热身时随时打开网页体验；想要保留 100 次本地历史、每日目标与 v1.6.0+ 可选 iCloud 同步，可在 App Store 获取原生应用。',
+        primary: '前往 App Store 下载',
+        secondary: '回到在线方格'
+      }
+    }
   },
   'zh-Hant': {
     brand: '舒爾特方格', title: '舒爾特方格線上練習 | 免費計時與 A4 列印練習紙',
@@ -75,7 +261,97 @@ export const locales = {
       ['網頁版與舒爾特方格 App 有何不同？', '網頁版用於快速體驗與列印練習紙；iPhone、iPad 和 Mac App 在裝置本機儲存最近 100 次訓練成績，並提供每日目標與進度。App 從 1.6.0 起支援 iCloud 同步，需在各裝置登入同一個 Apple 帳號並開啟同步。先前版本僅在裝置本機儲存，實際可下載版本以 App Store 為準。舒爾特方格是一種練習工具，不是醫療評估，也不保證提高智力。']
     ],
     faqHeading: '舒爾特方格常見問題', links: ['什麼是舒爾特方格？（英文）', '列印練習指南（英文）', 'Apple 裝置上的舒爾特方格（英文）'],
-    ui: ["練習","歷史紀錄","列印","主題","跟隨系統","經典紙張","柔和薄荷","暖沙","夜間專注","水墨","用時","下一個","錯誤","新一輪","暫停","繼續","準備就緒","已暫停","下一個：{n}","本輪完成","再練一輪","每日練習","各難度最佳","舒爾特方格 App","在 iPhone、iPad 和 Mac App 中儲存訓練歷史、設定每日目標並查看練習進度。","下載 App","僅供體驗，不儲存歷史。本輪結果在開始新一輪、重新整理或離開頁面後丟棄。","方格","練習紙份數","重新產生","列印 / PDF","練習紙","姓名","用時","A4 預覽","啟用 JavaScript 後即可線上練習與產生練習紙，下方指南仍可閱讀。"]
+    ui: ["練習","歷史紀錄","列印","主題","跟隨系統","經典紙張","柔和薄荷","暖沙","夜間專注","水墨","用時","下一個","錯誤","新一輪","暫停","繼續","準備就緒","已暫停","下一個：{n}","本輪完成","再練一輪","每日練習","各難度最佳","舒爾特方格 App","在 iPhone、iPad 和 Mac App 中儲存訓練歷史、設定每日目標並查看練習進度。","下載 App","僅供體驗，不儲存歷史。本輪結果在開始新一輪、重新整理或離開頁面後丟棄。","方格","練習紙份數","重新產生","列印 / PDF","練習紙","姓名","用時","A4 預覽","啟用 JavaScript 後即可線上練習與產生練習紙，下方指南仍可閱讀。"],
+    landing: {
+      navAnchors: ['特色', '列印', '常見問題'],
+      hero: {
+        badge: 'iPhone · iPad · Mac 與免費網頁體驗',
+        headline: '靜心掃視，從 1 到 25 的專注練習。',
+        subhead: '在瀏覽器中即時體驗 3×3 至 6×6 舒爾特方格、精準計時、護眼紙感主題與白底 A4 列印練習紙——免註冊、零打擾。',
+        ctaPrimary: '立即體驗 5×5',
+        ctaSecondary: '取得 Apple App',
+        pills: ['免費網頁體驗', '不存紀錄 · 零追蹤', '白底 A4 / PDF 列印']
+      },
+      studio: {
+        demoBtn: '掃視示範',
+        demoStop: '停止示範',
+        demoStatus: '掃視路徑示範中——隨時點擊數字 1 即可開始正式計時。',
+        fixation: '中心注視點',
+        progress: '進度',
+        sheetStack: '已備妥 {n} 份不重複練習紙'
+      },
+      steps: {
+        eyebrow: '練習方式',
+        heading: '三步驟進入沉靜的視覺搜尋節奏',
+        items: [
+          ['視線輕落中心', '將目光穩定停留在方格中央附近，減少逐格大幅移動。'],
+          ['用餘光依序找 1 → 25', '運用周邊視野依序點選數字，點中 1 的瞬間立即開始計時。'],
+          ['檢視用時，隨時再來', '在同一規格內比較成績；也能一鍵列印白底 A4 紙進行離線練習。']
+        ]
+      },
+      bento: {
+        eyebrow: '為專注而打磨',
+        heading: '介面克制純粹，陪伴每日節奏。',
+        native: {
+          tag: 'iPhone · iPad · Mac',
+          title: '在 Apple App 中保留練習紀錄',
+          desc: '裝置本機保留最近 100 次訓練成績，追蹤每日練習目標、連續天數與各規格最佳時間。1.6.0 以上版本支援以同一 Apple 帳號選擇開啟 iCloud 同步。',
+          syncBadge: '可選 iCloud 同步（v1.6.0+）',
+          mockBest: '最佳 (5×5)',
+          mockDaily: '每日練習',
+          mockStreak: '已連續 3 天',
+          mockTabs: ['方格', '紀錄', '設定']
+        },
+        themes: {
+          tag: '6 套沉靜主題',
+          title: '紙感主題，日夜皆宜',
+          desc: '點擊下方任意色卡，立即感受跟隨系統、經典紙張、柔和薄荷、暖沙、夜間專注與水墨質感。'
+        },
+        print: {
+          tag: 'A4 列印與 PDF',
+          title: '一鍵產生離線紙本練習紙',
+          desc: '一次產生 1 至 20 份互不重複的隨機方格，即使在深色模式下也一律輸出純白 A4 紙張。',
+          action: '開啟列印工坊'
+        },
+        privacy: {
+          tag: '重視隱私',
+          title: '免帳號、無追蹤',
+          desc: '網頁版僅在記憶體中運行目前這一輪，重新整理即清空，不寫入瀏覽器儲存空間，也不傳送資料至伺服器。'
+        }
+      },
+      useCases: {
+        eyebrow: '適用情境',
+        heading: '融入日常的幾分鐘專注暖身',
+        items: [
+          ['zap', '深度工作前暖身', '開始寫作、設計或寫程式前練兩輪 5×5，迅速收斂思緒。'],
+          ['book-open', '閱讀前視野展開', '閱讀長文或溫習前先進行視覺搜尋暖身，讓掃視更穩定。'],
+          ['coffee', '兩分鐘清醒小憩', '以一輪安靜計時練習取代無意識滑手機，乾脆重置注意力。'],
+          ['printer', '課堂與書桌紙練', '批次列印不重複的 A4 練習紙，適合課堂教學、親子共練與無螢幕練習。']
+        ]
+      },
+      compare: {
+        eyebrow: '網頁體驗版 vs 原生 App',
+        heading: '網頁即開即練，App 累積長期習慣。',
+        webTitle: '網頁版體驗',
+        webNote: '任意瀏覽器免費使用 · 僅記憶體執行',
+        appTitle: '舒爾特方格 App',
+        appNote: 'iPhone、iPad 與 Mac · App Store',
+        rows: [
+          ['3×3 至 6×6 計時練習與暫停', true, true],
+          ['6 套護眼主題與白底 A4 / PDF 列印', true, true],
+          ['本機儲存最近 100 次訓練成績', false, true],
+          ['每日練習目標與連續天數進度', false, true],
+          ['依方格規格追蹤歷史最佳成績', false, true],
+          ['跨裝置可選 iCloud 同步（v1.6.0+）', false, true]
+        ]
+      },
+      finalCta: {
+        title: '展開更從容的每日專注節奏',
+        desc: '需要短暫暖身時隨時打開網頁體驗；若想保存 100 次本機紀錄、每日目標與 v1.6.0+ 可選 iCloud 同步，歡迎下載原生 App。',
+        primary: '前往 App Store 下載',
+        secondary: '回到線上練習'
+      }
+    }
   },
   ja: {
     brand: 'シュルテグリッド', title: 'シュルテグリッド オンライン | 無料タイマー・印刷シート',
@@ -92,7 +368,97 @@ export const locales = {
       ['ウェブ版とアプリの違いは何ですか？', 'ウェブ版は短い体験と印刷用です。iPhone、iPad、Macアプリは直近100回の成績を端末内に保存し、毎日の目標と進捗を提供します。バージョン1.6.0から、各端末で同じApple Accountを使い同期を有効にするとiCloudで同期できます。旧版は端末内のみ保存します。配信中のバージョンはApp Storeでご確認ください。シュルテ表は練習用で、医療評価や知能向上を保証するものではありません。']
     ],
     faqHeading: 'シュルテグリッドのよくある質問', links: ['シュルテ表とは（英語）', '印刷ガイド（英語）', 'Apple向けアプリ（英語）'],
-    ui: ["練習","履歴","印刷","テーマ","システム","クラシック紙","ソフトミント","暖かい砂","夜の集中","墨","時間","次","ミス","新しい練習","一時停止","再開","準備完了","一時停止中","次：{n}","練習完了","もう一度","毎日の練習","サイズ別ベスト","シュルテグリッド App","iPhone、iPad、Macアプリで履歴を保存し、毎日の目標と進捗を確認できます。","アプリを入手","体験用です。結果は保存せず、新しい練習、再読み込み、ページ移動で破棄されます。","表","シート枚数","作り直す","印刷 / PDF","シート","名前","時間","A4プレビュー","練習とシート作成にはJavaScriptを有効にしてください。下のガイドは読めます。"]
+    ui: ["練習","履歴","印刷","テーマ","システム","クラシック紙","ソフトミント","暖かい砂","夜の集中","墨","時間","次","ミス","新しい練習","一時停止","再開","準備完了","一時停止中","次：{n}","練習完了","もう一度","毎日の練習","サイズ別ベスト","シュルテグリッド App","iPhone、iPad、Macアプリで履歴を保存し、毎日の目標と進捗を確認できます。","アプリを入手","体験用です。結果は保存せず、新しい練習、再読み込み、ページ移動で破棄されます。","表","シート枚数","作り直す","印刷 / PDF","シート","名前","時間","A4プレビュー","練習とシート作成にはJavaScriptを有効にしてください。下のガイドは読めます。"],
+    landing: {
+      navAnchors: ['特長', '印刷', 'FAQ'],
+      hero: {
+        badge: 'iPhone · iPad · Mac ＋ 無料ウェブ体験',
+        headline: '静かな集中を、1から順に。',
+        subhead: '3×3〜6×6のシュルテ表、正確なタイマー、落ち着いた紙の質感テーマ、白いA4印刷シートをアカウント不要ですぐに体験できます。',
+        ctaPrimary: '5×5を体験する',
+        ctaSecondary: 'Appleアプリを入手',
+        pills: ['無料ウェブ体験', '履歴非保存・追跡なし', '白地A4 / PDF印刷']
+      },
+      studio: {
+        demoBtn: '視線デモ',
+        demoStop: 'デモを終了',
+        demoStatus: '視線の流れをプレビュー中。1をタップするとすぐ計測が始まります。',
+        fixation: '中央ガイド点',
+        progress: '進捗',
+        sheetStack: '異なる配置のシート {n}枚'
+      },
+      steps: {
+        eyebrow: '使い方',
+        heading: '3ステップで集中リズムを整える',
+        items: [
+          ['視線を中央付近に保つ', 'マスを一つずつ追うのではなく、表の中央を柔らかく見つめます。'],
+          ['周辺視野で1から25へ', '1を正しく選ぶと計測開始。周囲の数字を昇順に捉えます。'],
+          ['タイムを確認し繰り返す', '同じサイズで比較したり、白いA4用紙に印刷してオフライン練習できます。']
+        ]
+      },
+      bento: {
+        eyebrow: '静かに続けられる設計',
+        heading: '見た目はおだやかに、毎日の習慣へ。',
+        native: {
+          tag: 'iPhone · iPad · Mac',
+          title: 'ネイティブAppleアプリで記録を残す',
+          desc: '直近100回の結果を端末内に保存し、毎日の目標・連続日数・サイズ別ベストを確認。バージョン1.6.0からは同じApple Accountで任意にiCloud同期できます。',
+          syncBadge: '任意のiCloud同期（v1.6.0+）',
+          mockBest: 'ベスト (5×5)',
+          mockDaily: '毎日の練習',
+          mockStreak: '3日連続',
+          mockTabs: ['表', '履歴', '設定']
+        },
+        themes: {
+          tag: '6つの静かなテーマ',
+          title: '昼も夜も使える紙のような質感',
+          desc: 'システム・クラシック紙・ソフトミント・暖かい砂・夜の集中・墨をその場で切り替えて試せます。'
+        },
+        print: {
+          tag: 'A4印刷・PDF',
+          title: '紙の練習シートをワンクリックで',
+          desc: '配置が重複しない1〜20枚のワークシートを作成。ダークモードでも白いA4用紙で出力されます。',
+          action: '印刷タブを開く'
+        },
+        privacy: {
+          tag: 'プライバシー重視',
+          title: '登録不要、トラッキングなし',
+          desc: 'ウェブ版は現在の1回分のみメモリ上で動作し、再読み込みで破棄されます。ストレージ保存や外部送信はありません。'
+        }
+      },
+      useCases: {
+        eyebrow: '活用シーン',
+        heading: '日々の合間に収まる短い視覚練習',
+        items: [
+          ['zap', '作業前のウォームアップ', '執筆や開発の前に5×5を2回行い、思考の散らばりを整えます。'],
+          ['book-open', '読書・学習の前に', '長い文章を読む前に周辺視野を軽くほぐします。'],
+          ['coffee', '2分のリフレッシュ', '無意識なスクロールの代わりに、静かなタイム計測で気分を切り替えます。'],
+          ['printer', '教室や机上の紙練習', '画面を見ずに取り組める白地A4シートをまとめて印刷できます。']
+        ]
+      },
+      compare: {
+        eyebrow: 'ウェブ体験版 vs アプリ',
+        heading: 'ここで気軽に体験。続けるならアプリで。',
+        webTitle: 'ウェブ体験版',
+        webNote: 'ブラウザで無料 · メモリ内のみ',
+        appTitle: 'シュルテグリッド App',
+        appNote: 'iPhone・iPad・Mac · App Store',
+        rows: [
+          ['3×3〜6×6のタイマー練習と一時停止', true, true],
+          ['6種類のテーマと白地A4 / PDF印刷', true, true],
+          ['直近100回の結果を端末内に保存', false, true],
+          ['毎日の目標と連続日数の確認', false, true],
+          ['サイズ別ベストタイムの比較', false, true],
+          ['端末間の任意iCloud同期（v1.6.0+）', false, true]
+        ]
+      },
+      finalCta: {
+        title: '静かな集中習慣を、手元に。',
+        desc: 'ブラウザですぐ試せる手軽さはそのままに、100回分の履歴や毎日の目標、v1.6.0以降の任意iCloud同期をAppleデバイスで利用できます。',
+        primary: 'App Storeで入手',
+        secondary: 'オンライン表に戻る'
+      }
+    }
   },
   ko: {
     brand: '슐트 그리드', title: '슐트 그리드 온라인 | 무료 타이머와 인쇄 연습지',
@@ -109,7 +475,97 @@ export const locales = {
       ['웹사이트와 앱은 어떻게 다른가요?', '웹은 간단한 체험과 인쇄용입니다. iPhone, iPad, Mac 앱은 최근 100회의 결과를 기기에 저장하고 일일 목표와 진행 상황을 제공합니다. 1.6.0부터 같은 Apple 계정으로 로그인하고 동기화를 활성화하면 iCloud를 이용할 수 있습니다. 이전 버전은 기기에만 저장합니다. 배포 버전은 App Store에서 확인하세요. 슐트 표는 연습 도구이며 의료 평가나 지능 향상을 보장하지 않습니다.']
     ],
     faqHeading: '슐트 그리드 자주 묻는 질문', links: ['슐트 표 소개 (영어)', '인쇄 가이드 (영어)', 'Apple 기기용 앱 (영어)'],
-    ui: ["연습","기록","인쇄","테마","시스템","클래식 종이","소프트 민트","따뜻한 모래","야간 집중","먹","시간","다음","실수","새 연습","일시 정지","계속","준비 완료","일시 정지됨","다음: {n}","연습 완료","다시 연습","일일 연습","크기별 최고","슐트 그리드 App","iPhone, iPad, Mac 앱에서 훈련 기록을 저장하고 일일 목표와 진행 상황을 확인하세요.","앱 다운로드","체험용이며 기록을 저장하지 않습니다. 새 연습, 새로고침, 페이지 이동 시 결과를 버립니다.","표","연습지 수","새 연습지","인쇄 / PDF","연습지","이름","시간","A4 미리보기","연습과 연습지 생성에는 JavaScript를 활성화하세요. 아래 가이드는 읽을 수 있습니다."]
+    ui: ["연습","기록","인쇄","테마","시스템","클래식 종이","소프트 민트","따뜻한 모래","야간 집중","먹","시간","다음","실수","새 연습","일시 정지","계속","준비 완료","일시 정지됨","다음: {n}","연습 완료","다시 연습","일일 연습","크기별 최고","슐트 그리드 App","iPhone, iPad, Mac 앱에서 훈련 기록을 저장하고 일일 목표와 진행 상황을 확인하세요.","앱 다운로드","체험용이며 기록을 저장하지 않습니다. 새 연습, 새로고침, 페이지 이동 시 결과를 버립니다.","표","연습지 수","새 연습지","인쇄 / PDF","연습지","이름","시간","A4 미리보기","연습과 연습지 생성에는 JavaScript를 활성화하세요. 아래 가이드는 읽을 수 있습니다."],
+    landing: {
+      navAnchors: ['특징', '인쇄', 'FAQ'],
+      hero: {
+        badge: 'iPhone · iPad · Mac 및 무료 웹 체험',
+        headline: '차분한 집중, 숫자 하나씩 차례대로.',
+        subhead: '가입 없이 브라우저에서 3×3~6×6 슐트 표, 정밀 타이머, 편안한 종이 질감 테마와 흰색 A4 인쇄 연습지를 바로 체험해 보세요.',
+        ctaPrimary: '5×5 바로 시작',
+        ctaSecondary: 'Apple 앱 받기',
+        pills: ['무료 웹 체험', '기록 비저장 · 추적 없음', '흰색 A4 / PDF 인쇄']
+      },
+      studio: {
+        demoBtn: '시선 데모',
+        demoStop: '데모 중지',
+        demoStatus: '시선 이동 미리보기 중 — 언제든 1을 누르면 바로 기록을 시작합니다.',
+        fixation: '중앙 초점 점',
+        progress: '진행률',
+        sheetStack: '서로 다른 연습지 {n}장 준비됨'
+      },
+      steps: {
+        eyebrow: '연습 방법',
+        heading: '집중 흐름을 여는 3단계',
+        items: [
+          ['시선을 중앙에 부드럽게 고정', '칸마다 눈을 크게 옮기기보다 표의 중심 부근을 안정적으로 바라봅니다.'],
+          ['주변 시야로 1부터 25까지', '1을 누르는 순간 타이머가 시작되며 오름차순으로 숫자를 찾습니다.'],
+          ['기록을 확인하고 반복하기', '같은 크기끼리 시간을 비교하거나 흰색 A4로 인쇄해 오프라인 연습을 이어가세요.']
+        ]
+      },
+      bento: {
+        eyebrow: '집중을 위한 디테일',
+        heading: '겉은 단정하게, 매일의 리듬은 단단하게.',
+        native: {
+          tag: 'iPhone · iPad · Mac',
+          title: 'Apple 앱에 연습 기록을 남기세요',
+          desc: '최근 100회의 결과를 기기에 저장하고 일일 목표, 연속 일수, 크기별 최고 기록을 관리합니다. 1.6.0 이상에서는 같은 Apple 계정으로 선택적 iCloud 동기화를 지원합니다.',
+          syncBadge: '선택적 iCloud 동기화 (v1.6.0+)',
+          mockBest: '최고 (5×5)',
+          mockDaily: '일일 연습',
+          mockStreak: '3일 연속',
+          mockTabs: ['표', '기록', '설정']
+        },
+        themes: {
+          tag: '6가지 차분한 테마',
+          title: '낮과 밤 모두 편안한 질감',
+          desc: '시스템, 클래식 종이, 소프트 민트, 따뜻한 모래, 야간 집중, 먹 테마를 클릭해 페이지 분위기를 바로 느껴 보세요.'
+        },
+        print: {
+          tag: 'A4 인쇄 및 PDF',
+          title: '클릭 한 번으로 오프라인 연습지 제작',
+          desc: '배열이 겹치지 않는 1~20장의 연습지를 생성하며 다크 모드에서도 항상 흰색 A4로 출력됩니다.',
+          action: '인쇄 도구 열기'
+        },
+        privacy: {
+          tag: '프라이버시 우선',
+          title: '계정 불필요, 추적 코드 없음',
+          desc: '웹 체험판은 현재 라운드만 메모리에 유지하며 새로고침 시 사라집니다. 저장소 기록이나 분석 스크립트가 없습니다.'
+        }
+      },
+      useCases: {
+        eyebrow: '활용 순간',
+        heading: '하루 틈새에 꼭 맞는 짧은 시각 훈련',
+        items: [
+          ['zap', '깊은 작업 전 워밍업', '글쓰기나 코딩 전 5×5 두 판으로 흩어진 주의력을 정리하세요.'],
+          ['book-open', '독서·학습 전 준비', '긴 문서나 책을 읽기 전 주변 시야 탐색 감각을 깨워 줍니다.'],
+          ['coffee', '2분 집중 리셋', '무의식적 스크롤 대신 짧은 타이머 한 판으로 머리를 환기하세요.'],
+          ['printer', '교실과 책상 인쇄 연습', '중복 없는 A4 시트를 출력해 화면 없는 집중 시간을 만들 수 있습니다.']
+        ]
+      },
+      compare: {
+        eyebrow: '웹 체험판 vs Apple 앱',
+        heading: '여기서는 가볍게 체험, 꾸준한 습관은 앱에서.',
+        webTitle: '웹 체험판',
+        webNote: '모든 브라우저 무료 · 메모리 전용',
+        appTitle: '슐트 그리드 앱',
+        appNote: 'iPhone, iPad 및 Mac · App Store',
+        rows: [
+          ['3×3~6×6 타이머 연습 및 일시 정지', true, true],
+          ['6가지 테마와 흰색 A4 / PDF 인쇄', true, true],
+          ['최근 100회 훈련 결과 로컬 저장', false, true],
+          ['일일 연습 목표 및 연속 기록 추적', false, true],
+          ['표 크기별 최고 시간 비교', false, true],
+          ['기기 간 선택적 iCloud 동기화 (v1.6.0+)', false, true]
+        ]
+      },
+      finalCta: {
+        title: '더 차분한 집중 루틴을 시작해 보세요',
+        desc: '가벼운 워밍업은 웹에서 바로, 100회 기록·일일 목표·v1.6.0+ 선택적 iCloud 동기화는 iPhone, iPad, Mac 앱에서 이어갈 수 있습니다.',
+        primary: 'App Store에서 받기',
+        secondary: '온라인 표로 돌아가기'
+      }
+    }
   },
   de: {
     brand: 'Schulte Grid', title: 'Schulte-Tabelle online | Kostenloser Timer & Druckvorlagen',
@@ -126,7 +582,97 @@ export const locales = {
       ['Wie unterscheidet sich die Website von der App?', 'Die Website dient zum Ausprobieren und Drucken. Die App für iPhone, iPad und Mac speichert die letzten 100 Ergebnisse lokal und bietet Tagesziele und Fortschritt. Ab Version 1.6.0 ist iCloud-Synchronisierung mit demselben Apple Account und aktiviertem Sync verfügbar. Frühere Versionen speichern nur lokal; prüfe die verfügbare Version im App Store. Schulte-Tabellen sind eine Übung, keine medizinische Bewertung oder Garantie für höhere Intelligenz.']
     ],
     faqHeading: 'Fragen zu Schulte-Tabellen', links: ['Was ist eine Schulte-Tabelle? (Englisch)', 'Druckanleitung (Englisch)', 'App für Apple-Geräte (Englisch)'],
-    ui: ["Üben","Verlauf","Drucken","Thema","System","Klassisches Papier","Sanfte Minze","Warmer Sand","Nachtfokus","Tusche","Zeit","Nächste","Fehler","Neue Runde","Pause","Fortsetzen","Bereit","Pausiert","Nächste: {n}","Runde beendet","Erneut üben","Tägliche Übung","Bestzeit je Größe","Schulte Grid App","Behalte Trainingsverlauf, Tagesziele und Fortschritt in der App für iPhone, iPad und Mac.","App laden","Nur zum Ausprobieren. Diese Runde wird nicht gespeichert und bei einer neuen Runde, beim Neuladen oder Verlassen verworfen.","Raster","Übungsblätter","Neue Blätter","Drucken / PDF","Blatt","Name","Zeit","A4-Vorschau","Aktiviere JavaScript zum Üben und Erstellen von Blättern. Die Anleitungen unten bleiben verfügbar."]
+    ui: ["Üben","Verlauf","Drucken","Thema","System","Klassisches Papier","Sanfte Minze","Warmer Sand","Nachtfokus","Tusche","Zeit","Nächste","Fehler","Neue Runde","Pause","Fortsetzen","Bereit","Pausiert","Nächste: {n}","Runde beendet","Erneut üben","Tägliche Übung","Bestzeit je Größe","Schulte Grid App","Behalte Trainingsverlauf, Tagesziele und Fortschritt in der App für iPhone, iPad und Mac.","App laden","Nur zum Ausprobieren. Diese Runde wird nicht gespeichert und bei einer neuen Runde, beim Neuladen oder Verlassen verworfen.","Raster","Übungsblätter","Neue Blätter","Drucken / PDF","Blatt","Name","Zeit","A4-Vorschau","Aktiviere JavaScript zum Üben und Erstellen von Blättern. Die Anleitungen unten bleiben verfügbar."],
+    landing: {
+      navAnchors: ['Funktionen', 'Drucken', 'FAQ'],
+      hero: {
+        badge: 'iPhone · iPad · Mac & kostenlose Web-Demo',
+        headline: 'Ruhiger Fokus, eine Zahl nach der anderen.',
+        subhead: 'Trainiere die visuelle Suche mit 3×3 bis 6×6 Schulte-Tabellen, präzisem Timer, ruhigen Themen und weißen A4-Druckblättern – direkt im Browser, ohne Konto.',
+        ctaPrimary: '5×5-Demo starten',
+        ctaSecondary: 'Apple-App laden',
+        pills: ['Kostenlose Web-Demo', 'Kein Verlauf · Kein Tracking', 'Weißes A4 / PDF']
+      },
+      studio: {
+        demoBtn: 'Blick-Demo',
+        demoStop: 'Demo stoppen',
+        demoStatus: 'Vorschau des Suchpfads — tippe jederzeit auf 1, um zu starten.',
+        fixation: 'Mittelpunkt',
+        progress: 'Fortschritt',
+        sheetStack: '{n} unterschiedliche Blätter bereit'
+      },
+      steps: {
+        eyebrow: 'So funktioniert es',
+        heading: 'Drei Schritte für einen ruhigen Fokus-Reset',
+        items: [
+          ['Blick nahe der Mitte halten', 'Lasse die Augen ruhig im Zentrum statt Feld für Feld zu springen.'],
+          ['1 bis 25 der Reihe nach finden', 'Nutze das periphere Sehen. Der Timer startet exakt mit dem Klick auf 1.'],
+          ['Zeit vergleichen & wiederholen', 'Vergleiche Runden gleicher Größe oder drucke weiße A4-Blätter für Übungen ohne Bildschirm.']
+        ]
+      },
+      bento: {
+        eyebrow: 'Für ruhiges Üben gestaltet',
+        heading: 'Schlicht an der Oberfläche. Stark im Alltag.',
+        native: {
+          tag: 'iPhone · iPad · Mac',
+          title: 'Deinen Trainingsverlauf in der Apple-App behalten',
+          desc: 'Speichere lokal die letzten 100 Ergebnisse, verfolge Tagesziele und Serien sowie Bestzeiten je Rastergröße. Ab Version 1.6.0 mit optionaler iCloud-Synchronisierung über denselben Apple Account.',
+          syncBadge: 'Optionale iCloud-Sync (v1.6.0+)',
+          mockBest: 'Bestzeit (5×5)',
+          mockDaily: 'Tägliche Übung',
+          mockStreak: '3 Tage Serie',
+          mockTabs: ['Raster', 'Verlauf', 'Optionen']
+        },
+        themes: {
+          tag: '6 ruhige Themen',
+          title: 'Papierweiche Oberflächen, Tag und Nacht',
+          desc: 'Wechsle direkt hier zwischen System, Klassischem Papier, Sanfter Minze, Warmem Sand, Nachtfokus und Tusche.'
+        },
+        print: {
+          tag: 'A4 & PDF',
+          title: 'Übungsblätter ohne Bildschirm mit einem Klick',
+          desc: 'Erstelle 1 bis 20 einzigartige Raster auf weißem A4-Papier – selbst wenn du im Dunkelmodus surfst.',
+          action: 'Druckstudio öffnen'
+        },
+        privacy: {
+          tag: 'Privat ab Werk',
+          title: 'Kein Konto. Kein Tracking.',
+          desc: 'Die Web-Demo läuft rein im Arbeitsspeicher der Seite und verwirft jede Runde beim Neuladen. Keine Cookies, keine Analytik.'
+        }
+      },
+      useCases: {
+        eyebrow: 'Wann üben?',
+        heading: 'Kurze visuelle Übungen für echte Tage',
+        items: [
+          ['zap', 'Vor Fokusarbeit', 'Zwei ruhige 5×5-Runden ordnen die Aufmerksamkeit vor Schreiben oder Programmieren.'],
+          ['book-open', 'Vor dem Lesen', 'Aktiviert das periphere Blickfeld vor langen Texten oder Lernblöcken.'],
+          ['coffee', 'Bewusste 2-Minuten-Pause', 'Ersetzt endloses Scrollen durch eine klare, zeitgestoppte Übung.'],
+          ['printer', 'Unterricht & Schreibtisch', 'Drucke bis zu 20 einzigartige A4-Blätter für bildschirmfreie Übungen.']
+        ]
+      },
+      compare: {
+        eyebrow: 'Web-Demo vs. Apple-App',
+        heading: 'Hier frei testen. In der App Gewohnheit aufbauen.',
+        webTitle: 'Web-Demo',
+        webNote: 'Kostenlos im Browser · Nur im Speicher',
+        appTitle: 'Schulte Grid App',
+        appNote: 'iPhone, iPad & Mac · App Store',
+        rows: [
+          ['3×3 bis 6×6 Timer-Raster & Pause', true, true],
+          ['6 ruhige Themen & weißes A4 / PDF', true, true],
+          ['Speichert lokal die letzten 100 Ergebnisse', false, true],
+          ['Tagesziele & Übungsserien', false, true],
+          ['Bestzeit je Rastergröße im Blick', false, true],
+          ['Optionale iCloud-Synchronisierung (v1.6.0+)', false, true]
+        ]
+      },
+      finalCta: {
+        title: 'Bereit für eine ruhigere Fokus-Routine?',
+        desc: 'Übe jederzeit direkt im Browser oder nutze 100-Runden-Verlauf, Tagesziele und optionale iCloud-Sync ab v1.6.0 auf iPhone, iPad und Mac.',
+        primary: 'Im App Store laden',
+        secondary: 'Zurück zum Raster'
+      }
+    }
   },
   fr: {
     brand: 'Grille de Schulte', title: 'Grille de Schulte en ligne | Chronomètre gratuit et fiches',
@@ -143,7 +689,97 @@ export const locales = {
       ['Quelle différence entre le site et l’app ?', 'Le site sert à essayer et à imprimer. L’app iPhone, iPad et Mac conserve les 100 derniers résultats sur l’appareil et propose des objectifs quotidiens et un suivi. La version 1.6.0 ajoute la synchronisation iCloud avec le même compte Apple et la synchronisation activée. Les anciennes versions enregistrent uniquement sur l’appareil ; consultez la version disponible dans l’App Store. Les grilles sont un exercice, pas une évaluation médicale ni une garantie d’amélioration de l’intelligence.']
     ],
     faqHeading: 'Questions sur les grilles de Schulte', links: ['Qu’est-ce qu’une grille de Schulte ? (anglais)', 'Guide d’impression (anglais)', 'App pour appareils Apple (anglais)'],
-    ui: ["Pratiquer","Historique","Imprimer","Thème","Système","Papier classique","Menthe douce","Sable chaud","Focus nocturne","Encre","Temps","Suivant","Erreurs","Nouvelle grille","Pause","Reprendre","Prêt","En pause","Suivant : {n}","Séance terminée","Recommencer","Pratique quotidienne","Records par taille","App Schulte Grid","Conservez votre historique, vos objectifs quotidiens et vos progrès dans l’app iPhone, iPad et Mac.","Obtenir l’app","Démo uniquement. La séance n’est pas enregistrée et disparaît quand vous recommencez, rechargez ou quittez la page.","Grille","Fiches","Nouvelles fiches","Imprimer / PDF","Fiche","Nom","Temps","Aperçu A4","Activez JavaScript pour pratiquer et créer des fiches. Les guides ci-dessous restent disponibles."]
+    ui: ["Pratiquer","Historique","Imprimer","Thème","Système","Papier classique","Menthe douce","Sable chaud","Focus nocturne","Encre","Temps","Suivant","Erreurs","Nouvelle grille","Pause","Reprendre","Prêt","En pause","Suivant : {n}","Séance terminée","Recommencer","Pratique quotidienne","Records par taille","App Schulte Grid","Conservez votre historique, vos objectifs quotidiens et vos progrès dans l’app iPhone, iPad et Mac.","Obtenir l’app","Démo uniquement. La séance n’est pas enregistrée et disparaît quand vous recommencez, rechargez ou quittez la page.","Grille","Fiches","Nouvelles fiches","Imprimer / PDF","Fiche","Nom","Temps","Aperçu A4","Activez JavaScript pour pratiquer et créer des fiches. Les guides ci-dessous restent disponibles."],
+    landing: {
+      navAnchors: ['Atouts', 'Imprimer', 'FAQ'],
+      hero: {
+        badge: 'iPhone · iPad · Mac & démo web gratuite',
+        headline: 'Un focus calme, un nombre après l’autre.',
+        subhead: 'Exercez votre recherche visuelle avec des grilles de 3×3 à 6×6, un chronomètre précis, des thèmes apaisants et des fiches A4 blanches — sans compte.',
+        ctaPrimary: 'Essayer en 5×5',
+        ctaSecondary: 'Obtenir l’app Apple',
+        pills: ['Démo web gratuite', 'Sans historique ni suivi', 'Fiches A4 / PDF blanches']
+      },
+      studio: {
+        demoBtn: 'Démo visuelle',
+        demoStop: 'Arrêter',
+        demoStatus: 'Aperçu du balayage — touchez 1 à tout moment pour lancer votre chrono.',
+        fixation: 'Point central',
+        progress: 'Progression',
+        sheetStack: '{n} fiches uniques prêtes'
+      },
+      steps: {
+        eyebrow: 'Comment pratiquer',
+        heading: 'Trois temps pour recentrer votre attention',
+        items: [
+          ['Fixez doucement le centre', 'Gardez le regard posé au milieu de la grille plutôt que de sauter de case en case.'],
+          ['Repérez de 1 à 25 dans l’ordre', 'Utilisez votre vision périphérique. Le chronomètre démarre dès que vous touchez 1.'],
+          ['Mesurez et recommencez', 'Comparez vos temps sur une même taille, ou imprimez des fiches A4 sans écran.']
+        ]
+      },
+      bento: {
+        eyebrow: 'Pensé pour la sérénité',
+        heading: 'Simple en surface. Conçu pour le quotidien.',
+        native: {
+          tag: 'iPhone · iPad · Mac',
+          title: 'Retrouvez votre historique dans l’app Apple',
+          desc: 'Enregistrez localement vos 100 derniers résultats, suivez vos objectifs quotidiens et records par taille. La version 1.6.0 ajoute la synchronisation iCloud en option sur le même compte Apple.',
+          syncBadge: 'Synchro iCloud en option (v1.6.0+)',
+          mockBest: 'Record (5×5)',
+          mockDaily: 'Pratique du jour',
+          mockStreak: 'Série de 3 j',
+          mockTabs: ['Grille', 'Historique', 'Réglages']
+        },
+        themes: {
+          tag: '6 thèmes apaisants',
+          title: 'Surfaces douces comme le papier, jour et nuit',
+          desc: 'Testez immédiatement Système, Papier classique, Menthe douce, Sable chaud, Focus nocturne et Encre.'
+        },
+        print: {
+          tag: 'A4 & PDF',
+          title: 'Fiches papier sans écran en un clic',
+          desc: 'Générez 1 à 20 fiches toutes différentes sur papier A4 blanc net, même en mode sombre.',
+          action: 'Ouvrir l’atelier A4'
+        },
+        privacy: {
+          tag: 'Respect de la vie privée',
+          title: 'Aucun compte. Aucun traceur.',
+          desc: 'La démo web vit uniquement en mémoire et efface la séance au rechargement. Zéro cookie, zéro analytique.'
+        }
+      },
+      useCases: {
+        eyebrow: 'Quand pratiquer',
+        heading: 'De courts exercices qui s’intègrent à votre journée',
+        items: [
+          ['zap', 'Avant un travail profond', 'Deux grilles 5×5 suffisent pour calmer le bruit mental avant d’écrire ou coder.'],
+          ['book-open', 'Avant une lecture dense', 'Éveille la vision périphérique avant un livre, un cours ou un rapport.'],
+          ['coffee', 'Pause consciente de 2 min', 'Remplacez le défilement infini par une courte séance chronométrée.'],
+          ['printer', 'Classe et bureau sur papier', 'Imprimez jusqu’à 20 grilles A4 uniques pour pratiquer loin des écrans.']
+        ]
+      },
+      compare: {
+        eyebrow: 'Démo web vs App Apple',
+        heading: 'Essayez ici librement. Ancrez votre rythme dans l’app.',
+        webTitle: 'Démo web',
+        webNote: 'Gratuit sur navigateur · Mémoire vive',
+        appTitle: 'App Schulte Grid',
+        appNote: 'iPhone, iPad & Mac · App Store',
+        rows: [
+          ['Grilles 3×3 à 6×6 avec chronomètre et pause', true, true],
+          ['6 thèmes doux et fiches A4 / PDF blanches', true, true],
+          ['Historique local des 100 derniers résultats', false, true],
+          ['Objectifs quotidiens et suivi de série', false, true],
+          ['Meilleur temps enregistré par taille', false, true],
+          ['Synchronisation iCloud en option (v1.6.0+)', false, true]
+        ]
+      },
+      finalCta: {
+        title: 'Prêt pour une routine de focus plus calme ?',
+        desc: 'Pratiquez librement dans votre navigateur, ou retrouvez l’historique de 100 séances, les objectifs quotidiens et iCloud en option (v1.6.0+) sur iPhone, iPad et Mac.',
+        primary: 'Télécharger sur l’App Store',
+        secondary: 'Retour à la grille'
+      }
+    }
   },
   es: {
     brand: 'Cuadrícula de Schulte', title: 'Tabla de Schulte online | Cronómetro gratis e impresión',
@@ -160,6 +796,96 @@ export const locales = {
       ['¿En qué se diferencian la web y la app?', 'La web sirve para probar e imprimir. La app para iPhone, iPad y Mac guarda localmente los últimos 100 resultados y ofrece objetivos diarios y progreso. Desde la versión 1.6.0 puedes sincronizar con iCloud usando la misma cuenta de Apple y activando la sincronización. Las versiones anteriores solo guardan en el dispositivo; consulta la versión disponible en App Store. Las tablas son un ejercicio, no una evaluación médica ni una garantía de mejorar la inteligencia.']
     ],
     faqHeading: 'Preguntas sobre las tablas de Schulte', links: ['¿Qué es una tabla de Schulte? (inglés)', 'Guía de impresión (inglés)', 'App para dispositivos Apple (inglés)'],
-    ui: ["Practicar","Historial","Imprimir","Tema","Sistema","Papel clásico","Menta suave","Arena cálida","Enfoque nocturno","Tinta","Tiempo","Siguiente","Errores","Nueva ronda","Pausar","Continuar","Listo","En pausa","Siguiente: {n}","Ronda terminada","Practicar otra vez","Práctica diaria","Mejores por tamaño","App Schulte Grid","Conserva tu historial, objetivos diarios y progreso en la app para iPhone, iPad y Mac.","Obtener la app","Solo una demo. La ronda no se guarda y se descarta al empezar otra, recargar o salir.","Tabla","Hojas","Nuevas hojas","Imprimir / PDF","Hoja","Nombre","Tiempo","Vista previa A4","Activa JavaScript para practicar y crear hojas. Las guías siguen disponibles."]
+    ui: ["Practicar","Historial","Imprimir","Tema","Sistema","Papel clásico","Menta suave","Arena cálida","Enfoque nocturno","Tinta","Tiempo","Siguiente","Errores","Nueva ronda","Pausar","Continuar","Listo","En pausa","Siguiente: {n}","Ronda terminada","Practicar otra vez","Práctica diaria","Mejores por tamaño","App Schulte Grid","Conserva tu historial, objetivos diarios y progreso en la app para iPhone, iPad y Mac.","Obtener la app","Solo una demo. La ronda no se guarda y se descarta al empezar otra, recargar o salir.","Tabla","Hojas","Nuevas hojas","Imprimir / PDF","Hoja","Nombre","Tiempo","Vista previa A4","Activa JavaScript para practicar y crear hojas. Las guías siguen disponibles."],
+    landing: {
+      navAnchors: ['Funciones', 'Imprimir', 'FAQ'],
+      hero: {
+        badge: 'iPhone · iPad · Mac y demo web gratis',
+        headline: 'Enfoque sereno, un número a la vez.',
+        subhead: 'Entrena la búsqueda visual con tablas de 3×3 a 6×6, cronómetro preciso, temas táctiles y hojas A4 blancas listas para imprimir — sin cuenta.',
+        ctaPrimary: 'Probar tabla 5×5',
+        ctaSecondary: 'Obtener app Apple',
+        pills: ['Demo web gratis', 'Sin historial ni rastreo', 'Hojas A4 / PDF en blanco']
+      },
+      studio: {
+        demoBtn: 'Demo visual',
+        demoStop: 'Detener',
+        demoStatus: 'Vista previa de barrido — toca el 1 en cualquier momento para empezar.',
+        fixation: 'Punto central',
+        progress: 'Progreso',
+        sheetStack: '{n} hojas únicas listas'
+      },
+      steps: {
+        eyebrow: 'Cómo funciona',
+        heading: 'Tres pasos para despejar tu atención',
+        items: [
+          ['Descansa la vista cerca del centro', 'Mantén la mirada estable en la zona central en lugar de saltar celda por celda.'],
+          ['Encuentra del 1 al 25 en orden', 'Usa tu visión periférica. El cronómetro arranca en el instante en que tocas el 1.'],
+          ['Mide tu tiempo y repite', 'Compara rondas del mismo tamaño o imprime hojas A4 blancas para practicar sin pantalla.']
+        ]
+      },
+      bento: {
+        eyebrow: 'Diseñado para la calma',
+        heading: 'Sencillo a primera vista. Hecho para tu ritmo diario.',
+        native: {
+          tag: 'iPhone · iPad · Mac',
+          title: 'Conserva tu historial en la app de Apple',
+          desc: 'Guarda localmente tus últimos 100 resultados, sigue objetivos diarios y rachas y consulta tu mejor tiempo por tamaño. La versión 1.6.0 añade sincronización opcional por iCloud con la misma cuenta de Apple.',
+          syncBadge: 'iCloud opcional (v1.6.0+)',
+          mockBest: 'Mejor (5×5)',
+          mockDaily: 'Práctica diaria',
+          mockStreak: 'Racha de 3 días',
+          mockTabs: ['Tabla', 'Historial', 'Ajustes']
+        },
+        themes: {
+          tag: '6 temas serenos',
+          title: 'Superficies suaves como el papel, de día o de noche',
+          desc: 'Prueba ahora mismo Sistema, Papel clásico, Menta suave, Arena cálida, Enfoque nocturno y Tinta.'
+        },
+        print: {
+          tag: 'A4 y PDF',
+          title: 'Hojas sin pantalla con un clic',
+          desc: 'Genera de 1 a 20 hojas aleatorias diferentes sobre papel A4 blanco, incluso navegando en modo oscuro.',
+          action: 'Abrir estudio A4'
+        },
+        privacy: {
+          tag: 'Privado de origen',
+          title: 'Sin cuenta. Sin rastreadores.',
+          desc: 'La demo web vive únicamente en memoria y descarta la ronda al recargar. Sin cookies ni analítica.'
+        }
+      },
+      useCases: {
+        eyebrow: 'Cuándo practicar',
+        heading: 'Ejercicios breves que caben en cualquier día',
+        items: [
+          ['zap', 'Antes de trabajar a fondo', 'Dos rondas tranquilas de 5×5 despejan la dispersión antes de escribir o programar.'],
+          ['book-open', 'Antes de leer o estudiar', 'Activa la visión periférica antes de textos largos o sesiones de estudio.'],
+          ['coffee', 'Pausa consciente de 2 min', 'Cambia el scroll automático por una ronda cronometrada que despeja la mente.'],
+          ['printer', 'Aula y escritorio en papel', 'Imprime hasta 20 tablas A4 distintas para practicar lejos de la pantalla.']
+        ]
+      },
+      compare: {
+        eyebrow: 'Demo web vs. App Apple',
+        heading: 'Prueba aquí gratis. Crea el hábito en la app.',
+        webTitle: 'Demo web',
+        webNote: 'Gratis en navegador · Solo memoria',
+        appTitle: 'App Schulte Grid',
+        appNote: 'iPhone, iPad y Mac · App Store',
+        rows: [
+          ['Tablas 3×3 a 6×6 con cronómetro y pausa', true, true],
+          ['6 temas serenos e impresión A4 / PDF blanca', true, true],
+          ['Guarda localmente los últimos 100 resultados', false, true],
+          ['Objetivos diarios y progreso de racha', false, true],
+          ['Mejor tiempo registrado por tamaño', false, true],
+          ['Sincronización iCloud opcional (v1.6.0+)', false, true]
+        ]
+      },
+      finalCta: {
+        title: '¿Listo para un hábito de enfoque más sereno?',
+        desc: 'Practica al instante en el navegador o lleva tu historial de 100 rondas, objetivos diarios y sincronización iCloud opcional (v1.6.0+) a iPhone, iPad y Mac.',
+        primary: 'Descargar en App Store',
+        secondary: 'Volver a la tabla'
+      }
+    }
   }
 };

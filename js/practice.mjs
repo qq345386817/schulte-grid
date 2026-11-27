@@ -4,6 +4,10 @@ const t = JSON.parse(document.getElementById('practice-copy').textContent);
 const lang = document.documentElement.lang;
 const $ = id => document.getElementById(id);
 const iconUrl = new URL('../images/lucide.svg', import.meta.url).href;
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const boardStage = $('board').parentElement;
+const demoLayer = $('demo-path-layer');
+const demoLabel = $('demo-scan').querySelector('span');
 // Remove records left by the previous version; this version keeps no saved practice data.
 try {
   localStorage.removeItem('schulte-grid-web-v1');
@@ -15,6 +19,8 @@ let view = 'practice';
 let printSize = data.size;
 let sheets = [];
 let wrongTimer;
+let scanActive = false;
+let scanTimer;
 const numberFormat = new Intl.NumberFormat(lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const timeText = seconds => `${numberFormat.format(seconds)} s`;
 const icon = name => `<svg class="icon" aria-hidden="true"><use href="${iconUrl}#${name}"></use></svg>`;
@@ -23,12 +29,19 @@ function applyTheme() {
   if (data.theme === 'system') delete document.documentElement.dataset.theme;
   else document.documentElement.dataset.theme = data.theme;
   $('theme').value = data.theme;
+  document.querySelectorAll('[data-theme-choice]').forEach(button => {
+    button.setAttribute('aria-pressed', button.dataset.themeChoice === data.theme);
+  });
 }
 
 function updateStats() {
   $('timer').textContent = timeText(round.elapsed / 1000);
   $('next-number').textContent = round.state === 'complete' ? '—' : round.next;
   $('mistakes').textContent = round.mistakes;
+  const count = data.size ** 2;
+  const completed = round.next - 1;
+  $('progress-label').textContent = `${completed} / ${count}`;
+  $('progress-fill').style.width = `${completed * 100 / count}%`;
   $('pause').disabled = round.state === 'ready' || round.state === 'complete';
   const action = round.state === 'paused' ? 'resume' : 'pause';
   $('pause').title = t[action];
@@ -42,6 +55,45 @@ function tick() {
 }
 
 function stopAnimation() { cancelAnimationFrame(animation); }
+
+function stopScanDemo() {
+  if (!scanActive) return;
+  scanActive = false;
+  clearTimeout(scanTimer);
+  demoLayer.replaceChildren();
+  $('demo-scan').setAttribute('aria-pressed', 'false');
+  demoLabel.textContent = t.demoBtn;
+  $('round-message').textContent = t.ready;
+}
+
+function svgElement(name, attributes) {
+  const element = document.createElementNS('http://www.w3.org/2000/svg', name);
+  for (const [key, value] of Object.entries(attributes)) element.setAttribute(key, value);
+  return element;
+}
+
+function startScanDemo() {
+  if (scanActive) { stopScanDemo(); return; }
+  if (round.state !== 'ready' || round.mistakes) restart();
+  const stage = boardStage.getBoundingClientRect();
+  const points = Array.from({ length: reducedMotion.matches ? 3 : 5 }, (_, index) => {
+    const tile = $('board').querySelector(`[data-number="${index + 1}"]`).getBoundingClientRect();
+    return [tile.left - stage.left + tile.width / 2, tile.top - stage.top + tile.height / 2, tile.width * .37];
+  });
+  demoLayer.setAttribute('viewBox', `0 0 ${stage.width} ${stage.height}`);
+  const path = svgElement('polyline', { class: 'scan-path', points: points.map(([x, y]) => `${x},${y}`).join(' '), pathLength: 100 });
+  const markers = points.map(([cx, cy, r], index) => {
+    const mark = svgElement('circle', { class: `scan-mark scan-mark-${index + 1}`, cx, cy, r });
+    mark.style.setProperty('--scan-delay', `${index * 380}ms`);
+    return mark;
+  });
+  demoLayer.replaceChildren(path, ...markers);
+  scanActive = true;
+  $('demo-scan').setAttribute('aria-pressed', 'true');
+  demoLabel.textContent = t.demoStop;
+  $('round-message').textContent = t.demoStatus;
+  if (!reducedMotion.matches) scanTimer = setTimeout(stopScanDemo, 3000);
+}
 
 function renderBoard() {
   const board = $('board');
@@ -64,6 +116,7 @@ function renderBoard() {
 }
 
 function restart() {
+  stopScanDemo();
   stopAnimation();
   clearTimeout(wrongTimer);
   round = new Round(data.size);
@@ -74,6 +127,7 @@ function restart() {
 }
 
 function pause() {
+  stopScanDemo();
   round.pause();
   stopAnimation();
   clearTimeout(wrongTimer);
@@ -93,6 +147,7 @@ function complete() {
 $('board').addEventListener('click', event => {
   const cell = event.target.closest('button[data-number]');
   if (!cell || cell.disabled) return;
+  stopScanDemo();
   clearTimeout(wrongTimer);
   $('board').querySelectorAll('.incorrect').forEach(button => button.classList.remove('incorrect'));
   const priorState = round.state;
@@ -107,6 +162,12 @@ $('board').addEventListener('click', event => {
     $('round-message').textContent = t.incorrect.replace('{n}', round.next);
     if (priorState === 'ready') tick();
     if (result === 'complete') complete();
+    else if (event.detail === 0) {
+      const cells = [...$('board').children];
+      const index = cells.indexOf(cell);
+      const next = [...cells.slice(index + 1), ...cells.slice(0, index)].find(button => !button.disabled);
+      next?.focus({ preventScroll: true });
+    }
   }
   updateStats();
 });
@@ -127,6 +188,7 @@ $('board').addEventListener('keydown', event => {
 function setView(nextView, updateHash = true) {
   if (nextView === 'history') { nextView = 'practice'; updateHash = true; }
   if (!['practice', 'print'].includes(nextView)) return;
+  stopScanDemo();
   if (nextView !== 'practice' && round.state === 'running') pause();
   view = nextView;
   document.querySelectorAll('[data-view]').forEach(button => {
@@ -138,6 +200,16 @@ function setView(nextView, updateHash = true) {
   if (view === 'print') renderSheets();
   if (updateHash) history.replaceState(null, '', `#${view}`);
 }
+
+$('practice').addEventListener('studio:navigate', ({ detail }) => {
+  if (detail.view === 'practice' && detail.size && detail.size !== data.size) {
+    data.size = detail.size;
+    restart();
+  }
+  setView(detail.view);
+  const target = detail.view === 'print' ? $('tab-print') : $('board').querySelector('button:not(:disabled)') || $('tab-practice');
+  target.focus({ preventScroll: true });
+});
 
 document.querySelectorAll('[data-view]').forEach(button => {
   button.addEventListener('click', () => setView(button.dataset.view));
@@ -157,6 +229,7 @@ document.querySelectorAll('[data-view]').forEach(button => {
 
 document.querySelectorAll('[data-size]').forEach(button => button.addEventListener('click', () => {
   const size = Number(button.dataset.size);
+  stopScanDemo();
   if (data.size === size) return;
   data.size = size;
   restart();
@@ -172,7 +245,18 @@ $('pause').addEventListener('click', () => {
     tick();
   }
 });
+$('demo-scan').addEventListener('click', startScanDemo);
+$('fixation-toggle').addEventListener('click', () => {
+  const visible = boardStage.classList.toggle('show-fixation');
+  $('fixation-toggle').setAttribute('aria-pressed', visible);
+});
+window.addEventListener('resize', stopScanDemo, { passive: true });
+reducedMotion.addEventListener('change', stopScanDemo);
 $('theme').addEventListener('change', () => { data.theme = $('theme').value; applyTheme(); });
+document.querySelectorAll('[data-theme-choice]').forEach(button => button.addEventListener('click', () => {
+  data.theme = button.dataset.themeChoice;
+  applyTheme();
+}));
 $('language').addEventListener('change', () => { location.href = $('language').value + location.hash; });
 
 function sheetContent(grid, index) {
@@ -206,6 +290,8 @@ function renderSheets(refresh = false) {
   if (refresh || sheets.length !== count || sheets[0]?.length !== printSize * printSize) sheets = createSheets(printSize, count);
   $('sheet-preview').replaceChildren(sheetContent(sheets[0], 0));
   $('print-output').replaceChildren(...sheets.map(sheetContent));
+  $('sheet-stack').dataset.sheets = count;
+  $('sheet-stack-meta').textContent = t.sheetStack.replace('{n}', count);
   document.querySelectorAll('[data-print-size]').forEach(button => button.setAttribute('aria-pressed', Number(button.dataset.printSize) === printSize));
 }
 
@@ -217,18 +303,21 @@ $('refresh-sheets').addEventListener('click', () => renderSheets(true));
 $('print-now').addEventListener('click', () => { renderSheets(); window.print(); });
 $('quick-print').addEventListener('click', () => { printSize = data.size; setView('print'); $('tab-print').focus(); });
 window.addEventListener('beforeprint', () => {
+  stopScanDemo();
   if (round.state === 'running') pause();
   if (view !== 'print') printSize = data.size;
   renderSheets();
 });
 document.addEventListener('visibilitychange', () => {
-  if (document.hidden && round.state === 'running') pause();
+  if (!document.hidden) return;
+  stopScanDemo();
+  if (round.state === 'running') pause();
 });
 window.addEventListener('hashchange', () => setView(location.hash.slice(1), false));
 window.addEventListener('pagehide', restart);
 applyTheme();
 renderBoard();
+renderSheets();
 $('round-message').textContent = t.ready;
 $('retry-load').hidden = true;
-renderSheets();
 setView(location.hash.slice(1), false);

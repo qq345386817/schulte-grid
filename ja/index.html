@@ -38,69 +38,357 @@
   <link rel="stylesheet" href="../style/practice.css">
   <link rel="modulepreload" href="../js/practice-core.mjs">
   <link rel="modulepreload" href="../js/practice.mjs">
+  <link rel="modulepreload" href="../js/motion.mjs">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://schulte-grid.luopeike.com/#website","name":"Schulte Grid","url":"https://schulte-grid.luopeike.com/","inLanguage":["en","zh-Hans","zh-Hant","ja","ko","de","fr","es"]},{"@type":"WebPage","@id":"https://schulte-grid.luopeike.com/ja/#page","url":"https://schulte-grid.luopeike.com/ja/","name":"シュルテグリッド オンライン | 無料タイマー・印刷シート","description":"3×3〜6×6のシュルテ表を無料体験。タイマーとA4印刷・PDF保存に対応。ウェブ版は履歴を保存しません。継続的な記録と毎日の目標にはアプリを利用できます。","inLanguage":"ja","isPartOf":{"@id":"https://schulte-grid.luopeike.com/#website"},"mainEntity":{"@id":"https://schulte-grid.luopeike.com/ja/#webapp"}},{"@type":"WebApplication","@id":"https://schulte-grid.luopeike.com/ja/#webapp","name":"シュルテグリッド","url":"https://schulte-grid.luopeike.com/ja/","inLanguage":"ja","applicationCategory":"EducationalApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"3×3〜6×6のシュルテ表を無料体験。タイマーとA4印刷・PDF保存に対応。ウェブ版は履歴を保存しません。継続的な記録と毎日の目標にはアプリを利用できます。","featureList":["練習","時間","印刷"]},{"@type":"FAQPage","@id":"https://schulte-grid.luopeike.com/ja/#faq","inLanguage":"ja","mainEntity":[{"@type":"Question","name":"オンラインのタイマーはいつ動きますか？","acceptedAnswer":{"@type":"Answer","text":"1を正しく選ぶと計測が始まり、最後の数字で終了します。間違いは記録されますが、順序は進みません。一時停止中は数字が隠れ、停止時間は成績に含まれません。同じ表サイズで結果を比べましょう。"}},{"@type":"Question","name":"どのサイズのシュルテ表を選べばよいですか？","acceptedAnswer":{"@type":"Answer","text":"3×3は9個、4×4は16個、標準の5×5は25個、6×6は36個の数字があります。小さい表から始め、より長い視覚探索の練習をしたいときに大きい表を選べます。"}},{"@type":"Question","name":"無料で印刷やPDF保存はできますか？","acceptedAnswer":{"@type":"Answer","text":"はい。「印刷」でサイズと1〜20枚を選んで印刷画面を開きます。各シートの配置は異なり、ダークモードでも白いA4用紙になります。ブラウザの印刷画面で「PDFとして保存」を選ぶとPDFを保存できます。"}},{"@type":"Question","name":"ウェブ版は練習結果を保存しますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。現在の1回分だけをページのメモリに表示します。新しい練習、再読み込み、ページ移動で結果は破棄されます。履歴、設定、目標をブラウザやサーバーに保存しません。新版を開くと旧版が保存したウェブの記録を削除します。"}},{"@type":"Question","name":"ウェブ版とアプリの違いは何ですか？","acceptedAnswer":{"@type":"Answer","text":"ウェブ版は短い体験と印刷用です。iPhone、iPad、Macアプリは直近100回の成績を端末内に保存し、毎日の目標と進捗を提供します。バージョン1.6.0から、各端末で同じApple Accountを使い同期を有効にするとiCloudで同期できます。旧版は端末内のみ保存します。配信中のバージョンはApp Storeでご確認ください。シュルテ表は練習用で、医療評価や知能向上を保証するものではありません。"}}]}]}</script>
-  <script id="practice-copy" type="application/json">{"practice":"練習","history":"履歴","print":"印刷","theme":"テーマ","system":"システム","paper":"クラシック紙","mint":"ソフトミント","sand":"暖かい砂","night":"夜の集中","ink":"墨","time":"時間","next":"次","mistakes":"ミス","restart":"新しい練習","pause":"一時停止","resume":"再開","ready":"準備完了","paused":"一時停止中","incorrect":"次：{n}","complete":"練習完了","again":"もう一度","daily":"毎日の練習","bests":"サイズ別ベスト","app":"シュルテグリッド App","appText":"iPhone、iPad、Macアプリで履歴を保存し、毎日の目標と進捗を確認できます。","download":"アプリを入手","local":"体験用です。結果は保存せず、新しい練習、再読み込み、ページ移動で破棄されます。","size":"表","sheets":"シート枚数","refresh":"作り直す","printNow":"印刷 / PDF","sheet":"シート","name":"名前","paperTime":"時間","preview":"A4プレビュー","noscript":"練習とシート作成にはJavaScriptを有効にしてください。下のガイドは読めます。"}</script>
+  <script id="practice-copy" type="application/json">{"practice":"練習","history":"履歴","print":"印刷","theme":"テーマ","system":"システム","paper":"クラシック紙","mint":"ソフトミント","sand":"暖かい砂","night":"夜の集中","ink":"墨","time":"時間","next":"次","mistakes":"ミス","restart":"新しい練習","pause":"一時停止","resume":"再開","ready":"準備完了","paused":"一時停止中","incorrect":"次：{n}","complete":"練習完了","again":"もう一度","daily":"毎日の練習","bests":"サイズ別ベスト","app":"シュルテグリッド App","appText":"iPhone、iPad、Macアプリで履歴を保存し、毎日の目標と進捗を確認できます。","download":"アプリを入手","local":"体験用です。結果は保存せず、新しい練習、再読み込み、ページ移動で破棄されます。","size":"表","sheets":"シート枚数","refresh":"作り直す","printNow":"印刷 / PDF","sheet":"シート","name":"名前","paperTime":"時間","preview":"A4プレビュー","noscript":"練習とシート作成にはJavaScriptを有効にしてください。下のガイドは読めます。","demoBtn":"視線デモ","demoStop":"デモを終了","demoStatus":"視線の流れをプレビュー中。1をタップするとすぐ計測が始まります。","sheetStack":"異なる配置のシート {n}枚"}</script>
   <script type="module" src="../js/practice.mjs"></script>
+  <script type="module" src="../js/motion.mjs"></script>
 </head>
 <body class="practice-page">
-<div class="page"><div class="container">
-  <header class="topbar">
-    <a class="brand" href="./"><img src="../favicon/apple-touch-icon.png" width="38" height="38" alt=""><span>シュルテグリッド</span></a>
-    <nav class="nav" aria-label="練習">
-      <a href="#practice">練習</a><a href="help">ヘルプ</a><a class="secondary-nav" href="support">サポート</a><a class="secondary-nav" href="privacy-policy">プライバシー</a>
-      <a class="download-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="20" height="20" src="../images/app-store-icon.svg" alt="">アプリを入手</a>
+<div class="ambient-backdrop" aria-hidden="true"></div>
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="topbar">
+      <a class="brand" href="./"><img src="../favicon/apple-touch-icon.png" width="34" height="34" alt=""><span>シュルテグリッド</span></a>
+      <nav class="nav" aria-label="練習">
+        <a href="#practice">練習</a>
+        <a class="anchor-nav" href="#features">特長</a>
+        <a class="anchor-nav" href="#print" data-jump-print>印刷</a>
+        <a class="anchor-nav" href="#faq">FAQ</a>
+        <a class="secondary-nav" href="help">ヘルプ</a>
+        <a class="secondary-nav" href="support">サポート</a>
+        <a class="secondary-nav" href="privacy-policy">プライバシー</a>
+        <a class="download-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">アプリを入手</a>
+      </nav>
       <select class="language-switch" id="language" aria-label="言語"><option value=".././">English</option><option value="../zh-Hans/">简体中文</option><option value="../zh-Hant/">繁體中文</option><option value="../ja/" selected>日本語</option><option value="../ko/">한국어</option><option value="../de/">Deutsch</option><option value="../fr/">Français</option><option value="../es/">Español</option></select>
-    </nav>
-  </header>
-  <main>
-    <div class="practice-intro"><h1>シュルテグリッド</h1><p>無料のシュルテ表タイマーと印刷シート。体験用で、練習履歴は保存しません。</p></div>
-    <noscript><p>練習とシート作成にはJavaScriptを有効にしてください。下のガイドは読めます。</p></noscript>
-    <div class="practice-tabs" role="tablist" aria-label="練習">
-      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>練習</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>印刷</button>
     </div>
-    <section id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
-      <div class="workspace">
-        <div class="board-column">
-          <div class="controls"><div class="size-controls" role="group" aria-label="表"><button type="button" data-size="3" aria-pressed="false">3×3</button><button type="button" data-size="4" aria-pressed="false">4×4</button><button type="button" data-size="5" aria-pressed="true">5×5</button><button type="button" data-size="6" aria-pressed="false">6×6</button></div>
-            <label class="control-field"><span>テーマ</span><select id="theme"><option value="system">システム</option><option value="paper">クラシック紙</option><option value="mint">ソフトミント</option><option value="sand">暖かい砂</option><option value="night">夜の集中</option><option value="ink">墨</option></select></label>
-          </div>
-          <div class="round-stats">
-            <dl><dt>時間</dt><dd id="timer">0.00 s</dd></dl>
-            <dl class="next-stat"><dt>次</dt><dd id="next-number">1</dd></dl>
-            <dl><dt>ミス</dt><dd id="mistakes">0</dd></dl>
-          </div>
-          <div id="board" class="game-board" role="group" aria-label="練習" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
-          <div class="round-actions">
-            <button type="button" class="icon-button" id="restart" title="新しい練習" aria-label="新しい練習"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
-            <button type="button" class="icon-button" id="pause" title="一時停止" aria-label="一時停止" disabled><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg></button>
-            <button type="button" class="icon-button" id="quick-print" title="印刷" aria-label="印刷"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></button>
-          </div>
-          <p class="round-message" id="round-message" role="status">練習を読み込み中…</p>
-          <button class="button" type="button" id="retry-load" hidden><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>再読み込み</button>
-          <section class="result" id="result" hidden><h2>練習完了</h2><p id="result-time"></p><p>体験用です。結果は保存せず、新しい練習、再読み込み、ページ移動で破棄されます。</p><button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>もう一度</button><p><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">アプリを入手</a></p></section>
+  </div>
+</header>
+<div class="page">
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-badge"><span class="badge-dot" aria-hidden="true"></span>iPhone · iPad · Mac ＋ 無料ウェブ体験</p>
+        <h1>静かな集中を、1から順に。</h1>
+        <p class="hero-subhead">3×3〜6×6のシュルテ表、正確なタイマー、落ち着いた紙の質感テーマ、白いA4印刷シートをアカウント不要ですぐに体験できます。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#practice" data-focus-board data-start-size="5"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>5×5を体験する</a>
+          <a class="button secondary" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">Appleアプリを入手</a>
         </div>
-        <aside class="practice-side">
-          <section class="app-offer"><img class="app-mark" width="64" height="64" src="../favicon/apple-touch-icon.png" alt=""><p class="platforms">iPhone · iPad · Mac</p><h2>シュルテグリッド App</h2><p>iPhone、iPad、Macアプリで履歴を保存し、毎日の目標と進捗を確認できます。</p><ul class="app-benefits"><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg><span>履歴</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#calendar-days"></use></svg><span>毎日の練習</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#chart-no-axes-combined"></use></svg><span>サイズ別ベスト</span></li></ul><a class="button primary" href="https://apps.apple.com/app/id6547865783"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#download"></use></svg>アプリを入手</a></section>
-          <div class="experience-note"><h3>ウェブ版の体験</h3><p>体験用です。結果は保存せず、新しい練習、再読み込み、ページ移動で破棄されます。</p></div>
-        </aside>
+        <ul class="hero-pills" aria-label="ウェブ版の体験">
+          <li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#sparkles"></use></svg><span>無料ウェブ体験</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#shield-check"></use></svg><span>履歴非保存・追跡なし</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg><span>白地A4 / PDF印刷</span></li>
+        </ul>
       </div>
     </section>
-    <section id="view-print" role="tabpanel" aria-labelledby="tab-print" class="print-view" tabindex="0" hidden>
-      <div class="print-controls"><div class="size-controls" role="group" aria-label="表"><button type="button" data-print-size="3" aria-pressed="false">3×3</button><button type="button" data-print-size="4" aria-pressed="false">4×4</button><button type="button" data-print-size="5" aria-pressed="true">5×5</button><button type="button" data-print-size="6" aria-pressed="false">6×6</button></div><label class="control-field">シート枚数<input id="sheet-count" type="number" min="1" max="20" step="1" value="1"></label><button class="icon-button" type="button" id="refresh-sheets" title="作り直す" aria-label="作り直す"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button><button class="button primary" type="button" id="print-now"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>印刷 / PDF</button></div>
-      <div class="sheet-preview" id="sheet-preview" aria-label="A4プレビュー"></div>
+
+    <section class="studio-band" id="practice" aria-label="練習">
+      <div class="container">
+        <noscript><p class="noscript-banner">練習とシート作成にはJavaScriptを有効にしてください。下のガイドは読めます。</p></noscript>
+        <div class="studio-shell" id="print">
+          <div class="studio-bar">
+            <div class="studio-bar-left">
+              <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="practice-tabs" role="tablist" aria-label="練習">
+                <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg><span>練習</span></button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg><span>印刷</span></button>
+              </div>
+            </div>
+            <div class="studio-bar-right">
+              <div class="theme-swatches" role="group" aria-label="テーマ"><button type="button" class="theme-chip" data-theme-choice="system" data-theme-group="studio" aria-pressed="true" title="システム"><span class="theme-dot theme-dot-system" aria-hidden="true"></span><span>システム</span></button><button type="button" class="theme-chip" data-theme-choice="paper" data-theme-group="studio" aria-pressed="false" title="クラシック紙"><span class="theme-dot theme-dot-paper" aria-hidden="true"></span><span>クラシック紙</span></button><button type="button" class="theme-chip" data-theme-choice="mint" data-theme-group="studio" aria-pressed="false" title="ソフトミント"><span class="theme-dot theme-dot-mint" aria-hidden="true"></span><span>ソフトミント</span></button><button type="button" class="theme-chip" data-theme-choice="sand" data-theme-group="studio" aria-pressed="false" title="暖かい砂"><span class="theme-dot theme-dot-sand" aria-hidden="true"></span><span>暖かい砂</span></button><button type="button" class="theme-chip" data-theme-choice="night" data-theme-group="studio" aria-pressed="false" title="夜の集中"><span class="theme-dot theme-dot-night" aria-hidden="true"></span><span>夜の集中</span></button><button type="button" class="theme-chip" data-theme-choice="ink" data-theme-group="studio" aria-pressed="false" title="墨"><span class="theme-dot theme-dot-ink" aria-hidden="true"></span><span>墨</span></button></div>
+              <label class="control-field theme-select-field"><span>テーマ</span><select id="theme"><option value="system">システム</option><option value="paper">クラシック紙</option><option value="mint">ソフトミント</option><option value="sand">暖かい砂</option><option value="night">夜の集中</option><option value="ink">墨</option></select></label>
+            </div>
+          </div>
+
+          <div id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
+            <div class="workspace">
+              <div class="board-column">
+                <div class="controls">
+                  <div class="size-controls" role="group" aria-label="表"><button type="button" data-size="3" aria-pressed="false">3×3</button><button type="button" data-size="4" aria-pressed="false">4×4</button><button type="button" data-size="5" aria-pressed="true">5×5</button><button type="button" data-size="6" aria-pressed="false">6×6</button></div>
+                  <div class="board-toggles">
+                    <button type="button" class="pill-toggle" id="demo-scan" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#sparkles"></use></svg><span>視線デモ</span></button>
+                    <button type="button" class="pill-toggle" id="fixation-toggle" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#crosshair"></use></svg><span>中央ガイド点</span></button>
+                  </div>
+                </div>
+                <div class="board-stage">
+                  <div id="board" class="game-board" role="group" aria-label="練習" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
+                  <div class="fixation-dot" aria-hidden="true"></div>
+                  <svg class="demo-path-layer" id="demo-path-layer" aria-hidden="true"></svg>
+                </div>
+                <div class="board-footer">
+                  <div class="round-actions">
+                    <button type="button" class="icon-button" id="restart" title="新しい練習" aria-label="新しい練習"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
+                    <button type="button" class="icon-button" id="pause" title="一時停止" aria-label="一時停止" disabled><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg></button>
+                    <button type="button" class="icon-button" id="quick-print" title="印刷" aria-label="印刷"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></button>
+                  </div>
+                  <p class="round-message" id="round-message" role="status">練習を読み込み中…</p>
+                </div>
+                <button class="button" type="button" id="retry-load" hidden><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>再読み込み</button>
+              </div>
+
+              <aside class="practice-side">
+                <div class="telemetry-panel">
+                  <div class="round-stats">
+                    <dl class="stat-time"><dt>時間</dt><dd id="timer">0.00 s</dd></dl>
+                    <dl class="next-stat"><dt>次</dt><dd id="next-number">1</dd></dl>
+                    <dl><dt>ミス</dt><dd id="mistakes">0</dd></dl>
+                  </div>
+                  <div class="progress-meta">
+                    <span>進捗</span>
+                    <span id="progress-label">0 / 25</span>
+                  </div>
+                  <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+                </div>
+
+                <section class="result" id="result" hidden>
+                  <p class="result-badge"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#circle-check"></use></svg><span>練習完了</span></p>
+                  <p class="result-metric" id="result-time"></p>
+                  <p class="result-note">体験用です。結果は保存せず、新しい練習、再読み込み、ページ移動で破棄されます。</p>
+                  <div class="result-actions">
+                    <button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>もう一度</button>
+                    <a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">アプリを入手</a>
+                  </div>
+                </section>
+
+                <section class="app-offer">
+                  <div class="app-offer-head">
+                    <img class="app-mark" width="52" height="52" src="../favicon/apple-touch-icon.png" alt="">
+                    <div>
+                      <p class="platforms">iPhone · iPad · Mac</p>
+                      <h2>シュルテグリッド App</h2>
+                    </div>
+                  </div>
+                  <p>iPhone、iPad、Macアプリで履歴を保存し、毎日の目標と進捗を確認できます。</p>
+                  <ul class="app-benefits"><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg><span>履歴</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#calendar-days"></use></svg><span>毎日の練習</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#chart-no-axes-combined"></use></svg><span>サイズ別ベスト</span></li></ul>
+                  <a class="button primary app-offer-cta" href="https://apps.apple.com/app/id6547865783"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#download"></use></svg>アプリを入手</a>
+                </section>
+
+                <div class="experience-note">
+                  <h3><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#shield-check"></use></svg><span>ウェブ版の体験</span></h3>
+                  <p>体験用です。結果は保存せず、新しい練習、再読み込み、ページ移動で破棄されます。</p>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div id="view-print" role="tabpanel" aria-labelledby="tab-print" class="print-view" tabindex="0" hidden>
+            <div class="print-toolbar">
+              <div class="print-controls">
+                <div class="size-controls" role="group" aria-label="表"><button type="button" data-print-size="3" aria-pressed="false">3×3</button><button type="button" data-print-size="4" aria-pressed="false">4×4</button><button type="button" data-print-size="5" aria-pressed="true">5×5</button><button type="button" data-print-size="6" aria-pressed="false">6×6</button></div>
+                <label class="control-field"><span>シート枚数</span><input id="sheet-count" type="number" min="1" max="20" step="1" value="1"></label>
+                <button class="icon-button" type="button" id="refresh-sheets" title="作り直す" aria-label="作り直す"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
+                <button class="button primary" type="button" id="print-now"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>印刷 / PDF</button>
+              </div>
+              <p class="sheet-stack-meta" id="sheet-stack-meta" role="status"></p>
+            </div>
+            <div class="print-desk">
+              <div class="sheet-stack" id="sheet-stack" data-sheets="1">
+                <div class="sheet-preview" id="sheet-preview" aria-label="A4プレビュー"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="local-note" id="local-note" role="status">体験用です。結果は保存せず、新しい練習、再読み込み、ページ移動で破棄されます。</p>
+      </div>
     </section>
-    <p class="local-note" id="local-note" role="status">体験用です。結果は保存せず、新しい練習、再読み込み、ページ移動で破棄されます。</p>
-    <section class="seo-content"><h2>オンラインでシュルテグリッドを練習</h2><p>シュルテグリッドは、数字をランダムに配置した正方形の表です。1から9、16、25、36まで順に探します。3×3、4×4、5×5、6×6の表、タイマー、印刷シートを登録やダウンロードなしで無料体験できます。ウェブ版は履歴を保存しません。継続的な記録と毎日の目標にはAppleアプリを利用できます。</p>
-      <div id="faq"><h2>シュルテグリッドのよくある質問</h2><details><summary>オンラインのタイマーはいつ動きますか？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>1を正しく選ぶと計測が始まり、最後の数字で終了します。間違いは記録されますが、順序は進みません。一時停止中は数字が隠れ、停止時間は成績に含まれません。同じ表サイズで結果を比べましょう。</p></details>
-      <details><summary>どのサイズのシュルテ表を選べばよいですか？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>3×3は9個、4×4は16個、標準の5×5は25個、6×6は36個の数字があります。小さい表から始め、より長い視覚探索の練習をしたいときに大きい表を選べます。</p></details>
-      <details><summary>無料で印刷やPDF保存はできますか？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>はい。「印刷」でサイズと1〜20枚を選んで印刷画面を開きます。各シートの配置は異なり、ダークモードでも白いA4用紙になります。ブラウザの印刷画面で「PDFとして保存」を選ぶとPDFを保存できます。</p></details>
-      <details><summary>ウェブ版は練習結果を保存しますか？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>いいえ。現在の1回分だけをページのメモリに表示します。新しい練習、再読み込み、ページ移動で結果は破棄されます。履歴、設定、目標をブラウザやサーバーに保存しません。新版を開くと旧版が保存したウェブの記録を削除します。</p></details>
-      <details><summary>ウェブ版とアプリの違いは何ですか？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>ウェブ版は短い体験と印刷用です。iPhone、iPad、Macアプリは直近100回の成績を端末内に保存し、毎日の目標と進捗を提供します。バージョン1.6.0から、各端末で同じApple Accountを使い同期を有効にするとiCloudで同期できます。旧版は端末内のみ保存します。配信中のバージョンはApp Storeでご確認ください。シュルテ表は練習用で、医療評価や知能向上を保証するものではありません。</p></details></div>
-      <nav class="seo-links" aria-label="シュルテグリッドのよくある質問"><a href="../what-is-schulte-grid" hreflang="en">シュルテ表とは（英語）</a><a href="../printable-schulte-grid" hreflang="en">印刷ガイド（英語）</a><a href="../focus-training-app" hreflang="en">Apple向けアプリ（英語）</a></nav>
+
+    <section class="band steps-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">使い方</p>
+          <h2>3ステップで集中リズムを整える</h2>
+        </div>
+        <ol class="steps-grid" data-stagger>
+          <li class="step-card" data-reveal-item>
+            <div class="step-top"><span class="step-num">01</span><div class="step-visual step-visual-center" aria-hidden="true"><span></span><span></span><span></span><span></span><span class="is-core"></span><span></span><span></span><span></span><span></span></div></div>
+            <h3>視線を中央付近に保つ</h3>
+            <p>マスを一つずつ追うのではなく、表の中央を柔らかく見つめます。</p>
+          </li><li class="step-card" data-reveal-item>
+            <div class="step-top"><span class="step-num">02</span><div class="step-visual step-visual-scan" aria-hidden="true"><span>8</span><span class="is-one">1</span><span>5</span><span class="is-two">2</span><span class="is-three">3</span><span>7</span><span>4</span><span>9</span><span>6</span></div></div>
+            <h3>周辺視野で1から25へ</h3>
+            <p>1を正しく選ぶと計測開始。周囲の数字を昇順に捉えます。</p>
+          </li><li class="step-card" data-reveal-item>
+            <div class="step-top"><span class="step-num">03</span><div class="step-visual step-visual-time" aria-hidden="true"><span class="time-pill">18.42 s</span><span class="bar-track"><span class="bar-fill"></span></span></div></div>
+            <h3>タイムを確認し繰り返す</h3>
+            <p>同じサイズで比較したり、白いA4用紙に印刷してオフライン練習できます。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band bento-section" id="features" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">静かに続けられる設計</p>
+          <h2>見た目はおだやかに、毎日の習慣へ。</h2>
+        </div>
+        <div class="bento-grid" data-stagger>
+          <article class="bento-card bento-native" data-reveal-item>
+            <div class="bento-copy">
+              <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#smartphone"></use></svg>iPhone · iPad · Mac</span>
+              <h3>ネイティブAppleアプリで記録を残す</h3>
+              <p>直近100回の結果を端末内に保存し、毎日の目標・連続日数・サイズ別ベストを確認。バージョン1.6.0からは同じApple Accountで任意にiCloud同期できます。</p>
+              <div class="bento-native-footer">
+                <span class="sync-pill"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#cloud"></use></svg>任意のiCloud同期（v1.6.0+）</span>
+                <a class="text-cta" href="https://apps.apple.com/app/id6547865783">アプリを入手<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a>
+              </div>
+            </div>
+            <div class="device-showcase" aria-hidden="true">
+              <div class="mock-mac">
+                <div class="mock-mac-bar"><span></span><span></span><span></span><strong>シュルテグリッド</strong></div>
+                <div class="mock-mac-body">
+                  <div class="mock-mac-grid"><span>14</span><span>3</span><span>11</span><span>8</span><span>6</span><span>13</span><span>2</span><span>16</span><span>9</span><span class="is-done">1</span><span>15</span><span>5</span><span>12</span><span>7</span><span>4</span><span>10</span></div>
+                </div>
+              </div>
+              <div class="mock-iphone">
+                <div class="mock-iphone-notch"></div>
+                <div class="mock-iphone-head">
+                  <div><small>時間</small><strong>13.88s</strong></div>
+                  <div class="mock-iphone-right"><span><small>次</small><b>2</b></span><span><small>ベスト (5×5)</small><b>18.42s</b></span></div>
+                </div>
+                <div class="mock-iphone-seg"><span>3×3</span><span>4×4</span><span class="is-active">5×5</span><span>6×6</span></div>
+                <div class="mock-iphone-grid"><span>22</span><span>19</span><span>2</span><span>13</span><span>4</span><span>8</span><span>24</span><span>7</span><span>21</span><span class="is-done">1</span><span>6</span><span>15</span><span>20</span><span>17</span><span>16</span><span>23</span><span>10</span><span>12</span><span>3</span><span>9</span><span>11</span><span>18</span><span>5</span><span>14</span><span>25</span></div>
+                <div class="mock-iphone-actions"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></div>
+                <div class="mock-iphone-daily">
+                  <div><strong>毎日の練習</strong><span>3日連続</span></div>
+                  <div class="mock-bar"><span></span></div>
+                </div>
+                <div class="mock-iphone-tabs">
+                  <span class="is-active"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>表</span><span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg>履歴</span><span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#palette"></use></svg>設定</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="bento-card bento-themes" data-reveal-item>
+            <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#palette"></use></svg>6つの静かなテーマ</span>
+            <h3>昼も夜も使える紙のような質感</h3>
+            <p>システム・クラシック紙・ソフトミント・暖かい砂・夜の集中・墨をその場で切り替えて試せます。</p>
+            <div class="theme-preview-grid" role="group" aria-label="テーマ"><button type="button" class="theme-preview-card theme-preview-system" data-theme-choice="system" data-theme-group="bento" aria-pressed="true"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">システム</span></button><button type="button" class="theme-preview-card theme-preview-paper" data-theme-choice="paper" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">クラシック紙</span></button><button type="button" class="theme-preview-card theme-preview-mint" data-theme-choice="mint" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">ソフトミント</span></button><button type="button" class="theme-preview-card theme-preview-sand" data-theme-choice="sand" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">暖かい砂</span></button><button type="button" class="theme-preview-card theme-preview-night" data-theme-choice="night" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">夜の集中</span></button><button type="button" class="theme-preview-card theme-preview-ink" data-theme-choice="ink" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">墨</span></button></div>
+          </article>
+
+          <article class="bento-card bento-print" data-reveal-item>
+            <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>A4印刷・PDF</span>
+            <h3>紙の練習シートをワンクリックで</h3>
+            <p>配置が重複しない1〜20枚のワークシートを作成。ダークモードでも白いA4用紙で出力されます。</p>
+            <div class="mini-paper-stack" aria-hidden="true">
+              <div class="mini-paper">
+                <div class="mini-paper-head"><span>A4 · 5×5</span><span>1 → 25</span></div>
+                <div class="mini-paper-grid"><span>22</span><span>19</span><span>2</span><span>13</span><span>4</span><span>8</span><span>24</span><span>7</span><span>21</span><span>1</span><span>6</span><span>15</span><span>20</span><span>17</span><span>16</span><span>23</span><span>10</span><span>12</span><span>3</span><span>9</span><span>11</span><span>18</span><span>5</span><span>14</span><span>25</span></div>
+              </div>
+            </div>
+            <a class="text-cta" href="#print" data-open-print>印刷タブを開く<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a>
+          </article>
+
+          <article class="bento-card bento-privacy" data-reveal-item>
+            <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#shield-check"></use></svg>プライバシー重視</span>
+            <h3>登録不要、トラッキングなし</h3>
+            <p>ウェブ版は現在の1回分のみメモリ上で動作し、再読み込みで破棄されます。ストレージ保存や外部送信はありません。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band cases-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">活用シーン</p>
+          <h2>日々の合間に収まる短い視覚練習</h2>
+        </div>
+        <div class="cases-grid" data-stagger>
+          <article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#zap"></use></svg></div>
+            <h3>作業前のウォームアップ</h3>
+            <p>執筆や開発の前に5×5を2回行い、思考の散らばりを整えます。</p>
+          </article><article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#book-open"></use></svg></div>
+            <h3>読書・学習の前に</h3>
+            <p>長い文章を読む前に周辺視野を軽くほぐします。</p>
+          </article><article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#coffee"></use></svg></div>
+            <h3>2分のリフレッシュ</h3>
+            <p>無意識なスクロールの代わりに、静かなタイム計測で気分を切り替えます。</p>
+          </article><article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></div>
+            <h3>教室や机上の紙練習</h3>
+            <p>画面を見ずに取り組める白地A4シートをまとめて印刷できます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band compare-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">ウェブ体験版 vs アプリ</p>
+          <h2>ここで気軽に体験。続けるならアプリで。</h2>
+        </div>
+        <div class="compare-grid">
+          <article class="compare-card">
+            <div class="compare-head">
+              <h3>ウェブ体験版</h3>
+              <p>ブラウザで無料 · メモリ内のみ</p>
+            </div>
+            <ul class="compare-list">
+              <li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">対応: </span><span>3×3〜6×6のタイマー練習と一時停止</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">対応: </span><span>6種類のテーマと白地A4 / PDF印刷</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">非対応: </span><span>直近100回の結果を端末内に保存</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">非対応: </span><span>毎日の目標と連続日数の確認</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">非対応: </span><span>サイズ別ベストタイムの比較</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">非対応: </span><span>端末間の任意iCloud同期（v1.6.0+）</span></li>
+            </ul>
+          </article>
+          <article class="compare-card compare-card-app">
+            <div class="compare-head">
+              <div>
+                <h3>シュルテグリッド App</h3>
+                <p>iPhone・iPad・Mac · App Store</p>
+              </div>
+              <img class="compare-icon" width="44" height="44" src="../favicon/apple-touch-icon.png" alt="">
+            </div>
+            <ul class="compare-list">
+              <li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">対応: </span><span>3×3〜6×6のタイマー練習と一時停止</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">対応: </span><span>6種類のテーマと白地A4 / PDF印刷</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">対応: </span><span>直近100回の結果を端末内に保存</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">対応: </span><span>毎日の目標と連続日数の確認</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">対応: </span><span>サイズ別ベストタイムの比較</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">対応: </span><span>端末間の任意iCloud同期（v1.6.0+）</span></li>
+            </ul>
+            <a class="button primary compare-cta" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">アプリを入手</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band seo-content" data-reveal>
+      <div class="container">
+        <div class="overview-card">
+          <h2>オンラインでシュルテグリッドを練習</h2>
+          <p>シュルテグリッドは、数字をランダムに配置した正方形の表です。1から9、16、25、36まで順に探します。3×3、4×4、5×5、6×6の表、タイマー、印刷シートを登録やダウンロードなしで無料体験できます。ウェブ版は履歴を保存しません。継続的な記録と毎日の目標にはAppleアプリを利用できます。</p>
+        </div>
+        <div id="faq">
+          <h2>シュルテグリッドのよくある質問</h2>
+          <div class="faq-list">
+            <details><summary><span>オンラインのタイマーはいつ動きますか？</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>1を正しく選ぶと計測が始まり、最後の数字で終了します。間違いは記録されますが、順序は進みません。一時停止中は数字が隠れ、停止時間は成績に含まれません。同じ表サイズで結果を比べましょう。</p></details>
+            <details><summary><span>どのサイズのシュルテ表を選べばよいですか？</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>3×3は9個、4×4は16個、標準の5×5は25個、6×6は36個の数字があります。小さい表から始め、より長い視覚探索の練習をしたいときに大きい表を選べます。</p></details>
+            <details><summary><span>無料で印刷やPDF保存はできますか？</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>はい。「印刷」でサイズと1〜20枚を選んで印刷画面を開きます。各シートの配置は異なり、ダークモードでも白いA4用紙になります。ブラウザの印刷画面で「PDFとして保存」を選ぶとPDFを保存できます。</p></details>
+            <details><summary><span>ウェブ版は練習結果を保存しますか？</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>いいえ。現在の1回分だけをページのメモリに表示します。新しい練習、再読み込み、ページ移動で結果は破棄されます。履歴、設定、目標をブラウザやサーバーに保存しません。新版を開くと旧版が保存したウェブの記録を削除します。</p></details>
+            <details><summary><span>ウェブ版とアプリの違いは何ですか？</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>ウェブ版は短い体験と印刷用です。iPhone、iPad、Macアプリは直近100回の成績を端末内に保存し、毎日の目標と進捗を提供します。バージョン1.6.0から、各端末で同じApple Accountを使い同期を有効にするとiCloudで同期できます。旧版は端末内のみ保存します。配信中のバージョンはApp Storeでご確認ください。シュルテ表は練習用で、医療評価や知能向上を保証するものではありません。</p></details>
+          </div>
+        </div>
+        <nav class="seo-links" aria-label="シュルテグリッドのよくある質問"><a class="guide-card" href="../what-is-schulte-grid" hreflang="en"><span>シュルテ表とは（英語）</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a><a class="guide-card" href="../printable-schulte-grid" hreflang="en"><span>印刷ガイド（英語）</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a><a class="guide-card" href="../focus-training-app" hreflang="en"><span>Apple向けアプリ（英語）</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a></nav>
+      </div>
+    </section>
+
+    <section class="band final-cta-band" data-reveal>
+      <div class="container">
+        <div class="final-cta-card">
+          <img class="final-cta-icon" width="60" height="60" src="../favicon/apple-touch-icon.png" alt="">
+          <h2>静かな集中習慣を、手元に。</h2>
+          <p>ブラウザですぐ試せる手軽さはそのままに、100回分の履歴や毎日の目標、v1.6.0以降の任意iCloud同期をAppleデバイスで利用できます。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">App Storeで入手</a>
+            <a class="button secondary" href="#practice" data-focus-board>オンライン表に戻る</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
-  <footer class="footer">シュルテグリッド · <a href="privacy-policy">プライバシー</a> · <a href="support">サポート</a></footer>
-</div></div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>シュルテグリッド · <a href="help">ヘルプ</a> · <a href="support">サポート</a> · <a href="privacy-policy">プライバシー</a></p>
+    </div>
+  </footer>
+</div>
 <div class="print-output" id="print-output"></div>
 <script>
   document.getElementById('retry-load').addEventListener('click', function () { location.reload(); });

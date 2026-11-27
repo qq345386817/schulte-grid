@@ -38,69 +38,357 @@
   <link rel="stylesheet" href="../style/practice.css">
   <link rel="modulepreload" href="../js/practice-core.mjs">
   <link rel="modulepreload" href="../js/practice.mjs">
+  <link rel="modulepreload" href="../js/motion.mjs">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://schulte-grid.luopeike.com/#website","name":"Schulte Grid","url":"https://schulte-grid.luopeike.com/","inLanguage":["en","zh-Hans","zh-Hant","ja","ko","de","fr","es"]},{"@type":"WebPage","@id":"https://schulte-grid.luopeike.com/zh-Hant/#page","url":"https://schulte-grid.luopeike.com/zh-Hant/","name":"舒爾特方格線上練習 | 免費計時與 A4 列印練習紙","description":"免費體驗 3×3 到 6×6 舒爾特方格線上練習、計時與 A4 列印練習紙，可儲存 PDF。網頁版不儲存訓練歷史，使用 App 可保留紀錄與每日練習進度。","inLanguage":"zh-Hant","isPartOf":{"@id":"https://schulte-grid.luopeike.com/#website"},"mainEntity":{"@id":"https://schulte-grid.luopeike.com/zh-Hant/#webapp"}},{"@type":"WebApplication","@id":"https://schulte-grid.luopeike.com/zh-Hant/#webapp","name":"舒爾特方格","url":"https://schulte-grid.luopeike.com/zh-Hant/","inLanguage":"zh-Hant","applicationCategory":"EducationalApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"免費體驗 3×3 到 6×6 舒爾特方格線上練習、計時與 A4 列印練習紙，可儲存 PDF。網頁版不儲存訓練歷史，使用 App 可保留紀錄與每日練習進度。","featureList":["練習","用時","列印"]},{"@type":"FAQPage","@id":"https://schulte-grid.luopeike.com/zh-Hant/#faq","inLanguage":"zh-Hant","mainEntity":[{"@type":"Question","name":"線上舒爾特方格如何計時？","acceptedAnswer":{"@type":"Answer","text":"正確點選 1 後開始計時，找到最後一個數字後結束。錯誤點選會記錄為錯誤，但不會推進數字順序。暫停時數字會隱藏，暫停時間不計入成績。建議比較相同方格大小的成績。"}},{"@type":"Question","name":"舒爾特方格要選哪種大小？","acceptedAnswer":{"@type":"Answer","text":"3×3 有 9 個數字，4×4 有 16 個數字，經典 5×5 有 25 個數字，6×6 有 36 個數字。可先從小方格開始，需要較長的視覺搜尋練習時再選大方格。"}},{"@type":"Question","name":"可以免費列印舒爾特方格或下載 PDF 嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。在「列印」中選擇方格大小與 1 到 20 份練習紙，再開啟列印視窗。每份數字排列皆不同，深色模式下也始終是白底 A4。在瀏覽器列印視窗選擇「另存為 PDF」，即可儲存 PDF。"}},{"@type":"Question","name":"網站會儲存我的訓練結果嗎？","acceptedAnswer":{"@type":"Answer","text":"不會。僅在頁面記憶體中顯示目前這一輪結果，開始新一輪、重新整理或離開頁面後即丟棄。不將訓練歷史、偏好或目標儲存到瀏覽器儲存空間或伺服器。開啟新版網站時，會清除舊網頁版曾儲存的紀錄。"}},{"@type":"Question","name":"網頁版與舒爾特方格 App 有何不同？","acceptedAnswer":{"@type":"Answer","text":"網頁版用於快速體驗與列印練習紙；iPhone、iPad 和 Mac App 在裝置本機儲存最近 100 次訓練成績，並提供每日目標與進度。App 從 1.6.0 起支援 iCloud 同步，需在各裝置登入同一個 Apple 帳號並開啟同步。先前版本僅在裝置本機儲存，實際可下載版本以 App Store 為準。舒爾特方格是一種練習工具，不是醫療評估，也不保證提高智力。"}}]}]}</script>
-  <script id="practice-copy" type="application/json">{"practice":"練習","history":"歷史紀錄","print":"列印","theme":"主題","system":"跟隨系統","paper":"經典紙張","mint":"柔和薄荷","sand":"暖沙","night":"夜間專注","ink":"水墨","time":"用時","next":"下一個","mistakes":"錯誤","restart":"新一輪","pause":"暫停","resume":"繼續","ready":"準備就緒","paused":"已暫停","incorrect":"下一個：{n}","complete":"本輪完成","again":"再練一輪","daily":"每日練習","bests":"各難度最佳","app":"舒爾特方格 App","appText":"在 iPhone、iPad 和 Mac App 中儲存訓練歷史、設定每日目標並查看練習進度。","download":"下載 App","local":"僅供體驗，不儲存歷史。本輪結果在開始新一輪、重新整理或離開頁面後丟棄。","size":"方格","sheets":"練習紙份數","refresh":"重新產生","printNow":"列印 / PDF","sheet":"練習紙","name":"姓名","paperTime":"用時","preview":"A4 預覽","noscript":"啟用 JavaScript 後即可線上練習與產生練習紙，下方指南仍可閱讀。"}</script>
+  <script id="practice-copy" type="application/json">{"practice":"練習","history":"歷史紀錄","print":"列印","theme":"主題","system":"跟隨系統","paper":"經典紙張","mint":"柔和薄荷","sand":"暖沙","night":"夜間專注","ink":"水墨","time":"用時","next":"下一個","mistakes":"錯誤","restart":"新一輪","pause":"暫停","resume":"繼續","ready":"準備就緒","paused":"已暫停","incorrect":"下一個：{n}","complete":"本輪完成","again":"再練一輪","daily":"每日練習","bests":"各難度最佳","app":"舒爾特方格 App","appText":"在 iPhone、iPad 和 Mac App 中儲存訓練歷史、設定每日目標並查看練習進度。","download":"下載 App","local":"僅供體驗，不儲存歷史。本輪結果在開始新一輪、重新整理或離開頁面後丟棄。","size":"方格","sheets":"練習紙份數","refresh":"重新產生","printNow":"列印 / PDF","sheet":"練習紙","name":"姓名","paperTime":"用時","preview":"A4 預覽","noscript":"啟用 JavaScript 後即可線上練習與產生練習紙，下方指南仍可閱讀。","demoBtn":"掃視示範","demoStop":"停止示範","demoStatus":"掃視路徑示範中——隨時點擊數字 1 即可開始正式計時。","sheetStack":"已備妥 {n} 份不重複練習紙"}</script>
   <script type="module" src="../js/practice.mjs"></script>
+  <script type="module" src="../js/motion.mjs"></script>
 </head>
 <body class="practice-page">
-<div class="page"><div class="container">
-  <header class="topbar">
-    <a class="brand" href="./"><img src="../favicon/apple-touch-icon.png" width="38" height="38" alt=""><span>舒爾特方格</span></a>
-    <nav class="nav" aria-label="線上練習">
-      <a href="#practice">線上練習</a><a href="help">說明</a><a class="secondary-nav" href="support">支援</a><a class="secondary-nav" href="privacy-policy">隱私</a>
-      <a class="download-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="20" height="20" src="../images/app-store-icon.svg" alt="">下載 App</a>
+<div class="ambient-backdrop" aria-hidden="true"></div>
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="topbar">
+      <a class="brand" href="./"><img src="../favicon/apple-touch-icon.png" width="34" height="34" alt=""><span>舒爾特方格</span></a>
+      <nav class="nav" aria-label="線上練習">
+        <a href="#practice">線上練習</a>
+        <a class="anchor-nav" href="#features">特色</a>
+        <a class="anchor-nav" href="#print" data-jump-print>列印</a>
+        <a class="anchor-nav" href="#faq">常見問題</a>
+        <a class="secondary-nav" href="help">說明</a>
+        <a class="secondary-nav" href="support">支援</a>
+        <a class="secondary-nav" href="privacy-policy">隱私</a>
+        <a class="download-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">下載 App</a>
+      </nav>
       <select class="language-switch" id="language" aria-label="語言"><option value=".././">English</option><option value="../zh-Hans/">简体中文</option><option value="../zh-Hant/" selected>繁體中文</option><option value="../ja/">日本語</option><option value="../ko/">한국어</option><option value="../de/">Deutsch</option><option value="../fr/">Français</option><option value="../es/">Español</option></select>
-    </nav>
-  </header>
-  <main>
-    <div class="practice-intro"><h1>舒爾特方格</h1><p>免費體驗舒爾特方格計時練習與列印練習紙。僅供體驗，不儲存訓練歷史。</p></div>
-    <noscript><p>啟用 JavaScript 後即可線上練習與產生練習紙，下方指南仍可閱讀。</p></noscript>
-    <div class="practice-tabs" role="tablist" aria-label="練習">
-      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>練習</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>列印</button>
     </div>
-    <section id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
-      <div class="workspace">
-        <div class="board-column">
-          <div class="controls"><div class="size-controls" role="group" aria-label="方格"><button type="button" data-size="3" aria-pressed="false">3×3</button><button type="button" data-size="4" aria-pressed="false">4×4</button><button type="button" data-size="5" aria-pressed="true">5×5</button><button type="button" data-size="6" aria-pressed="false">6×6</button></div>
-            <label class="control-field"><span>主題</span><select id="theme"><option value="system">跟隨系統</option><option value="paper">經典紙張</option><option value="mint">柔和薄荷</option><option value="sand">暖沙</option><option value="night">夜間專注</option><option value="ink">水墨</option></select></label>
-          </div>
-          <div class="round-stats">
-            <dl><dt>用時</dt><dd id="timer">0.00 s</dd></dl>
-            <dl class="next-stat"><dt>下一個</dt><dd id="next-number">1</dd></dl>
-            <dl><dt>錯誤</dt><dd id="mistakes">0</dd></dl>
-          </div>
-          <div id="board" class="game-board" role="group" aria-label="練習" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
-          <div class="round-actions">
-            <button type="button" class="icon-button" id="restart" title="新一輪" aria-label="新一輪"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
-            <button type="button" class="icon-button" id="pause" title="暫停" aria-label="暫停" disabled><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg></button>
-            <button type="button" class="icon-button" id="quick-print" title="列印" aria-label="列印"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></button>
-          </div>
-          <p class="round-message" id="round-message" role="status">正在載入練習…</p>
-          <button class="button" type="button" id="retry-load" hidden><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>重新載入</button>
-          <section class="result" id="result" hidden><h2>本輪完成</h2><p id="result-time"></p><p>僅供體驗，不儲存歷史。本輪結果在開始新一輪、重新整理或離開頁面後丟棄。</p><button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>再練一輪</button><p><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">下載 App</a></p></section>
+  </div>
+</header>
+<div class="page">
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-badge"><span class="badge-dot" aria-hidden="true"></span>iPhone · iPad · Mac 與免費網頁體驗</p>
+        <h1>靜心掃視，從 1 到 25 的專注練習。</h1>
+        <p class="hero-subhead">在瀏覽器中即時體驗 3×3 至 6×6 舒爾特方格、精準計時、護眼紙感主題與白底 A4 列印練習紙——免註冊、零打擾。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#practice" data-focus-board data-start-size="5"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>立即體驗 5×5</a>
+          <a class="button secondary" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">取得 Apple App</a>
         </div>
-        <aside class="practice-side">
-          <section class="app-offer"><img class="app-mark" width="64" height="64" src="../favicon/apple-touch-icon.png" alt=""><p class="platforms">iPhone · iPad · Mac</p><h2>舒爾特方格 App</h2><p>在 iPhone、iPad 和 Mac App 中儲存訓練歷史、設定每日目標並查看練習進度。</p><ul class="app-benefits"><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg><span>歷史紀錄</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#calendar-days"></use></svg><span>每日練習</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#chart-no-axes-combined"></use></svg><span>各難度最佳</span></li></ul><a class="button primary" href="https://apps.apple.com/app/id6547865783"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#download"></use></svg>下載 App</a></section>
-          <div class="experience-note"><h3>網頁版體驗</h3><p>僅供體驗，不儲存歷史。本輪結果在開始新一輪、重新整理或離開頁面後丟棄。</p></div>
-        </aside>
+        <ul class="hero-pills" aria-label="網頁版體驗">
+          <li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#sparkles"></use></svg><span>免費網頁體驗</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#shield-check"></use></svg><span>不存紀錄 · 零追蹤</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg><span>白底 A4 / PDF 列印</span></li>
+        </ul>
       </div>
     </section>
-    <section id="view-print" role="tabpanel" aria-labelledby="tab-print" class="print-view" tabindex="0" hidden>
-      <div class="print-controls"><div class="size-controls" role="group" aria-label="方格"><button type="button" data-print-size="3" aria-pressed="false">3×3</button><button type="button" data-print-size="4" aria-pressed="false">4×4</button><button type="button" data-print-size="5" aria-pressed="true">5×5</button><button type="button" data-print-size="6" aria-pressed="false">6×6</button></div><label class="control-field">練習紙份數<input id="sheet-count" type="number" min="1" max="20" step="1" value="1"></label><button class="icon-button" type="button" id="refresh-sheets" title="重新產生" aria-label="重新產生"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button><button class="button primary" type="button" id="print-now"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>列印 / PDF</button></div>
-      <div class="sheet-preview" id="sheet-preview" aria-label="A4 預覽"></div>
+
+    <section class="studio-band" id="practice" aria-label="練習">
+      <div class="container">
+        <noscript><p class="noscript-banner">啟用 JavaScript 後即可線上練習與產生練習紙，下方指南仍可閱讀。</p></noscript>
+        <div class="studio-shell" id="print">
+          <div class="studio-bar">
+            <div class="studio-bar-left">
+              <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="practice-tabs" role="tablist" aria-label="練習">
+                <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg><span>練習</span></button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg><span>列印</span></button>
+              </div>
+            </div>
+            <div class="studio-bar-right">
+              <div class="theme-swatches" role="group" aria-label="主題"><button type="button" class="theme-chip" data-theme-choice="system" data-theme-group="studio" aria-pressed="true" title="跟隨系統"><span class="theme-dot theme-dot-system" aria-hidden="true"></span><span>跟隨系統</span></button><button type="button" class="theme-chip" data-theme-choice="paper" data-theme-group="studio" aria-pressed="false" title="經典紙張"><span class="theme-dot theme-dot-paper" aria-hidden="true"></span><span>經典紙張</span></button><button type="button" class="theme-chip" data-theme-choice="mint" data-theme-group="studio" aria-pressed="false" title="柔和薄荷"><span class="theme-dot theme-dot-mint" aria-hidden="true"></span><span>柔和薄荷</span></button><button type="button" class="theme-chip" data-theme-choice="sand" data-theme-group="studio" aria-pressed="false" title="暖沙"><span class="theme-dot theme-dot-sand" aria-hidden="true"></span><span>暖沙</span></button><button type="button" class="theme-chip" data-theme-choice="night" data-theme-group="studio" aria-pressed="false" title="夜間專注"><span class="theme-dot theme-dot-night" aria-hidden="true"></span><span>夜間專注</span></button><button type="button" class="theme-chip" data-theme-choice="ink" data-theme-group="studio" aria-pressed="false" title="水墨"><span class="theme-dot theme-dot-ink" aria-hidden="true"></span><span>水墨</span></button></div>
+              <label class="control-field theme-select-field"><span>主題</span><select id="theme"><option value="system">跟隨系統</option><option value="paper">經典紙張</option><option value="mint">柔和薄荷</option><option value="sand">暖沙</option><option value="night">夜間專注</option><option value="ink">水墨</option></select></label>
+            </div>
+          </div>
+
+          <div id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
+            <div class="workspace">
+              <div class="board-column">
+                <div class="controls">
+                  <div class="size-controls" role="group" aria-label="方格"><button type="button" data-size="3" aria-pressed="false">3×3</button><button type="button" data-size="4" aria-pressed="false">4×4</button><button type="button" data-size="5" aria-pressed="true">5×5</button><button type="button" data-size="6" aria-pressed="false">6×6</button></div>
+                  <div class="board-toggles">
+                    <button type="button" class="pill-toggle" id="demo-scan" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#sparkles"></use></svg><span>掃視示範</span></button>
+                    <button type="button" class="pill-toggle" id="fixation-toggle" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#crosshair"></use></svg><span>中心注視點</span></button>
+                  </div>
+                </div>
+                <div class="board-stage">
+                  <div id="board" class="game-board" role="group" aria-label="練習" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
+                  <div class="fixation-dot" aria-hidden="true"></div>
+                  <svg class="demo-path-layer" id="demo-path-layer" aria-hidden="true"></svg>
+                </div>
+                <div class="board-footer">
+                  <div class="round-actions">
+                    <button type="button" class="icon-button" id="restart" title="新一輪" aria-label="新一輪"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
+                    <button type="button" class="icon-button" id="pause" title="暫停" aria-label="暫停" disabled><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg></button>
+                    <button type="button" class="icon-button" id="quick-print" title="列印" aria-label="列印"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></button>
+                  </div>
+                  <p class="round-message" id="round-message" role="status">正在載入練習…</p>
+                </div>
+                <button class="button" type="button" id="retry-load" hidden><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>重新載入</button>
+              </div>
+
+              <aside class="practice-side">
+                <div class="telemetry-panel">
+                  <div class="round-stats">
+                    <dl class="stat-time"><dt>用時</dt><dd id="timer">0.00 s</dd></dl>
+                    <dl class="next-stat"><dt>下一個</dt><dd id="next-number">1</dd></dl>
+                    <dl><dt>錯誤</dt><dd id="mistakes">0</dd></dl>
+                  </div>
+                  <div class="progress-meta">
+                    <span>進度</span>
+                    <span id="progress-label">0 / 25</span>
+                  </div>
+                  <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+                </div>
+
+                <section class="result" id="result" hidden>
+                  <p class="result-badge"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#circle-check"></use></svg><span>本輪完成</span></p>
+                  <p class="result-metric" id="result-time"></p>
+                  <p class="result-note">僅供體驗，不儲存歷史。本輪結果在開始新一輪、重新整理或離開頁面後丟棄。</p>
+                  <div class="result-actions">
+                    <button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>再練一輪</button>
+                    <a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">下載 App</a>
+                  </div>
+                </section>
+
+                <section class="app-offer">
+                  <div class="app-offer-head">
+                    <img class="app-mark" width="52" height="52" src="../favicon/apple-touch-icon.png" alt="">
+                    <div>
+                      <p class="platforms">iPhone · iPad · Mac</p>
+                      <h2>舒爾特方格 App</h2>
+                    </div>
+                  </div>
+                  <p>在 iPhone、iPad 和 Mac App 中儲存訓練歷史、設定每日目標並查看練習進度。</p>
+                  <ul class="app-benefits"><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg><span>歷史紀錄</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#calendar-days"></use></svg><span>每日練習</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#chart-no-axes-combined"></use></svg><span>各難度最佳</span></li></ul>
+                  <a class="button primary app-offer-cta" href="https://apps.apple.com/app/id6547865783"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#download"></use></svg>下載 App</a>
+                </section>
+
+                <div class="experience-note">
+                  <h3><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#shield-check"></use></svg><span>網頁版體驗</span></h3>
+                  <p>僅供體驗，不儲存歷史。本輪結果在開始新一輪、重新整理或離開頁面後丟棄。</p>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div id="view-print" role="tabpanel" aria-labelledby="tab-print" class="print-view" tabindex="0" hidden>
+            <div class="print-toolbar">
+              <div class="print-controls">
+                <div class="size-controls" role="group" aria-label="方格"><button type="button" data-print-size="3" aria-pressed="false">3×3</button><button type="button" data-print-size="4" aria-pressed="false">4×4</button><button type="button" data-print-size="5" aria-pressed="true">5×5</button><button type="button" data-print-size="6" aria-pressed="false">6×6</button></div>
+                <label class="control-field"><span>練習紙份數</span><input id="sheet-count" type="number" min="1" max="20" step="1" value="1"></label>
+                <button class="icon-button" type="button" id="refresh-sheets" title="重新產生" aria-label="重新產生"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
+                <button class="button primary" type="button" id="print-now"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>列印 / PDF</button>
+              </div>
+              <p class="sheet-stack-meta" id="sheet-stack-meta" role="status"></p>
+            </div>
+            <div class="print-desk">
+              <div class="sheet-stack" id="sheet-stack" data-sheets="1">
+                <div class="sheet-preview" id="sheet-preview" aria-label="A4 預覽"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="local-note" id="local-note" role="status">僅供體驗，不儲存歷史。本輪結果在開始新一輪、重新整理或離開頁面後丟棄。</p>
+      </div>
     </section>
-    <p class="local-note" id="local-note" role="status">僅供體驗，不儲存歷史。本輪結果在開始新一輪、重新整理或離開頁面後丟棄。</p>
-    <section class="seo-content"><h2>舒爾特方格線上練習</h2><p>舒爾特方格是將數字隨機排列在正方形表格中的視覺搜尋練習。依序找出數字，從 1 到 9、16、25 或 36。網頁版免費體驗 3×3、4×4、5×5、6×6 方格、計時與列印練習紙，無須註冊或下載。網站不儲存訓練歷史；需要持續紀錄與每日目標時，可以使用 Apple App。</p>
-      <div id="faq"><h2>舒爾特方格常見問題</h2><details><summary>線上舒爾特方格如何計時？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>正確點選 1 後開始計時，找到最後一個數字後結束。錯誤點選會記錄為錯誤，但不會推進數字順序。暫停時數字會隱藏，暫停時間不計入成績。建議比較相同方格大小的成績。</p></details>
-      <details><summary>舒爾特方格要選哪種大小？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>3×3 有 9 個數字，4×4 有 16 個數字，經典 5×5 有 25 個數字，6×6 有 36 個數字。可先從小方格開始，需要較長的視覺搜尋練習時再選大方格。</p></details>
-      <details><summary>可以免費列印舒爾特方格或下載 PDF 嗎？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>可以。在「列印」中選擇方格大小與 1 到 20 份練習紙，再開啟列印視窗。每份數字排列皆不同，深色模式下也始終是白底 A4。在瀏覽器列印視窗選擇「另存為 PDF」，即可儲存 PDF。</p></details>
-      <details><summary>網站會儲存我的訓練結果嗎？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>不會。僅在頁面記憶體中顯示目前這一輪結果，開始新一輪、重新整理或離開頁面後即丟棄。不將訓練歷史、偏好或目標儲存到瀏覽器儲存空間或伺服器。開啟新版網站時，會清除舊網頁版曾儲存的紀錄。</p></details>
-      <details><summary>網頁版與舒爾特方格 App 有何不同？<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>網頁版用於快速體驗與列印練習紙；iPhone、iPad 和 Mac App 在裝置本機儲存最近 100 次訓練成績，並提供每日目標與進度。App 從 1.6.0 起支援 iCloud 同步，需在各裝置登入同一個 Apple 帳號並開啟同步。先前版本僅在裝置本機儲存，實際可下載版本以 App Store 為準。舒爾特方格是一種練習工具，不是醫療評估，也不保證提高智力。</p></details></div>
-      <nav class="seo-links" aria-label="舒爾特方格常見問題"><a href="../what-is-schulte-grid" hreflang="en">什麼是舒爾特方格？（英文）</a><a href="../printable-schulte-grid" hreflang="en">列印練習指南（英文）</a><a href="../focus-training-app" hreflang="en">Apple 裝置上的舒爾特方格（英文）</a></nav>
+
+    <section class="band steps-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">練習方式</p>
+          <h2>三步驟進入沉靜的視覺搜尋節奏</h2>
+        </div>
+        <ol class="steps-grid" data-stagger>
+          <li class="step-card" data-reveal-item>
+            <div class="step-top"><span class="step-num">01</span><div class="step-visual step-visual-center" aria-hidden="true"><span></span><span></span><span></span><span></span><span class="is-core"></span><span></span><span></span><span></span><span></span></div></div>
+            <h3>視線輕落中心</h3>
+            <p>將目光穩定停留在方格中央附近，減少逐格大幅移動。</p>
+          </li><li class="step-card" data-reveal-item>
+            <div class="step-top"><span class="step-num">02</span><div class="step-visual step-visual-scan" aria-hidden="true"><span>8</span><span class="is-one">1</span><span>5</span><span class="is-two">2</span><span class="is-three">3</span><span>7</span><span>4</span><span>9</span><span>6</span></div></div>
+            <h3>用餘光依序找 1 → 25</h3>
+            <p>運用周邊視野依序點選數字，點中 1 的瞬間立即開始計時。</p>
+          </li><li class="step-card" data-reveal-item>
+            <div class="step-top"><span class="step-num">03</span><div class="step-visual step-visual-time" aria-hidden="true"><span class="time-pill">18.42 s</span><span class="bar-track"><span class="bar-fill"></span></span></div></div>
+            <h3>檢視用時，隨時再來</h3>
+            <p>在同一規格內比較成績；也能一鍵列印白底 A4 紙進行離線練習。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band bento-section" id="features" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">為專注而打磨</p>
+          <h2>介面克制純粹，陪伴每日節奏。</h2>
+        </div>
+        <div class="bento-grid" data-stagger>
+          <article class="bento-card bento-native" data-reveal-item>
+            <div class="bento-copy">
+              <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#smartphone"></use></svg>iPhone · iPad · Mac</span>
+              <h3>在 Apple App 中保留練習紀錄</h3>
+              <p>裝置本機保留最近 100 次訓練成績，追蹤每日練習目標、連續天數與各規格最佳時間。1.6.0 以上版本支援以同一 Apple 帳號選擇開啟 iCloud 同步。</p>
+              <div class="bento-native-footer">
+                <span class="sync-pill"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#cloud"></use></svg>可選 iCloud 同步（v1.6.0+）</span>
+                <a class="text-cta" href="https://apps.apple.com/app/id6547865783">下載 App<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a>
+              </div>
+            </div>
+            <div class="device-showcase" aria-hidden="true">
+              <div class="mock-mac">
+                <div class="mock-mac-bar"><span></span><span></span><span></span><strong>舒爾特方格</strong></div>
+                <div class="mock-mac-body">
+                  <div class="mock-mac-grid"><span>14</span><span>3</span><span>11</span><span>8</span><span>6</span><span>13</span><span>2</span><span>16</span><span>9</span><span class="is-done">1</span><span>15</span><span>5</span><span>12</span><span>7</span><span>4</span><span>10</span></div>
+                </div>
+              </div>
+              <div class="mock-iphone">
+                <div class="mock-iphone-notch"></div>
+                <div class="mock-iphone-head">
+                  <div><small>用時</small><strong>13.88s</strong></div>
+                  <div class="mock-iphone-right"><span><small>下一個</small><b>2</b></span><span><small>最佳 (5×5)</small><b>18.42s</b></span></div>
+                </div>
+                <div class="mock-iphone-seg"><span>3×3</span><span>4×4</span><span class="is-active">5×5</span><span>6×6</span></div>
+                <div class="mock-iphone-grid"><span>22</span><span>19</span><span>2</span><span>13</span><span>4</span><span>8</span><span>24</span><span>7</span><span>21</span><span class="is-done">1</span><span>6</span><span>15</span><span>20</span><span>17</span><span>16</span><span>23</span><span>10</span><span>12</span><span>3</span><span>9</span><span>11</span><span>18</span><span>5</span><span>14</span><span>25</span></div>
+                <div class="mock-iphone-actions"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></div>
+                <div class="mock-iphone-daily">
+                  <div><strong>每日練習</strong><span>已連續 3 天</span></div>
+                  <div class="mock-bar"><span></span></div>
+                </div>
+                <div class="mock-iphone-tabs">
+                  <span class="is-active"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>方格</span><span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg>紀錄</span><span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#palette"></use></svg>設定</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="bento-card bento-themes" data-reveal-item>
+            <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#palette"></use></svg>6 套沉靜主題</span>
+            <h3>紙感主題，日夜皆宜</h3>
+            <p>點擊下方任意色卡，立即感受跟隨系統、經典紙張、柔和薄荷、暖沙、夜間專注與水墨質感。</p>
+            <div class="theme-preview-grid" role="group" aria-label="主題"><button type="button" class="theme-preview-card theme-preview-system" data-theme-choice="system" data-theme-group="bento" aria-pressed="true"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">跟隨系統</span></button><button type="button" class="theme-preview-card theme-preview-paper" data-theme-choice="paper" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">經典紙張</span></button><button type="button" class="theme-preview-card theme-preview-mint" data-theme-choice="mint" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">柔和薄荷</span></button><button type="button" class="theme-preview-card theme-preview-sand" data-theme-choice="sand" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">暖沙</span></button><button type="button" class="theme-preview-card theme-preview-night" data-theme-choice="night" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">夜間專注</span></button><button type="button" class="theme-preview-card theme-preview-ink" data-theme-choice="ink" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">水墨</span></button></div>
+          </article>
+
+          <article class="bento-card bento-print" data-reveal-item>
+            <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>A4 列印與 PDF</span>
+            <h3>一鍵產生離線紙本練習紙</h3>
+            <p>一次產生 1 至 20 份互不重複的隨機方格，即使在深色模式下也一律輸出純白 A4 紙張。</p>
+            <div class="mini-paper-stack" aria-hidden="true">
+              <div class="mini-paper">
+                <div class="mini-paper-head"><span>A4 · 5×5</span><span>1 → 25</span></div>
+                <div class="mini-paper-grid"><span>22</span><span>19</span><span>2</span><span>13</span><span>4</span><span>8</span><span>24</span><span>7</span><span>21</span><span>1</span><span>6</span><span>15</span><span>20</span><span>17</span><span>16</span><span>23</span><span>10</span><span>12</span><span>3</span><span>9</span><span>11</span><span>18</span><span>5</span><span>14</span><span>25</span></div>
+              </div>
+            </div>
+            <a class="text-cta" href="#print" data-open-print>開啟列印工坊<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a>
+          </article>
+
+          <article class="bento-card bento-privacy" data-reveal-item>
+            <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#shield-check"></use></svg>重視隱私</span>
+            <h3>免帳號、無追蹤</h3>
+            <p>網頁版僅在記憶體中運行目前這一輪，重新整理即清空，不寫入瀏覽器儲存空間，也不傳送資料至伺服器。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band cases-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">適用情境</p>
+          <h2>融入日常的幾分鐘專注暖身</h2>
+        </div>
+        <div class="cases-grid" data-stagger>
+          <article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#zap"></use></svg></div>
+            <h3>深度工作前暖身</h3>
+            <p>開始寫作、設計或寫程式前練兩輪 5×5，迅速收斂思緒。</p>
+          </article><article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#book-open"></use></svg></div>
+            <h3>閱讀前視野展開</h3>
+            <p>閱讀長文或溫習前先進行視覺搜尋暖身，讓掃視更穩定。</p>
+          </article><article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#coffee"></use></svg></div>
+            <h3>兩分鐘清醒小憩</h3>
+            <p>以一輪安靜計時練習取代無意識滑手機，乾脆重置注意力。</p>
+          </article><article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></div>
+            <h3>課堂與書桌紙練</h3>
+            <p>批次列印不重複的 A4 練習紙，適合課堂教學、親子共練與無螢幕練習。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band compare-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">網頁體驗版 vs 原生 App</p>
+          <h2>網頁即開即練，App 累積長期習慣。</h2>
+        </div>
+        <div class="compare-grid">
+          <article class="compare-card">
+            <div class="compare-head">
+              <h3>網頁版體驗</h3>
+              <p>任意瀏覽器免費使用 · 僅記憶體執行</p>
+            </div>
+            <ul class="compare-list">
+              <li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">支援: </span><span>3×3 至 6×6 計時練習與暫停</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">支援: </span><span>6 套護眼主題與白底 A4 / PDF 列印</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">不支援: </span><span>本機儲存最近 100 次訓練成績</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">不支援: </span><span>每日練習目標與連續天數進度</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">不支援: </span><span>依方格規格追蹤歷史最佳成績</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">不支援: </span><span>跨裝置可選 iCloud 同步（v1.6.0+）</span></li>
+            </ul>
+          </article>
+          <article class="compare-card compare-card-app">
+            <div class="compare-head">
+              <div>
+                <h3>舒爾特方格 App</h3>
+                <p>iPhone、iPad 與 Mac · App Store</p>
+              </div>
+              <img class="compare-icon" width="44" height="44" src="../favicon/apple-touch-icon.png" alt="">
+            </div>
+            <ul class="compare-list">
+              <li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">支援: </span><span>3×3 至 6×6 計時練習與暫停</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">支援: </span><span>6 套護眼主題與白底 A4 / PDF 列印</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">支援: </span><span>本機儲存最近 100 次訓練成績</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">支援: </span><span>每日練習目標與連續天數進度</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">支援: </span><span>依方格規格追蹤歷史最佳成績</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">支援: </span><span>跨裝置可選 iCloud 同步（v1.6.0+）</span></li>
+            </ul>
+            <a class="button primary compare-cta" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">下載 App</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band seo-content" data-reveal>
+      <div class="container">
+        <div class="overview-card">
+          <h2>舒爾特方格線上練習</h2>
+          <p>舒爾特方格是將數字隨機排列在正方形表格中的視覺搜尋練習。依序找出數字，從 1 到 9、16、25 或 36。網頁版免費體驗 3×3、4×4、5×5、6×6 方格、計時與列印練習紙，無須註冊或下載。網站不儲存訓練歷史；需要持續紀錄與每日目標時，可以使用 Apple App。</p>
+        </div>
+        <div id="faq">
+          <h2>舒爾特方格常見問題</h2>
+          <div class="faq-list">
+            <details><summary><span>線上舒爾特方格如何計時？</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>正確點選 1 後開始計時，找到最後一個數字後結束。錯誤點選會記錄為錯誤，但不會推進數字順序。暫停時數字會隱藏，暫停時間不計入成績。建議比較相同方格大小的成績。</p></details>
+            <details><summary><span>舒爾特方格要選哪種大小？</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>3×3 有 9 個數字，4×4 有 16 個數字，經典 5×5 有 25 個數字，6×6 有 36 個數字。可先從小方格開始，需要較長的視覺搜尋練習時再選大方格。</p></details>
+            <details><summary><span>可以免費列印舒爾特方格或下載 PDF 嗎？</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>可以。在「列印」中選擇方格大小與 1 到 20 份練習紙，再開啟列印視窗。每份數字排列皆不同，深色模式下也始終是白底 A4。在瀏覽器列印視窗選擇「另存為 PDF」，即可儲存 PDF。</p></details>
+            <details><summary><span>網站會儲存我的訓練結果嗎？</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>不會。僅在頁面記憶體中顯示目前這一輪結果，開始新一輪、重新整理或離開頁面後即丟棄。不將訓練歷史、偏好或目標儲存到瀏覽器儲存空間或伺服器。開啟新版網站時，會清除舊網頁版曾儲存的紀錄。</p></details>
+            <details><summary><span>網頁版與舒爾特方格 App 有何不同？</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>網頁版用於快速體驗與列印練習紙；iPhone、iPad 和 Mac App 在裝置本機儲存最近 100 次訓練成績，並提供每日目標與進度。App 從 1.6.0 起支援 iCloud 同步，需在各裝置登入同一個 Apple 帳號並開啟同步。先前版本僅在裝置本機儲存，實際可下載版本以 App Store 為準。舒爾特方格是一種練習工具，不是醫療評估，也不保證提高智力。</p></details>
+          </div>
+        </div>
+        <nav class="seo-links" aria-label="舒爾特方格常見問題"><a class="guide-card" href="../what-is-schulte-grid" hreflang="en"><span>什麼是舒爾特方格？（英文）</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a><a class="guide-card" href="../printable-schulte-grid" hreflang="en"><span>列印練習指南（英文）</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a><a class="guide-card" href="../focus-training-app" hreflang="en"><span>Apple 裝置上的舒爾特方格（英文）</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a></nav>
+      </div>
+    </section>
+
+    <section class="band final-cta-band" data-reveal>
+      <div class="container">
+        <div class="final-cta-card">
+          <img class="final-cta-icon" width="60" height="60" src="../favicon/apple-touch-icon.png" alt="">
+          <h2>展開更從容的每日專注節奏</h2>
+          <p>需要短暫暖身時隨時打開網頁體驗；若想保存 100 次本機紀錄、每日目標與 v1.6.0+ 可選 iCloud 同步，歡迎下載原生 App。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">前往 App Store 下載</a>
+            <a class="button secondary" href="#practice" data-focus-board>回到線上練習</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
-  <footer class="footer">舒爾特方格 · <a href="privacy-policy">隱私</a> · <a href="support">支援</a></footer>
-</div></div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>舒爾特方格 · <a href="help">說明</a> · <a href="support">支援</a> · <a href="privacy-policy">隱私</a></p>
+    </div>
+  </footer>
+</div>
 <div class="print-output" id="print-output"></div>
 <script>
   document.getElementById('retry-load').addEventListener('click', function () { location.reload(); });

@@ -38,69 +38,357 @@
   <link rel="stylesheet" href="../style/practice.css">
   <link rel="modulepreload" href="../js/practice-core.mjs">
   <link rel="modulepreload" href="../js/practice.mjs">
+  <link rel="modulepreload" href="../js/motion.mjs">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://schulte-grid.luopeike.com/#website","name":"Schulte Grid","url":"https://schulte-grid.luopeike.com/","inLanguage":["en","zh-Hans","zh-Hant","ja","ko","de","fr","es"]},{"@type":"WebPage","@id":"https://schulte-grid.luopeike.com/de/#page","url":"https://schulte-grid.luopeike.com/de/","name":"Schulte-Tabelle online | Kostenloser Timer & Druckvorlagen","description":"Schulte-Tabellen von 3x3 bis 6x6 kostenlos ausprobieren, mit Timer und A4-Druck/PDF. Die Web-Demo speichert keinen Verlauf. Nutze die App für dauerhafte Trainingsdaten.","inLanguage":"de","isPartOf":{"@id":"https://schulte-grid.luopeike.com/#website"},"mainEntity":{"@id":"https://schulte-grid.luopeike.com/de/#webapp"}},{"@type":"WebApplication","@id":"https://schulte-grid.luopeike.com/de/#webapp","name":"Schulte Grid","url":"https://schulte-grid.luopeike.com/de/","inLanguage":"de","applicationCategory":"EducationalApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Schulte-Tabellen von 3x3 bis 6x6 kostenlos ausprobieren, mit Timer und A4-Druck/PDF. Die Web-Demo speichert keinen Verlauf. Nutze die App für dauerhafte Trainingsdaten.","featureList":["Üben","Zeit","Drucken"]},{"@type":"FAQPage","@id":"https://schulte-grid.luopeike.com/de/#faq","inLanguage":"de","mainEntity":[{"@type":"Question","name":"Wie funktioniert der Timer?","acceptedAnswer":{"@type":"Answer","text":"Der Timer startet bei der richtigen Auswahl von 1 und endet bei der letzten Zahl. Falsche Klicks zählen als Fehler und ändern die Reihenfolge nicht. Beim Pausieren werden die Zahlen verborgen und die Pause nicht mitgezählt. Vergleiche Ergebnisse derselben Rastergröße."}},{"@type":"Question","name":"Welche Rastergröße eignet sich?","acceptedAnswer":{"@type":"Answer","text":"3x3 enthält 9 Zahlen, 4x4 enthält 16, die klassische 5x5-Tabelle enthält 25 und 6x6 enthält 36. Beginne mit einem kleineren Raster und wähle ein größeres für eine längere Übung zur visuellen Suche."}},{"@type":"Question","name":"Kann ich kostenlos drucken oder als PDF speichern?","acceptedAnswer":{"@type":"Answer","text":"Ja. Wähle unter Drucken eine Rastergröße und 1 bis 20 Blätter. Jedes Blatt hat eine andere Anordnung auf weißem A4-Papier, auch im Dunkelmodus. Wähle im Druckdialog des Browsers Als PDF speichern."}},{"@type":"Question","name":"Speichert die Website meine Trainingsergebnisse?","acceptedAnswer":{"@type":"Answer","text":"Nein. Nur die aktuelle Runde wird im Seitenspeicher angezeigt. Eine neue Runde, Neuladen oder Verlassen der Seite verwirft sie. Verlauf, Einstellungen und Ziele werden weder im Browserspeicher noch auf einem Server gespeichert. Beim Öffnen dieser Version werden gespeicherte Web-Daten der alten Version entfernt."}},{"@type":"Question","name":"Wie unterscheidet sich die Website von der App?","acceptedAnswer":{"@type":"Answer","text":"Die Website dient zum Ausprobieren und Drucken. Die App für iPhone, iPad und Mac speichert die letzten 100 Ergebnisse lokal und bietet Tagesziele und Fortschritt. Ab Version 1.6.0 ist iCloud-Synchronisierung mit demselben Apple Account und aktiviertem Sync verfügbar. Frühere Versionen speichern nur lokal; prüfe die verfügbare Version im App Store. Schulte-Tabellen sind eine Übung, keine medizinische Bewertung oder Garantie für höhere Intelligenz."}}]}]}</script>
-  <script id="practice-copy" type="application/json">{"practice":"Üben","history":"Verlauf","print":"Drucken","theme":"Thema","system":"System","paper":"Klassisches Papier","mint":"Sanfte Minze","sand":"Warmer Sand","night":"Nachtfokus","ink":"Tusche","time":"Zeit","next":"Nächste","mistakes":"Fehler","restart":"Neue Runde","pause":"Pause","resume":"Fortsetzen","ready":"Bereit","paused":"Pausiert","incorrect":"Nächste: {n}","complete":"Runde beendet","again":"Erneut üben","daily":"Tägliche Übung","bests":"Bestzeit je Größe","app":"Schulte Grid App","appText":"Behalte Trainingsverlauf, Tagesziele und Fortschritt in der App für iPhone, iPad und Mac.","download":"App laden","local":"Nur zum Ausprobieren. Diese Runde wird nicht gespeichert und bei einer neuen Runde, beim Neuladen oder Verlassen verworfen.","size":"Raster","sheets":"Übungsblätter","refresh":"Neue Blätter","printNow":"Drucken / PDF","sheet":"Blatt","name":"Name","paperTime":"Zeit","preview":"A4-Vorschau","noscript":"Aktiviere JavaScript zum Üben und Erstellen von Blättern. Die Anleitungen unten bleiben verfügbar."}</script>
+  <script id="practice-copy" type="application/json">{"practice":"Üben","history":"Verlauf","print":"Drucken","theme":"Thema","system":"System","paper":"Klassisches Papier","mint":"Sanfte Minze","sand":"Warmer Sand","night":"Nachtfokus","ink":"Tusche","time":"Zeit","next":"Nächste","mistakes":"Fehler","restart":"Neue Runde","pause":"Pause","resume":"Fortsetzen","ready":"Bereit","paused":"Pausiert","incorrect":"Nächste: {n}","complete":"Runde beendet","again":"Erneut üben","daily":"Tägliche Übung","bests":"Bestzeit je Größe","app":"Schulte Grid App","appText":"Behalte Trainingsverlauf, Tagesziele und Fortschritt in der App für iPhone, iPad und Mac.","download":"App laden","local":"Nur zum Ausprobieren. Diese Runde wird nicht gespeichert und bei einer neuen Runde, beim Neuladen oder Verlassen verworfen.","size":"Raster","sheets":"Übungsblätter","refresh":"Neue Blätter","printNow":"Drucken / PDF","sheet":"Blatt","name":"Name","paperTime":"Zeit","preview":"A4-Vorschau","noscript":"Aktiviere JavaScript zum Üben und Erstellen von Blättern. Die Anleitungen unten bleiben verfügbar.","demoBtn":"Blick-Demo","demoStop":"Demo stoppen","demoStatus":"Vorschau des Suchpfads — tippe jederzeit auf 1, um zu starten.","sheetStack":"{n} unterschiedliche Blätter bereit"}</script>
   <script type="module" src="../js/practice.mjs"></script>
+  <script type="module" src="../js/motion.mjs"></script>
 </head>
 <body class="practice-page">
-<div class="page"><div class="container">
-  <header class="topbar">
-    <a class="brand" href="./"><img src="../favicon/apple-touch-icon.png" width="38" height="38" alt=""><span>Schulte Grid</span></a>
-    <nav class="nav" aria-label="Üben">
-      <a href="#practice">Üben</a><a href="help">Hilfe</a><a class="secondary-nav" href="support">Support</a><a class="secondary-nav" href="privacy-policy">Datenschutz</a>
-      <a class="download-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="20" height="20" src="../images/app-store-icon.svg" alt="">App laden</a>
+<div class="ambient-backdrop" aria-hidden="true"></div>
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="topbar">
+      <a class="brand" href="./"><img src="../favicon/apple-touch-icon.png" width="34" height="34" alt=""><span>Schulte Grid</span></a>
+      <nav class="nav" aria-label="Üben">
+        <a href="#practice">Üben</a>
+        <a class="anchor-nav" href="#features">Funktionen</a>
+        <a class="anchor-nav" href="#print" data-jump-print>Drucken</a>
+        <a class="anchor-nav" href="#faq">FAQ</a>
+        <a class="secondary-nav" href="help">Hilfe</a>
+        <a class="secondary-nav" href="support">Support</a>
+        <a class="secondary-nav" href="privacy-policy">Datenschutz</a>
+        <a class="download-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">App laden</a>
+      </nav>
       <select class="language-switch" id="language" aria-label="Sprache"><option value=".././">English</option><option value="../zh-Hans/">简体中文</option><option value="../zh-Hant/">繁體中文</option><option value="../ja/">日本語</option><option value="../ko/">한국어</option><option value="../de/" selected>Deutsch</option><option value="../fr/">Français</option><option value="../es/">Español</option></select>
-    </nav>
-  </header>
-  <main>
-    <div class="practice-intro"><h1>Schulte Grid</h1><p>Kostenlose Schulte-Tabellen mit Timer und Druckvorlagen. Nur zum Ausprobieren, ohne gespeicherten Verlauf.</p></div>
-    <noscript><p>Aktiviere JavaScript zum Üben und Erstellen von Blättern. Die Anleitungen unten bleiben verfügbar.</p></noscript>
-    <div class="practice-tabs" role="tablist" aria-label="Üben">
-      <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>Üben</button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>Drucken</button>
     </div>
-    <section id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
-      <div class="workspace">
-        <div class="board-column">
-          <div class="controls"><div class="size-controls" role="group" aria-label="Raster"><button type="button" data-size="3" aria-pressed="false">3×3</button><button type="button" data-size="4" aria-pressed="false">4×4</button><button type="button" data-size="5" aria-pressed="true">5×5</button><button type="button" data-size="6" aria-pressed="false">6×6</button></div>
-            <label class="control-field"><span>Thema</span><select id="theme"><option value="system">System</option><option value="paper">Klassisches Papier</option><option value="mint">Sanfte Minze</option><option value="sand">Warmer Sand</option><option value="night">Nachtfokus</option><option value="ink">Tusche</option></select></label>
-          </div>
-          <div class="round-stats">
-            <dl><dt>Zeit</dt><dd id="timer">0.00 s</dd></dl>
-            <dl class="next-stat"><dt>Nächste</dt><dd id="next-number">1</dd></dl>
-            <dl><dt>Fehler</dt><dd id="mistakes">0</dd></dl>
-          </div>
-          <div id="board" class="game-board" role="group" aria-label="Üben" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
-          <div class="round-actions">
-            <button type="button" class="icon-button" id="restart" title="Neue Runde" aria-label="Neue Runde"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
-            <button type="button" class="icon-button" id="pause" title="Pause" aria-label="Pause" disabled><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg></button>
-            <button type="button" class="icon-button" id="quick-print" title="Drucken" aria-label="Drucken"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></button>
-          </div>
-          <p class="round-message" id="round-message" role="status">Übung wird geladen…</p>
-          <button class="button" type="button" id="retry-load" hidden><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>Neu laden</button>
-          <section class="result" id="result" hidden><h2>Runde beendet</h2><p id="result-time"></p><p>Nur zum Ausprobieren. Diese Runde wird nicht gespeichert und bei einer neuen Runde, beim Neuladen oder Verlassen verworfen.</p><button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>Erneut üben</button><p><a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">App laden</a></p></section>
+  </div>
+</header>
+<div class="page">
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="hero-badge"><span class="badge-dot" aria-hidden="true"></span>iPhone · iPad · Mac &amp; kostenlose Web-Demo</p>
+        <h1>Ruhiger Fokus, eine Zahl nach der anderen.</h1>
+        <p class="hero-subhead">Trainiere die visuelle Suche mit 3×3 bis 6×6 Schulte-Tabellen, präzisem Timer, ruhigen Themen und weißen A4-Druckblättern – direkt im Browser, ohne Konto.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#practice" data-focus-board data-start-size="5"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>5×5-Demo starten</a>
+          <a class="button secondary" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">Apple-App laden</a>
         </div>
-        <aside class="practice-side">
-          <section class="app-offer"><img class="app-mark" width="64" height="64" src="../favicon/apple-touch-icon.png" alt=""><p class="platforms">iPhone · iPad · Mac</p><h2>Schulte Grid App</h2><p>Behalte Trainingsverlauf, Tagesziele und Fortschritt in der App für iPhone, iPad und Mac.</p><ul class="app-benefits"><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg><span>Verlauf</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#calendar-days"></use></svg><span>Tägliche Übung</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#chart-no-axes-combined"></use></svg><span>Bestzeit je Größe</span></li></ul><a class="button primary" href="https://apps.apple.com/app/id6547865783"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#download"></use></svg>App laden</a></section>
-          <div class="experience-note"><h3>Web-Demo</h3><p>Nur zum Ausprobieren. Diese Runde wird nicht gespeichert und bei einer neuen Runde, beim Neuladen oder Verlassen verworfen.</p></div>
-        </aside>
+        <ul class="hero-pills" aria-label="Web-Demo">
+          <li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#sparkles"></use></svg><span>Kostenlose Web-Demo</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#shield-check"></use></svg><span>Kein Verlauf · Kein Tracking</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg><span>Weißes A4 / PDF</span></li>
+        </ul>
       </div>
     </section>
-    <section id="view-print" role="tabpanel" aria-labelledby="tab-print" class="print-view" tabindex="0" hidden>
-      <div class="print-controls"><div class="size-controls" role="group" aria-label="Raster"><button type="button" data-print-size="3" aria-pressed="false">3×3</button><button type="button" data-print-size="4" aria-pressed="false">4×4</button><button type="button" data-print-size="5" aria-pressed="true">5×5</button><button type="button" data-print-size="6" aria-pressed="false">6×6</button></div><label class="control-field">Übungsblätter<input id="sheet-count" type="number" min="1" max="20" step="1" value="1"></label><button class="icon-button" type="button" id="refresh-sheets" title="Neue Blätter" aria-label="Neue Blätter"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button><button class="button primary" type="button" id="print-now"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>Drucken / PDF</button></div>
-      <div class="sheet-preview" id="sheet-preview" aria-label="A4-Vorschau"></div>
+
+    <section class="studio-band" id="practice" aria-label="Üben">
+      <div class="container">
+        <noscript><p class="noscript-banner">Aktiviere JavaScript zum Üben und Erstellen von Blättern. Die Anleitungen unten bleiben verfügbar.</p></noscript>
+        <div class="studio-shell" id="print">
+          <div class="studio-bar">
+            <div class="studio-bar-left">
+              <div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="practice-tabs" role="tablist" aria-label="Üben">
+                <button id="tab-practice" type="button" role="tab" data-view="practice" aria-controls="view-practice" aria-selected="true" tabindex="0"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg><span>Üben</span></button><button id="tab-print" type="button" role="tab" data-view="print" aria-controls="view-print" aria-selected="false" tabindex="-1"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg><span>Drucken</span></button>
+              </div>
+            </div>
+            <div class="studio-bar-right">
+              <div class="theme-swatches" role="group" aria-label="Thema"><button type="button" class="theme-chip" data-theme-choice="system" data-theme-group="studio" aria-pressed="true" title="System"><span class="theme-dot theme-dot-system" aria-hidden="true"></span><span>System</span></button><button type="button" class="theme-chip" data-theme-choice="paper" data-theme-group="studio" aria-pressed="false" title="Klassisches Papier"><span class="theme-dot theme-dot-paper" aria-hidden="true"></span><span>Klassisches Papier</span></button><button type="button" class="theme-chip" data-theme-choice="mint" data-theme-group="studio" aria-pressed="false" title="Sanfte Minze"><span class="theme-dot theme-dot-mint" aria-hidden="true"></span><span>Sanfte Minze</span></button><button type="button" class="theme-chip" data-theme-choice="sand" data-theme-group="studio" aria-pressed="false" title="Warmer Sand"><span class="theme-dot theme-dot-sand" aria-hidden="true"></span><span>Warmer Sand</span></button><button type="button" class="theme-chip" data-theme-choice="night" data-theme-group="studio" aria-pressed="false" title="Nachtfokus"><span class="theme-dot theme-dot-night" aria-hidden="true"></span><span>Nachtfokus</span></button><button type="button" class="theme-chip" data-theme-choice="ink" data-theme-group="studio" aria-pressed="false" title="Tusche"><span class="theme-dot theme-dot-ink" aria-hidden="true"></span><span>Tusche</span></button></div>
+              <label class="control-field theme-select-field"><span>Thema</span><select id="theme"><option value="system">System</option><option value="paper">Klassisches Papier</option><option value="mint">Sanfte Minze</option><option value="sand">Warmer Sand</option><option value="night">Nachtfokus</option><option value="ink">Tusche</option></select></label>
+            </div>
+          </div>
+
+          <div id="view-practice" role="tabpanel" aria-labelledby="tab-practice" tabindex="0">
+            <div class="workspace">
+              <div class="board-column">
+                <div class="controls">
+                  <div class="size-controls" role="group" aria-label="Raster"><button type="button" data-size="3" aria-pressed="false">3×3</button><button type="button" data-size="4" aria-pressed="false">4×4</button><button type="button" data-size="5" aria-pressed="true">5×5</button><button type="button" data-size="6" aria-pressed="false">6×6</button></div>
+                  <div class="board-toggles">
+                    <button type="button" class="pill-toggle" id="demo-scan" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#sparkles"></use></svg><span>Blick-Demo</span></button>
+                    <button type="button" class="pill-toggle" id="fixation-toggle" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#crosshair"></use></svg><span>Mittelpunkt</span></button>
+                  </div>
+                </div>
+                <div class="board-stage">
+                  <div id="board" class="game-board" role="group" aria-label="Üben" aria-busy="true" style="--size:5"><button type="button" disabled>17</button><button type="button" disabled>4</button><button type="button" disabled>21</button><button type="button" disabled>9</button><button type="button" disabled>1</button><button type="button" disabled>12</button><button type="button" disabled>25</button><button type="button" disabled>6</button><button type="button" disabled>14</button><button type="button" disabled>19</button><button type="button" disabled>3</button><button type="button" disabled>16</button><button type="button" disabled>8</button><button type="button" disabled>23</button><button type="button" disabled>11</button><button type="button" disabled>20</button><button type="button" disabled>5</button><button type="button" disabled>13</button><button type="button" disabled>2</button><button type="button" disabled>24</button><button type="button" disabled>7</button><button type="button" disabled>18</button><button type="button" disabled>10</button><button type="button" disabled>22</button><button type="button" disabled>15</button></div>
+                  <div class="fixation-dot" aria-hidden="true"></div>
+                  <svg class="demo-path-layer" id="demo-path-layer" aria-hidden="true"></svg>
+                </div>
+                <div class="board-footer">
+                  <div class="round-actions">
+                    <button type="button" class="icon-button" id="restart" title="Neue Runde" aria-label="Neue Runde"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
+                    <button type="button" class="icon-button" id="pause" title="Pause" aria-label="Pause" disabled><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg></button>
+                    <button type="button" class="icon-button" id="quick-print" title="Drucken" aria-label="Drucken"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></button>
+                  </div>
+                  <p class="round-message" id="round-message" role="status">Übung wird geladen…</p>
+                </div>
+                <button class="button" type="button" id="retry-load" hidden><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>Neu laden</button>
+              </div>
+
+              <aside class="practice-side">
+                <div class="telemetry-panel">
+                  <div class="round-stats">
+                    <dl class="stat-time"><dt>Zeit</dt><dd id="timer">0.00 s</dd></dl>
+                    <dl class="next-stat"><dt>Nächste</dt><dd id="next-number">1</dd></dl>
+                    <dl><dt>Fehler</dt><dd id="mistakes">0</dd></dl>
+                  </div>
+                  <div class="progress-meta">
+                    <span>Fortschritt</span>
+                    <span id="progress-label">0 / 25</span>
+                  </div>
+                  <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progress-fill"></div></div>
+                </div>
+
+                <section class="result" id="result" hidden>
+                  <p class="result-badge"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#circle-check"></use></svg><span>Runde beendet</span></p>
+                  <p class="result-metric" id="result-time"></p>
+                  <p class="result-note">Nur zum Ausprobieren. Diese Runde wird nicht gespeichert und bei einer neuen Runde, beim Neuladen oder Verlassen verworfen.</p>
+                  <div class="result-actions">
+                    <button class="button primary" type="button" id="again"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg>Erneut üben</button>
+                    <a class="app-link" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="24" height="24" src="../images/app-store-icon.svg" alt="">App laden</a>
+                  </div>
+                </section>
+
+                <section class="app-offer">
+                  <div class="app-offer-head">
+                    <img class="app-mark" width="52" height="52" src="../favicon/apple-touch-icon.png" alt="">
+                    <div>
+                      <p class="platforms">iPhone · iPad · Mac</p>
+                      <h2>Schulte Grid App</h2>
+                    </div>
+                  </div>
+                  <p>Behalte Trainingsverlauf, Tagesziele und Fortschritt in der App für iPhone, iPad und Mac.</p>
+                  <ul class="app-benefits"><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg><span>Verlauf</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#calendar-days"></use></svg><span>Tägliche Übung</span></li><li><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#chart-no-axes-combined"></use></svg><span>Bestzeit je Größe</span></li></ul>
+                  <a class="button primary app-offer-cta" href="https://apps.apple.com/app/id6547865783"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#download"></use></svg>App laden</a>
+                </section>
+
+                <div class="experience-note">
+                  <h3><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#shield-check"></use></svg><span>Web-Demo</span></h3>
+                  <p>Nur zum Ausprobieren. Diese Runde wird nicht gespeichert und bei einer neuen Runde, beim Neuladen oder Verlassen verworfen.</p>
+                </div>
+              </aside>
+            </div>
+          </div>
+
+          <div id="view-print" role="tabpanel" aria-labelledby="tab-print" class="print-view" tabindex="0" hidden>
+            <div class="print-toolbar">
+              <div class="print-controls">
+                <div class="size-controls" role="group" aria-label="Raster"><button type="button" data-print-size="3" aria-pressed="false">3×3</button><button type="button" data-print-size="4" aria-pressed="false">4×4</button><button type="button" data-print-size="5" aria-pressed="true">5×5</button><button type="button" data-print-size="6" aria-pressed="false">6×6</button></div>
+                <label class="control-field"><span>Übungsblätter</span><input id="sheet-count" type="number" min="1" max="20" step="1" value="1"></label>
+                <button class="icon-button" type="button" id="refresh-sheets" title="Neue Blätter" aria-label="Neue Blätter"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></button>
+                <button class="button primary" type="button" id="print-now"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>Drucken / PDF</button>
+              </div>
+              <p class="sheet-stack-meta" id="sheet-stack-meta" role="status"></p>
+            </div>
+            <div class="print-desk">
+              <div class="sheet-stack" id="sheet-stack" data-sheets="1">
+                <div class="sheet-preview" id="sheet-preview" aria-label="A4-Vorschau"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="local-note" id="local-note" role="status">Nur zum Ausprobieren. Diese Runde wird nicht gespeichert und bei einer neuen Runde, beim Neuladen oder Verlassen verworfen.</p>
+      </div>
     </section>
-    <p class="local-note" id="local-note" role="status">Nur zum Ausprobieren. Diese Runde wird nicht gespeichert und bei einer neuen Runde, beim Neuladen oder Verlassen verworfen.</p>
-    <section class="seo-content"><h2>Schulte-Tabellen online üben</h2><p>Eine Schulte-Tabelle ist ein quadratisches Raster mit zufällig angeordneten Zahlen. Suche sie aufsteigend von 1 bis 9, 16, 25 oder 36. Probiere 3x3, 4x4, 5x5 und 6x6 mit Timer und Druckvorlagen kostenlos aus, ohne Anmeldung oder Installation. Die Website speichert keinen Verlauf. Die Apple-App bietet dauerhafte Trainingsdaten und Tagesziele.</p>
-      <div id="faq"><h2>Fragen zu Schulte-Tabellen</h2><details><summary>Wie funktioniert der Timer?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Der Timer startet bei der richtigen Auswahl von 1 und endet bei der letzten Zahl. Falsche Klicks zählen als Fehler und ändern die Reihenfolge nicht. Beim Pausieren werden die Zahlen verborgen und die Pause nicht mitgezählt. Vergleiche Ergebnisse derselben Rastergröße.</p></details>
-      <details><summary>Welche Rastergröße eignet sich?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>3x3 enthält 9 Zahlen, 4x4 enthält 16, die klassische 5x5-Tabelle enthält 25 und 6x6 enthält 36. Beginne mit einem kleineren Raster und wähle ein größeres für eine längere Übung zur visuellen Suche.</p></details>
-      <details><summary>Kann ich kostenlos drucken oder als PDF speichern?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Ja. Wähle unter Drucken eine Rastergröße und 1 bis 20 Blätter. Jedes Blatt hat eine andere Anordnung auf weißem A4-Papier, auch im Dunkelmodus. Wähle im Druckdialog des Browsers Als PDF speichern.</p></details>
-      <details><summary>Speichert die Website meine Trainingsergebnisse?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Nein. Nur die aktuelle Runde wird im Seitenspeicher angezeigt. Eine neue Runde, Neuladen oder Verlassen der Seite verwirft sie. Verlauf, Einstellungen und Ziele werden weder im Browserspeicher noch auf einem Server gespeichert. Beim Öffnen dieser Version werden gespeicherte Web-Daten der alten Version entfernt.</p></details>
-      <details><summary>Wie unterscheidet sich die Website von der App?<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Die Website dient zum Ausprobieren und Drucken. Die App für iPhone, iPad und Mac speichert die letzten 100 Ergebnisse lokal und bietet Tagesziele und Fortschritt. Ab Version 1.6.0 ist iCloud-Synchronisierung mit demselben Apple Account und aktiviertem Sync verfügbar. Frühere Versionen speichern nur lokal; prüfe die verfügbare Version im App Store. Schulte-Tabellen sind eine Übung, keine medizinische Bewertung oder Garantie für höhere Intelligenz.</p></details></div>
-      <nav class="seo-links" aria-label="Fragen zu Schulte-Tabellen"><a href="../what-is-schulte-grid" hreflang="en">Was ist eine Schulte-Tabelle? (Englisch)</a><a href="../printable-schulte-grid" hreflang="en">Druckanleitung (Englisch)</a><a href="../focus-training-app" hreflang="en">App für Apple-Geräte (Englisch)</a></nav>
+
+    <section class="band steps-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">So funktioniert es</p>
+          <h2>Drei Schritte für einen ruhigen Fokus-Reset</h2>
+        </div>
+        <ol class="steps-grid" data-stagger>
+          <li class="step-card" data-reveal-item>
+            <div class="step-top"><span class="step-num">01</span><div class="step-visual step-visual-center" aria-hidden="true"><span></span><span></span><span></span><span></span><span class="is-core"></span><span></span><span></span><span></span><span></span></div></div>
+            <h3>Blick nahe der Mitte halten</h3>
+            <p>Lasse die Augen ruhig im Zentrum statt Feld für Feld zu springen.</p>
+          </li><li class="step-card" data-reveal-item>
+            <div class="step-top"><span class="step-num">02</span><div class="step-visual step-visual-scan" aria-hidden="true"><span>8</span><span class="is-one">1</span><span>5</span><span class="is-two">2</span><span class="is-three">3</span><span>7</span><span>4</span><span>9</span><span>6</span></div></div>
+            <h3>1 bis 25 der Reihe nach finden</h3>
+            <p>Nutze das periphere Sehen. Der Timer startet exakt mit dem Klick auf 1.</p>
+          </li><li class="step-card" data-reveal-item>
+            <div class="step-top"><span class="step-num">03</span><div class="step-visual step-visual-time" aria-hidden="true"><span class="time-pill">18.42 s</span><span class="bar-track"><span class="bar-fill"></span></span></div></div>
+            <h3>Zeit vergleichen &amp; wiederholen</h3>
+            <p>Vergleiche Runden gleicher Größe oder drucke weiße A4-Blätter für Übungen ohne Bildschirm.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="band bento-section" id="features" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Für ruhiges Üben gestaltet</p>
+          <h2>Schlicht an der Oberfläche. Stark im Alltag.</h2>
+        </div>
+        <div class="bento-grid" data-stagger>
+          <article class="bento-card bento-native" data-reveal-item>
+            <div class="bento-copy">
+              <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#smartphone"></use></svg>iPhone · iPad · Mac</span>
+              <h3>Deinen Trainingsverlauf in der Apple-App behalten</h3>
+              <p>Speichere lokal die letzten 100 Ergebnisse, verfolge Tagesziele und Serien sowie Bestzeiten je Rastergröße. Ab Version 1.6.0 mit optionaler iCloud-Synchronisierung über denselben Apple Account.</p>
+              <div class="bento-native-footer">
+                <span class="sync-pill"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#cloud"></use></svg>Optionale iCloud-Sync (v1.6.0+)</span>
+                <a class="text-cta" href="https://apps.apple.com/app/id6547865783">App laden<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a>
+              </div>
+            </div>
+            <div class="device-showcase" aria-hidden="true">
+              <div class="mock-mac">
+                <div class="mock-mac-bar"><span></span><span></span><span></span><strong>Schulte Grid</strong></div>
+                <div class="mock-mac-body">
+                  <div class="mock-mac-grid"><span>14</span><span>3</span><span>11</span><span>8</span><span>6</span><span>13</span><span>2</span><span>16</span><span>9</span><span class="is-done">1</span><span>15</span><span>5</span><span>12</span><span>7</span><span>4</span><span>10</span></div>
+                </div>
+              </div>
+              <div class="mock-iphone">
+                <div class="mock-iphone-notch"></div>
+                <div class="mock-iphone-head">
+                  <div><small>Zeit</small><strong>13.88s</strong></div>
+                  <div class="mock-iphone-right"><span><small>Nächste</small><b>2</b></span><span><small>Bestzeit (5×5)</small><b>18.42s</b></span></div>
+                </div>
+                <div class="mock-iphone-seg"><span>3×3</span><span>4×4</span><span class="is-active">5×5</span><span>6×6</span></div>
+                <div class="mock-iphone-grid"><span>22</span><span>19</span><span>2</span><span>13</span><span>4</span><span>8</span><span>24</span><span>7</span><span>21</span><span class="is-done">1</span><span>6</span><span>15</span><span>20</span><span>17</span><span>16</span><span>23</span><span>10</span><span>12</span><span>3</span><span>9</span><span>11</span><span>18</span><span>5</span><span>14</span><span>25</span></div>
+                <div class="mock-iphone-actions"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#pause"></use></svg><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#rotate-ccw"></use></svg></div>
+                <div class="mock-iphone-daily">
+                  <div><strong>Tägliche Übung</strong><span>3 Tage Serie</span></div>
+                  <div class="mock-bar"><span></span></div>
+                </div>
+                <div class="mock-iphone-tabs">
+                  <span class="is-active"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#grid-2x2"></use></svg>Raster</span><span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#history"></use></svg>Verlauf</span><span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#palette"></use></svg>Optionen</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="bento-card bento-themes" data-reveal-item>
+            <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#palette"></use></svg>6 ruhige Themen</span>
+            <h3>Papierweiche Oberflächen, Tag und Nacht</h3>
+            <p>Wechsle direkt hier zwischen System, Klassischem Papier, Sanfter Minze, Warmem Sand, Nachtfokus und Tusche.</p>
+            <div class="theme-preview-grid" role="group" aria-label="Thema"><button type="button" class="theme-preview-card theme-preview-system" data-theme-choice="system" data-theme-group="bento" aria-pressed="true"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">System</span></button><button type="button" class="theme-preview-card theme-preview-paper" data-theme-choice="paper" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">Klassisches Papier</span></button><button type="button" class="theme-preview-card theme-preview-mint" data-theme-choice="mint" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">Sanfte Minze</span></button><button type="button" class="theme-preview-card theme-preview-sand" data-theme-choice="sand" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">Warmer Sand</span></button><button type="button" class="theme-preview-card theme-preview-night" data-theme-choice="night" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">Nachtfokus</span></button><button type="button" class="theme-preview-card theme-preview-ink" data-theme-choice="ink" data-theme-group="bento" aria-pressed="false"><span class="mini-grid" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></span><span class="mini-name">Tusche</span></button></div>
+          </article>
+
+          <article class="bento-card bento-print" data-reveal-item>
+            <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg>A4 &amp; PDF</span>
+            <h3>Übungsblätter ohne Bildschirm mit einem Klick</h3>
+            <p>Erstelle 1 bis 20 einzigartige Raster auf weißem A4-Papier – selbst wenn du im Dunkelmodus surfst.</p>
+            <div class="mini-paper-stack" aria-hidden="true">
+              <div class="mini-paper">
+                <div class="mini-paper-head"><span>A4 · 5×5</span><span>1 → 25</span></div>
+                <div class="mini-paper-grid"><span>22</span><span>19</span><span>2</span><span>13</span><span>4</span><span>8</span><span>24</span><span>7</span><span>21</span><span>1</span><span>6</span><span>15</span><span>20</span><span>17</span><span>16</span><span>23</span><span>10</span><span>12</span><span>3</span><span>9</span><span>11</span><span>18</span><span>5</span><span>14</span><span>25</span></div>
+              </div>
+            </div>
+            <a class="text-cta" href="#print" data-open-print>Druckstudio öffnen<svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a>
+          </article>
+
+          <article class="bento-card bento-privacy" data-reveal-item>
+            <span class="bento-tag"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#shield-check"></use></svg>Privat ab Werk</span>
+            <h3>Kein Konto. Kein Tracking.</h3>
+            <p>Die Web-Demo läuft rein im Arbeitsspeicher der Seite und verwirft jede Runde beim Neuladen. Keine Cookies, keine Analytik.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band cases-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Wann üben?</p>
+          <h2>Kurze visuelle Übungen für echte Tage</h2>
+        </div>
+        <div class="cases-grid" data-stagger>
+          <article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#zap"></use></svg></div>
+            <h3>Vor Fokusarbeit</h3>
+            <p>Zwei ruhige 5×5-Runden ordnen die Aufmerksamkeit vor Schreiben oder Programmieren.</p>
+          </article><article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#book-open"></use></svg></div>
+            <h3>Vor dem Lesen</h3>
+            <p>Aktiviert das periphere Blickfeld vor langen Texten oder Lernblöcken.</p>
+          </article><article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#coffee"></use></svg></div>
+            <h3>Bewusste 2-Minuten-Pause</h3>
+            <p>Ersetzt endloses Scrollen durch eine klare, zeitgestoppte Übung.</p>
+          </article><article class="case-card" data-reveal-item>
+            <div class="case-icon"><svg class="icon" aria-hidden="true"><use href="../images/lucide.svg#printer"></use></svg></div>
+            <h3>Unterricht &amp; Schreibtisch</h3>
+            <p>Drucke bis zu 20 einzigartige A4-Blätter für bildschirmfreie Übungen.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band compare-section" data-reveal>
+      <div class="container">
+        <div class="section-head">
+          <p class="section-eyebrow">Web-Demo vs. Apple-App</p>
+          <h2>Hier frei testen. In der App Gewohnheit aufbauen.</h2>
+        </div>
+        <div class="compare-grid">
+          <article class="compare-card">
+            <div class="compare-head">
+              <h3>Web-Demo</h3>
+              <p>Kostenlos im Browser · Nur im Speicher</p>
+            </div>
+            <ul class="compare-list">
+              <li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Enthalten: </span><span>3×3 bis 6×6 Timer-Raster &amp; Pause</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Enthalten: </span><span>6 ruhige Themen &amp; weißes A4 / PDF</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">Nicht enthalten: </span><span>Speichert lokal die letzten 100 Ergebnisse</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">Nicht enthalten: </span><span>Tagesziele &amp; Übungsserien</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">Nicht enthalten: </span><span>Bestzeit je Rastergröße im Blick</span></li><li class="is-excluded"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#minus"></use></svg><span class="visually-hidden">Nicht enthalten: </span><span>Optionale iCloud-Synchronisierung (v1.6.0+)</span></li>
+            </ul>
+          </article>
+          <article class="compare-card compare-card-app">
+            <div class="compare-head">
+              <div>
+                <h3>Schulte Grid App</h3>
+                <p>iPhone, iPad &amp; Mac · App Store</p>
+              </div>
+              <img class="compare-icon" width="44" height="44" src="../favicon/apple-touch-icon.png" alt="">
+            </div>
+            <ul class="compare-list">
+              <li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Enthalten: </span><span>3×3 bis 6×6 Timer-Raster &amp; Pause</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Enthalten: </span><span>6 ruhige Themen &amp; weißes A4 / PDF</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Enthalten: </span><span>Speichert lokal die letzten 100 Ergebnisse</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Enthalten: </span><span>Tagesziele &amp; Übungsserien</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Enthalten: </span><span>Bestzeit je Rastergröße im Blick</span></li><li class="is-included"><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#check"></use></svg><span class="visually-hidden">Enthalten: </span><span>Optionale iCloud-Synchronisierung (v1.6.0+)</span></li>
+            </ul>
+            <a class="button primary compare-cta" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">App laden</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band seo-content" data-reveal>
+      <div class="container">
+        <div class="overview-card">
+          <h2>Schulte-Tabellen online üben</h2>
+          <p>Eine Schulte-Tabelle ist ein quadratisches Raster mit zufällig angeordneten Zahlen. Suche sie aufsteigend von 1 bis 9, 16, 25 oder 36. Probiere 3x3, 4x4, 5x5 und 6x6 mit Timer und Druckvorlagen kostenlos aus, ohne Anmeldung oder Installation. Die Website speichert keinen Verlauf. Die Apple-App bietet dauerhafte Trainingsdaten und Tagesziele.</p>
+        </div>
+        <div id="faq">
+          <h2>Fragen zu Schulte-Tabellen</h2>
+          <div class="faq-list">
+            <details><summary><span>Wie funktioniert der Timer?</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Der Timer startet bei der richtigen Auswahl von 1 und endet bei der letzten Zahl. Falsche Klicks zählen als Fehler und ändern die Reihenfolge nicht. Beim Pausieren werden die Zahlen verborgen und die Pause nicht mitgezählt. Vergleiche Ergebnisse derselben Rastergröße.</p></details>
+            <details><summary><span>Welche Rastergröße eignet sich?</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>3x3 enthält 9 Zahlen, 4x4 enthält 16, die klassische 5x5-Tabelle enthält 25 und 6x6 enthält 36. Beginne mit einem kleineren Raster und wähle ein größeres für eine längere Übung zur visuellen Suche.</p></details>
+            <details><summary><span>Kann ich kostenlos drucken oder als PDF speichern?</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Ja. Wähle unter Drucken eine Rastergröße und 1 bis 20 Blätter. Jedes Blatt hat eine andere Anordnung auf weißem A4-Papier, auch im Dunkelmodus. Wähle im Druckdialog des Browsers Als PDF speichern.</p></details>
+            <details><summary><span>Speichert die Website meine Trainingsergebnisse?</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Nein. Nur die aktuelle Runde wird im Seitenspeicher angezeigt. Eine neue Runde, Neuladen oder Verlassen der Seite verwirft sie. Verlauf, Einstellungen und Ziele werden weder im Browserspeicher noch auf einem Server gespeichert. Beim Öffnen dieser Version werden gespeicherte Web-Daten der alten Version entfernt.</p></details>
+            <details><summary><span>Wie unterscheidet sich die Website von der App?</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#plus"></use></svg></summary><p>Die Website dient zum Ausprobieren und Drucken. Die App für iPhone, iPad und Mac speichert die letzten 100 Ergebnisse lokal und bietet Tagesziele und Fortschritt. Ab Version 1.6.0 ist iCloud-Synchronisierung mit demselben Apple Account und aktiviertem Sync verfügbar. Frühere Versionen speichern nur lokal; prüfe die verfügbare Version im App Store. Schulte-Tabellen sind eine Übung, keine medizinische Bewertung oder Garantie für höhere Intelligenz.</p></details>
+          </div>
+        </div>
+        <nav class="seo-links" aria-label="Fragen zu Schulte-Tabellen"><a class="guide-card" href="../what-is-schulte-grid" hreflang="en"><span>Was ist eine Schulte-Tabelle? (Englisch)</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a><a class="guide-card" href="../printable-schulte-grid" hreflang="en"><span>Druckanleitung (Englisch)</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a><a class="guide-card" href="../focus-training-app" hreflang="en"><span>App für Apple-Geräte (Englisch)</span><svg class="icon" aria-hidden="true"><use href="../images/workspace.svg#arrow-right"></use></svg></a></nav>
+      </div>
+    </section>
+
+    <section class="band final-cta-band" data-reveal>
+      <div class="container">
+        <div class="final-cta-card">
+          <img class="final-cta-icon" width="60" height="60" src="../favicon/apple-touch-icon.png" alt="">
+          <h2>Bereit für eine ruhigere Fokus-Routine?</h2>
+          <p>Übe jederzeit direkt im Browser oder nutze 100-Runden-Verlauf, Tagesziele und optionale iCloud-Sync ab v1.6.0 auf iPhone, iPad und Mac.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="https://apps.apple.com/app/id6547865783"><img class="store-icon" width="19" height="19" src="../images/app-store-icon.svg" alt="">Im App Store laden</a>
+            <a class="button secondary" href="#practice" data-focus-board>Zurück zum Raster</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
-  <footer class="footer">Schulte Grid · <a href="privacy-policy">Datenschutz</a> · <a href="support">Support</a></footer>
-</div></div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Schulte Grid · <a href="help">Hilfe</a> · <a href="support">Support</a> · <a href="privacy-policy">Datenschutz</a></p>
+    </div>
+  </footer>
+</div>
 <div class="print-output" id="print-output"></div>
 <script>
   document.getElementById('retry-load').addEventListener('click', function () { location.reload(); });
