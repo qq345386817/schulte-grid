@@ -68,3 +68,37 @@ test('every published language has complete controls and grounded content', () =
     assert.equal(copy.faq.length, 5, lang);
   }
 });
+
+test('every locale has complete redesign copy and consistent comparison facts', () => {
+  function strings(values, count) {
+    assert.equal(values.length, count);
+    assert.ok(values.every(value => typeof value === 'string' && value.trim()));
+  }
+  for (const [lang, { landing: c }] of Object.entries(locales)) {
+    assert.ok(c, lang);
+    strings(c.navAnchors, 3);
+    strings([c.hero.badge, c.hero.headline, c.hero.subhead, c.hero.ctaPrimary, c.hero.ctaSecondary], 5);
+    strings(c.hero.pills, 3);
+    strings([c.studio.demoBtn, c.studio.demoStop, c.studio.demoStatus, c.studio.fixation, c.studio.progress], 5);
+    assert.match(c.studio.sheetStack, /\{n\}/, lang);
+    strings([c.steps.eyebrow, c.steps.heading], 2);
+    assert.equal(c.steps.items.length, 3, lang);
+    c.steps.items.forEach(row => strings(row, 2));
+    strings([c.bento.eyebrow, c.bento.heading], 2);
+    for (const card of ['native', 'themes', 'print', 'privacy']) {
+      strings([c.bento[card].tag, c.bento[card].title, c.bento[card].desc], 3);
+    }
+    strings([c.bento.native.syncBadge, c.bento.native.mockBest, c.bento.native.mockDaily, c.bento.native.mockStreak, c.bento.print.action], 5);
+    assert.match(c.bento.native.desc, /1\.6\.0/, lang);
+    assert.match(c.bento.native.desc, /100/, lang);
+    strings(c.bento.native.mockTabs, 3);
+    strings([c.useCases.eyebrow, c.useCases.heading], 2);
+    assert.deepEqual(c.useCases.items.map(row => row[0]), ['zap', 'book-open', 'coffee', 'printer'], lang);
+    c.useCases.items.forEach(row => strings(row, 3));
+    strings([c.compare.eyebrow, c.compare.heading, c.compare.webTitle, c.compare.webNote, c.compare.appTitle, c.compare.appNote], 6);
+    assert.deepEqual(c.compare.rows.map(row => row.slice(1)), [[true, true], [true, true], [false, true], [false, true], [false, true], [false, true]], lang);
+    strings(c.compare.rows.map(row => row[0]), 6);
+    assert.match(c.compare.rows.at(-1)[0], /1\.6\.0/, lang);
+    strings([c.finalCta.title, c.finalCta.desc, c.finalCta.primary, c.finalCta.secondary], 4);
+  }
+});
